@@ -7,7 +7,7 @@ For each file, its name (excluding `.txt`) is the name of the search engine, and
 Search string URL
 Search suggestion API (optional)
 ```
-And the [uBlock Origin My filters.txt](uBlock Origin My filters) contains my uBlock Origin My filters.
+And the [uBlock Origin My filters.txt](uBlock%20Origin%20My%20filters.txt) contains my uBlock Origin My filters.
 
 ## References
 
