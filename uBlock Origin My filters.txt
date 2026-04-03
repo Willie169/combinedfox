@@ -1,0 +1,5 @@
+www.bing.com##.b_genserp_container
+www.bing.com##.ca_top_sec
+www.bing.com##.gs_temp
+www.bing.com##.gs_temp_with_iv.gs_temp_content
+||api.ecosia.org/v2/aie-exa-proxy*

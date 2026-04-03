@@ -1,0 +1,2 @@
+https://www.google.com/search?q=%s&udm=14
+http://suggestqueries.google.com/complete/search?q=%s

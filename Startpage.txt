@@ -1,0 +1,2 @@
+https://www.startpage.com/sp/search?q=%s&prfe=257c31449c73d673f2be166d8d2aee4cf57b15647df5d0ba7936fd4f6a9c588ca0971d3fe62eebcd34b208e3c9a8df3075fce542a670cdce8c6d8ccd3b0897d6564d67c9de910f905cf6bc4ce6cefb0b
+https://www.startpage.com/osuggestions?q=%s
