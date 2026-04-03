@@ -1,12 +1,14 @@
 # Add Search Engines
 
-This repo contains search engines with my settings profile when applicable, which includes disabling AI features, disabling safe search, and others.
+This repo contains search engines with my settings profile in URL parameters when applicable, which includes disabling AI features, disabling safe search, and more.
 
-For each file, its name (excluding `.txt`) is the name of the search engine, and its content is
+For each file in this repo, its name (excluding `.txt`) is the name of the search engine, and its content is
 ```
 Search string URL
 Search suggestion API (optional)
 ```
+in format of Firefox Add search engine, that is, replacing query with `%s`.
+
 And the [uBlock Origin My filters.txt](uBlock%20Origin%20My%20filters.txt) contains my uBlock Origin My filters.
 
 ## References
