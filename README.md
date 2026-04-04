@@ -9,7 +9,7 @@ Search suggestion API (optional)
 ```
 in format of Firefox Add search engine, that is, replacing query with `%s`.
 
-And the [uBlock Origin My filters.txt](uBlock%20Origin%20My%20filters.txt) contains my uBlock Origin My filters.
+And [my-ublock-backup.txt](my-ublock-backup.txt) contains my uBlock Origin settings.
 
 ## References
 
