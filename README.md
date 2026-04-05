@@ -4,10 +4,9 @@ This repo contains search engines with my settings profile in URL parameters whe
 
 For each file in this repo, its name (excluding `.txt`) is the name of the search engine, and its content is
 ```
-Search string URL
-Search suggestion API (optional)
+URL / Search string URL with %s in place of search term
+Suggestions URL / Search suggestion API with %s in place of search term (optional)
 ```
-in format of Firefox Add search engine, that is, replacing query with `%s`.
 
 And [my-ublock-backup.txt](my-ublock-backup.txt) contains my uBlock Origin settings.
 
