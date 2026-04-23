@@ -8,7 +8,9 @@ URL / Search string URL with %s in place of search term
 Suggestions URL / Search suggestion API with %s in place of search term (optional)
 ```
 
-And [my-ublock-backup.txt](my-ublock-backup.txt) contains my uBlock Origin settings.
+Extension settings:
+- [my-ublock-backup.txt](my-ublock-backup.txt): my [uBlock Origin](https://github.com/gorhill/uBlock#ublock-origin) settings.
+- [CanvasBlocker-settings.json](CanvasBlocker-settings.json): my [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker) settings.
 
 ## References
 
