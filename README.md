@@ -2,10 +2,10 @@
 
 This repo contains search engines with my settings profile in URL parameters when applicable, which includes disabling AI features, disabling safe search, and more.
 
-For each file in this repo, its name (excluding `.txt`) is the name of the search engine, and its content is
+For each search engine file in this repo, its name (excluding `.txt`) is the name of the search engine, and its content is
 ```
-URL / Search string URL with %s in place of search term
-Suggestions URL / Search suggestion API with %s in place of search term (optional)
+Search string URL with %s in place of search term
+Search suggestion URL with %s in place of search term (optional)
 ```
 
 Extension settings:
