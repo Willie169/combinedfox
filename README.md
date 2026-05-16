@@ -37,6 +37,36 @@ The settigns apply for all Firefox derivatives and Chromium-based browsers on bo
 - [my-ublock-backup.txt](my-ublock-backup.txt): My settings for [uBlock Origin](https://github.com/gorhill/uBlock#ublock-origin).
 - [CanvasBlocker-settings.json](CanvasBlocker-settings.json): My settings for [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker).
 
+### Firefox (Desktop)
+
+- [Background Playback Helper (YouTube & Vimeo)](https://addons.mozilla.org/en-US/firefox/addon/playback-helper-youtube-vimeo)
+- [Bitwarden Password Manager](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager)
+- [Brisk](https://addons.mozilla.org/en-US/firefox/addon/brisk)
+- [Cache Cleaner](https://addons.mozilla.org/en-US/firefox/addon/cache-cleaner-addon)
+- [CanvasBlocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker)
+- [ClearURLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls)
+- [Cookie-Editor](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor)
+- [Copy Link Text](https://addons.mozilla.org/en-US/firefox/addon/copy-link-text-sytelix)
+- [Ctrl + Shift + C Should Copy](https://addons.mozilla.org/en-US/firefox/addon/ctrl-shift-c-should-copy)
+- [Disable AI](https://addons.mozilla.org/en-US/firefox/addon/disable-ai)
+- [Download All Images](https://addons.mozilla.org/en-US/firefox/addon/save-all-images-webextension)
+- [docu.md Markdown Viewer](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-extension)
+- [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers)
+- [Firefox Relay](https://addons.mozilla.org/en-US/firefox/addon/private-relay)
+- [Force Copy](https://addons.mozilla.org/en-US/firefox/addon/force-copy)
+- [Grammarly: AI Writing and Grammar Checker App](https://addons.mozilla.org/en-US/firefox/addon/grammarly-1)
+- [Plasma Integration](https://addons.mozilla.org/en-US/firefox/addon/plasma-integration)
+- [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17)
+- [Read Aloud: A Text to Speech Voice Reader](https://addons.mozilla.org/en-US/firefox/addon/read-aloud)
+- [Reddit NSFW Unblocker](https://addons.mozilla.org/en-US/firefox/addon/reddit-nsfw-unblocker)
+- [Redirect AMP to HTML](https://addons.mozilla.org/en-US/firefox/addon/amp2html)
+- [Search by Image](https://addons.mozilla.org/en-US/firefox/addon/search_by_image)
+- [Sink It for Reddit](https://addons.mozilla.org/en-US/firefox/addon/sink-it-for-reddit)
+- [TWP - Translate Web Pages](https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web)
+- [User-Agent Switcher and Manager](https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher)
+- [Web Archives](https://addons.mozilla.org/en-US/firefox/addon/view-page-archive)
+- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin)
+
 ### Fennec F-Droid and Firefox for Android
 
 - [Background Playback Helper (YouTube & Vimeo)](https://addons.mozilla.org/en-US/android/addon/playback-helper-youtube-vimeo): An extension that successfully keeps video playback running in background on YouTube as of May 16, 2026. Many other similar extensions no longer work now.
@@ -60,34 +90,27 @@ The settigns apply for all Firefox derivatives and Chromium-based browsers on bo
 - [Web Archives](https://addons.mozilla.org/en-US/android/addon/view-page-archive)
 - [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin)
 
-### Firefox (Desktop)
+### Brave Browser (Desktop)
 
-- [Background Playback Helper (YouTube & Vimeo)](https://addons.mozilla.org/en-US/firefox/addon/playback-helper-youtube-vimeo)
-- [Bitwarden Password Manager](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager)
-- [Brisk](https://addons.mozilla.org/en-US/firefox/addon/brisk)
-- [Cache Cleaner](https://addons.mozilla.org/en-US/firefox/addon/cache-cleaner-addon)
-- [CanvasBlocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker)
-- [ClearURLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls)
-- [Cookie-Editor](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor)
-- [Copy Link Text](https://addons.mozilla.org/en-US/firefox/addon/copy-link-text-sytelix)
-- [Ctrl + Shift + C Should Copy](https://addons.mozilla.org/en-US/firefox/addon/ctrl-shift-c-should-copy)
-- [Disable AI](https://addons.mozilla.org/en-US/firefox/addon/disable-ai)
-- [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers)
-- [Firefox Relay](https://addons.mozilla.org/en-US/firefox/addon/private-relay)
-- [Force Copy](https://addons.mozilla.org/en-US/firefox/addon/force-copy)
-- [Markdown Viewer](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-extension)
-- [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17)
-- [Read Aloud: A Text to Speech Voice Reader](https://addons.mozilla.org/en-US/firefox/addon/read-aloud)
-- [Reddit NSFW Unblocker](https://addons.mozilla.org/en-US/firefox/addon/reddit-nsfw-unblocker)
-- [Redirect AMP to HTML](https://addons.mozilla.org/en-US/firefox/addon/amp2html)
-- [Search by Image](https://addons.mozilla.org/en-US/firefox/addon/search_by_image)
-- [Sink It for Reddit](https://addons.mozilla.org/en-US/firefox/addon/sink-it-for-reddit)
-- [TWP - Translate Web Pages](https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web)
-- [User-Agent Switcher and Manager](https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher)
-- [Web Archives](https://addons.mozilla.org/en-US/firefox/addon/view-page-archive)
-- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin)
-
-
+- [Brisk](https://github.com/BrisklyDev/brisk-browser-extension): Need to manually download and install the latest version from releases.
+- [Bitwarden Password Manager](https://chromewebstore.google.com/detail/bitwarden-password-manage/nngceckbapebfimnlniiiahkandclblb)
+- [Cache Cleaner](https://chromewebstore.google.com/detail/cache-cleaner/nbkhplnnajkikghffmincdbipjalpobi)
+- [Cookie-Editor](https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
+- [Copy link text](https://chromewebstore.google.com/detail/copy-link-text/blpfhbolaobkkaalciociiglbefpglaf)
+- [Disable AI](https://chromewebstore.google.com/detail/disable-ai/blhpdcldeaiejfmdfbjonoafgkndhfcg)
+- [docu.md Markdown Viewer](https://chromewebstore.google.com/detail/documd-markdown-viewer/jekhhoflgcfoikceikgeenibinpojaoi)
+- [Download All Images](https://chromewebstore.google.com/detail/download-all-images/nnffbdeachhbpfapjklmpnmjcgamcdmm)
+- [Force Copy](https://chromewebstore.google.com/detail/force-copy/cceclgeciefpanebkfkogecbjjchmico)
+- [Grammarly: AI Writing Assistant and Grammar Checker App](https://chromewebstore.google.com/detail/grammarly-ai-writing-assi/kbfnbcaeplbcioakkpcpgfkobkghlhen)
+- [PDF Reader and Editor](https://chromewebstore.google.com/detail/pdf-reader-and-editor/ieepebpjnkhaiioojkepfniodjmjjihl)
+- [Plasma Integration](https://chromewebstore.google.com/detail/plasma-integration/cimiefiiaegbelhefglklhhakcgmhkai)
+- [Privacy Badger](https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
+- [Read Aloud: A Text to Speech Voice Reader](https://chromewebstore.google.com/detail/read-aloud-a-text-to-spee/hdhinadidafjejdhmfkjgnolgimiaplp)
+- [Search by Image](https://chromewebstore.google.com/detail/search-by-image/cnojnbdhbhnkbcieeekonklommdnndci)
+- [Sink It for Reddit](https://chromewebstore.google.com/detail/sink-it-for-reddit/cjkclcbbldkmaifjlbnjlpkfigpeckkg)
+- uBlock Origin: Brave-hosted.
+- [User-Agent Switcher and Manager](https://chromewebstore.google.com/detail/user-agent-switcher-and-m/bhchdcejhohfmigjafbampogmaanbfkg)
+- [Web Archives](https://chromewebstore.google.com/detail/web-archives/hkligngkgcpcolhcnkgccglchdafcnao)
 
 ## References
 
