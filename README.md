@@ -35,7 +35,7 @@ Use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater
 The settigns apply for all Firefox derivatives and Chromium-based browsers on both desktop and Android.
 
 - [CanvasBlocker-settings.json](CanvasBlocker-settings.json): My settings for [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker).
-- [My Fingerprint.json](My Fingerprint.json): My settings for [My Fingerprint](https://github.com/omegaee/my-fingerprint).
+- [My Fingerprint.json](My Fingerprint.json): My settings for [My Fingerprint](https://github.com/omegaee/my-fingerprint). You can go to `Config > Script Config` to turn on Fast Injection Mode, and go to `More > Subscribe`, paste `https://raw.githubusercontent.com/Willie169/add-search-engines/refs/heads/main/My%20Fingerprint.json` in it, and click the check mark to use my config.
 - [my-ublock-backup.txt](my-ublock-backup.txt): My settings for [uBlock Origin](https://github.com/gorhill/uBlock).
 
 ### Firefox (Desktop)
@@ -56,6 +56,7 @@ The settigns apply for all Firefox derivatives and Chromium-based browsers on bo
 - [Firefox Relay](https://addons.mozilla.org/en-US/firefox/addon/private-relay)
 - [Force Copy](https://addons.mozilla.org/en-US/firefox/addon/force-copy)
 - [Grammarly: AI Writing and Grammar Checker App](https://addons.mozilla.org/en-US/firefox/addon/grammarly-1)
+- [My Fingerprint](https://addons.mozilla.org/en-US/firefox/addon/my-fingerprint)
 - [Plasma Integration](https://addons.mozilla.org/en-US/firefox/addon/plasma-integration)
 - [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17)
 - [Read Aloud: A Text to Speech Voice Reader](https://addons.mozilla.org/en-US/firefox/addon/read-aloud)
@@ -81,6 +82,7 @@ The settigns apply for all Firefox derivatives and Chromium-based browsers on bo
 - [Disable AI](https://addons.mozilla.org/en-US/android/addon/disable-ai)
 - [Firefox Relay](https://addons.mozilla.org/en-US/android/addon/private-relay)
 - [Force Copy](https://addons.mozilla.org/en-US/android/addon/force-copy)
+- [My Fingerprint](https://addons.mozilla.org/en-US/android/addon/my-fingerprint)
 - [Privacy Badger](https://addons.mozilla.org/en-US/android/addon/privacy-badger17)
 - [Read Aloud: A Text to Speech Voice Reader](https://addons.mozilla.org/en-US/android/addon/read-aloud)
 - [Reddit NSFW Unblocker](https://addons.mozilla.org/en-US/android/addon/reddit-nsfw-unblocker)
@@ -117,9 +119,13 @@ The settigns apply for all Firefox derivatives and Chromium-based browsers on bo
 
 ## References
 
-- https://github.com/jruns/disable-ai
-- https://api-dashboard.search.brave.com/app/documentation/news-search/query
-- https://duckduckgo.com/duckduckgo-help-pages/settings/params
-- https://duckduckgo.com/duckduckgo-help-pages/settings/save
-- https://serpapi.com/blog/google-search-parameters
-- https://www.dedoimedo.com/computers/bing-search-no-ai.html
+- <https://github.com/jruns/disable-ai>
+- <https://api-dashboard.search.brave.com/app/documentation/news-search/query>
+- <https://duckduckgo.com/duckduckgo-help-pages/settings/params>
+- <https://duckduckgo.com/duckduckgo-help-pages/settings/save>
+- <https://serpapi.com/blog/google-search-parameters>
+- <https://www.dedoimedo.com/computers/bing-search-no-ai.html>
+- <https://browserleaks.com>
+- <https://canvasblocker.kkapsner.de>
+- <https://github.com/kkapsner/CanvasBlocker>
+- <https://github.com/omegaee/my-fingerprint>
