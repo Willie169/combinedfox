@@ -157,7 +157,7 @@ The settigns apply for all Firefox (desktop), Fennec F-Droid, and Firefox for An
 - [CanvasBlocker-settings.json](CanvasBlocker-settings.json): My settings for CanvasBlocker.
 - [chameleon.json](chameleon.json): My settings for Chameleon.
 - [CAD_CoreSettings.json](CAD_CoreSettings.json): My settings for Cookie AutoDelete. Note that you need to go to `Menu > List of Expression` to add Whitelist sites, whose cookies will not be deleted automatically.
-- [My_Fingerprint.json](My_Fingerprint.json): My settings for My Fingerprint. You can go to `Config > Script Config` to turn on Fast Injection Mode, and go to `More > Subscribe`, paste `https://raw.githubusercontent.com/Willie169/add-search-engines/refs/heads/main/My%20Fingerprint.json` in it, and click the check mark to use my config.
+- [My_Fingerprint.json](My_Fingerprint.json): My settings for My Fingerprint. You can go to `Config > Script Config` to turn on Fast Injection Mode, and go to `More > Subscribe`, paste `https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/My_Fingerprint.json` in it, and click the check mark to use my config.
 
 The settigns apply for all browsers.
 
