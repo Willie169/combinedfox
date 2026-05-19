@@ -1,6 +1,6 @@
 # browser-privacy-guide
 
-This repo contains my recommendations on daily browsers setup on Android and Desktop for better privacy. For people with higher threat models that are willing to trade off some convenience for privacy, security, or anonymity, some suggestions is also listed below but covered less thoroughly.
+This repo contains my recommendations on daily browsers setup on Android and Desktop for better privacy. A particular strength is the focus on fingerprint spoofing on Firefox for both Android and desktop. For people with higher threat models that are willing to trade off some convenience for privacy, security, or anonymity, some suggestions is also listed below but covered less thoroughly.
 
 ## My Browsers
 
