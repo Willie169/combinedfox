@@ -1,19 +1,8 @@
 # browser-privacy-guide
 
-This repo contains the daily browsers setup for privacy I recommend. For people with higher threat models that are willing to trade off some convenience for privacy, security, or anonymity, some suggestions is also listed below but covered less thoroughly.
+This repo contains my recommendations on daily browsers setup on Android and Desktop for better privacy. For people with higher threat models that are willing to trade off some convenience for privacy, security, or anonymity, some suggestions is also listed below but covered less thoroughly.
 
 ## My Browsers
-
-### Desktop
-
-- [Firefox](https://www.firefox.com): If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo.
-- [Brave Browser](https://brave.com)
-- Maybe [https://github.com/ungoogled-software/ungoogled-chromium
-
-For people with higher threat models:
-- Firefox with [Arkenfox](https://github.com/arkenfox/user.js)
-- [Mullvad Browser](https://mullvad.net/en/browser)
-- [Tor Browser](https://torproject.org)
 
 ### Android
 
@@ -30,6 +19,16 @@ For people with higher threat models:
 - [Tor Browser](https://torproject.org)
 - Use desktop: Firefox derivatives on Android is less secure than Chromium derivatives, while Chromium derivatives might lack enough privacy settings.
 
+### Desktop
+
+- [Firefox](https://www.firefox.com): If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo.
+- [Brave Browser](https://brave.com)
+
+For people with higher threat models:
+- Firefox with [Arkenfox](https://github.com/arkenfox/user.js)
+- [Mullvad Browser](https://mullvad.net/en/browser)
+- [Tor Browser](https://torproject.org)
+
 ## My Search Engines
 
 The engines contain my settings profiles in URL parameters when applicable, which includes disabling AI features, disabling safe search, and more.
@@ -43,23 +42,23 @@ Search suggestion URL with %s in place of search term (optional)
 Search engines:
 - [Bing](Bing.txt)
 - [Brave](Brave.txt): Recommended.
-- [Cambridge Dictionary](Cambridge Dictionary.txt)
-- [DuckDuckGo HTML](DuckDuckGo HTML.txt)
-- [DuckDuckGo Lite](DuckDuckGo Lite.txt)
+- [Cambridge Dictionary](Cambridge%20Dictionary.txt)
+- [DuckDuckGo HTML](DuckDuckGo%20HTML.txt)
+- [DuckDuckGo Lite](DuckDuckGo%20Lite.txt)
 - [DuckDuckGo](DuckDuckGo.txt):  Recommended.
 - [Ecosia](Ecosia.txt)
 - [GitHub](GitHub.txt)
-- [Google Scholar](Google Scholar.txt)
-- [Google Translate](Google Translate.txt)
+- [Google Scholar](Google%20Scholar.txt)
+- [Google Translate](Google%20Translate.txt)
 - [Google](Google.txt)
 - [Mojeek](Mojeek.txt)
 - [Perplexity](Perplexity.txt)
-- [Qwant Lite](Qwant Lite.txt)
+- [Qwant Lite](Qwant%20Lite.txt)
 - [Qwant](Qwant.txt)
 - [Reddit](Reddit.txt)
 - SearXNG: Find a trusted instance near you from [SearXNG instances](https://searx.space) or self-host one. Search string URL with %s in place of search term is the instance URL with `?q=%s` appended, such as `https://search.anoni.net/?q=%s`. Recommended.
 - [Startpage](Startpage.txt): Recommended.
-- [Wikipedia (en)](Wikipedia \(en\).txt)
+- [Wikipedia (en)](Wikipedia%20(en).txt)
 - [Yahoo!](Yahoo!.txt)
 - [YouTube](YouTube.txt)
 
@@ -75,6 +74,31 @@ TODO
 ## My Extensions
 
 <!-- TODO: Update desktop -->
+
+### Fennec F-Droid and Firefox for Android
+
+- [Background Playback Helper (YouTube & Vimeo)](https://addons.mozilla.org/en-US/android/addon/playback-helper-youtube-vimeo): An extension that successfully keeps video playback running in background on YouTube as of May 16, 2026. Many other similar extensions no longer work now.
+- [Bitwarden Password Manager](https://addons.mozilla.org/en-US/android/addon/bitwarden-password-manager)
+- [CanvasBlocker](https://addons.mozilla.org/en-US/android/addon/canvasblocker)
+- [Chameleon](https://addons.mozilla.org/en-US/android/addon/chameleon-ext)
+- [ClearURLs](https://addons.mozilla.org/en-US/android/addon/clearurls)
+- [Cookie AutoDelete](https://addons.mozilla.org/en-US/android/addon/cookie-autodelete)
+- [Cookie-Editor](https://addons.mozilla.org/en-US/android/addon/cookie-editor)
+- [Copy Link Text](https://addons.mozilla.org/en-US/android/addon/copy-link-text-sytelix)
+- [Disable AI](https://addons.mozilla.org/en-US/android/addon/disable-ai)
+- [Firefox Relay](https://addons.mozilla.org/en-US/android/addon/private-relay)
+- [Force Copy](https://addons.mozilla.org/en-US/android/addon/force-copy)
+- [My Fingerprint](https://addons.mozilla.org/en-US/android/addon/my-fingerprint)
+- [Read Aloud: A Text to Speech Voice Reader](https://addons.mozilla.org/en-US/android/addon/read-aloud)
+- [Reddit NSFW Unblocker](https://addons.mozilla.org/en-US/android/addon/reddit-nsfw-unblocker)
+- [Redirect AMP to HTML](https://addons.mozilla.org/en-US/android/addon/amp2html)
+- [Search by Image](https://addons.mozilla.org/en-US/android/addon/search_by_image)
+- [Sink It for Reddit](https://addons.mozilla.org/en-US/android/addon/sink-it-for-reddit)
+- [TWP - Translate Web Pages](https://addons.mozilla.org/en-US/android/addon/traduzir-paginas-web)
+- [Ultra Volume Booster](https://addons.mozilla.org/en-US/android/addon/ultra-volume-booster)
+- [User-Agent Switcher](https://addons.mozilla.org/en-US/android/addon/uaswitcher)
+- [Web Archives](https://addons.mozilla.org/en-US/android/addon/view-page-archive)
+- [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin)
 
 ### Firefox (Desktop)
 
@@ -106,31 +130,6 @@ TODO
 - [User-Agent Switcher and Manager](https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher)
 - [Web Archives](https://addons.mozilla.org/en-US/firefox/addon/view-page-archive)
 - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin)
-
-### Fennec F-Droid and Firefox for Android
-
-- [Background Playback Helper (YouTube & Vimeo)](https://addons.mozilla.org/en-US/android/addon/playback-helper-youtube-vimeo): An extension that successfully keeps video playback running in background on YouTube as of May 16, 2026. Many other similar extensions no longer work now.
-- [Bitwarden Password Manager](https://addons.mozilla.org/en-US/android/addon/bitwarden-password-manager)
-- [CanvasBlocker](https://addons.mozilla.org/en-US/android/addon/canvasblocker)
-- [Chameleon](https://addons.mozilla.org/en-US/android/addon/chameleon-ext)
-- [ClearURLs](https://addons.mozilla.org/en-US/android/addon/clearurls)
-- [Cookie AutoDelete](https://addons.mozilla.org/en-US/android/addon/cookie-autodelete)
-- [Cookie-Editor](https://addons.mozilla.org/en-US/android/addon/cookie-editor)
-- [Copy Link Text](https://addons.mozilla.org/en-US/android/addon/copy-link-text-sytelix)
-- [Disable AI](https://addons.mozilla.org/en-US/android/addon/disable-ai)
-- [Firefox Relay](https://addons.mozilla.org/en-US/android/addon/private-relay)
-- [Force Copy](https://addons.mozilla.org/en-US/android/addon/force-copy)
-- [My Fingerprint](https://addons.mozilla.org/en-US/android/addon/my-fingerprint)
-- [Read Aloud: A Text to Speech Voice Reader](https://addons.mozilla.org/en-US/android/addon/read-aloud)
-- [Reddit NSFW Unblocker](https://addons.mozilla.org/en-US/android/addon/reddit-nsfw-unblocker)
-- [Redirect AMP to HTML](https://addons.mozilla.org/en-US/android/addon/amp2html)
-- [Search by Image](https://addons.mozilla.org/en-US/android/addon/search_by_image)
-- [Sink It for Reddit](https://addons.mozilla.org/en-US/android/addon/sink-it-for-reddit)
-- [TWP - Translate Web Pages](https://addons.mozilla.org/en-US/android/addon/traduzir-paginas-web)
-- [Ultra Volume Booster](https://addons.mozilla.org/en-US/android/addon/ultra-volume-booster)
-- [User-Agent Switcher](https://addons.mozilla.org/en-US/android/addon/uaswitcher)
-- [Web Archives](https://addons.mozilla.org/en-US/android/addon/view-page-archive)
-- [uBlock Origin](https://addons.mozilla.org/en-US/android/addon/ublock-origin)
 
 ### Brave Browser (Desktop)
 
