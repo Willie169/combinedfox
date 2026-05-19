@@ -1,0 +1,85 @@
+{
+  "config": {
+    "enable": true,
+    "seed": {
+      "browser": 5283719304708096,
+      "global": 7686707600162815
+    },
+    "fp": {
+      "navigator": {
+        "clientHints": {
+          "type": 0
+        },
+        "languages": {
+          "type": 1,
+          "value": [
+            "en-US"
+          ]
+        },
+        "hardwareConcurrency": {
+          "type": 0
+        }
+      },
+      "screen": {
+        "size": {
+          "type": 2,
+          "value": null
+        },
+        "depth": {
+          "type": 0
+        }
+      },
+      "normal": {
+        "gpuInfo": {
+          "type": 0
+        }
+      },
+      "other": {
+        "timezone": {
+          "type": 0
+        },
+        "canvas": {
+          "type": 2
+        },
+        "audio": {
+          "type": 2,
+          "value": null
+        },
+        "webgl": {
+          "type": 2
+        },
+        "webrtc": {
+          "type": 0
+        },
+        "font": {
+          "type": 2
+        },
+        "webgpu": {
+          "type": 2
+        },
+        "domRect": {
+          "type": 2,
+          "value": null
+        },
+        "serviceWorker": {
+          "type": 0
+        }
+      }
+    },
+    "action": {
+      "fastInject": true
+    },
+    "input": {
+      "globalSeed": "7686707600162815"
+    },
+    "subscribe": {
+      "url": "config.json"
+    },
+    "prefs": {
+      "language": "en-US",
+      "theme": "system"
+    }
+  },
+  "version": "2.7.3",
+  "whitelist": []
+}

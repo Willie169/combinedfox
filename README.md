@@ -34,8 +34,9 @@ Use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater
 
 The settigns apply for all Firefox derivatives and Chromium-based browsers on both desktop and Android.
 
-- [my-ublock-backup.txt](my-ublock-backup.txt): My settings for [uBlock Origin](https://github.com/gorhill/uBlock#ublock-origin).
 - [CanvasBlocker-settings.json](CanvasBlocker-settings.json): My settings for [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker).
+- [My Fingerprint.json](My Fingerprint.json): My settings for [My Fingerprint](https://github.com/omegaee/my-fingerprint).
+- [my-ublock-backup.txt](my-ublock-backup.txt): My settings for [uBlock Origin](https://github.com/gorhill/uBlock).
 
 ### Firefox (Desktop)
 
