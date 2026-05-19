@@ -80,7 +80,6 @@ TODO
 - [Background Playback Helper (YouTube & Vimeo)](https://addons.mozilla.org/en-US/android/addon/playback-helper-youtube-vimeo): An extension that successfully keeps video playback running in background on YouTube as of May 16, 2026. Many other similar extensions no longer work now.
 - [Bitwarden Password Manager](https://addons.mozilla.org/en-US/android/addon/bitwarden-password-manager)
 - [CanvasBlocker](https://addons.mozilla.org/en-US/android/addon/canvasblocker)
-- [Chameleon](https://addons.mozilla.org/en-US/android/addon/chameleon-ext)
 - [ClearURLs](https://addons.mozilla.org/en-US/android/addon/clearurls)
 - [Cookie AutoDelete](https://addons.mozilla.org/en-US/android/addon/cookie-autodelete)
 - [Cookie-Editor](https://addons.mozilla.org/en-US/android/addon/cookie-editor)
@@ -106,7 +105,6 @@ TODO
 - [Bitwarden Password Manager](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager)
 - [Brisk](https://addons.mozilla.org/en-US/firefox/addon/brisk)
 - [CanvasBlocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker)
-- [Chameleon](https://addons.mozilla.org/en-US/firefox/addon/chameleon-ext)
 - [ClearURLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls)
 - [Cookie AutoDelete](https://addons.mozilla.org/en-US/firefox/addon/cookie-autodelete)
 - [Cookie-Editor](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor)
@@ -152,10 +150,9 @@ TODO
 
 ### My Extension Settings
 
-The settigns apply for all Firefox (desktop), Fennec F-Droid, and Firefox for Android. Note that my settings for CanvasBlocker, Chameleon, and My Fingerprint are designed to be used together. One of the main reason is to solve <https://github.com/kkapsner/CanvasBlocker/issues/473>. Disable one of them may cause fingerprint leak.
+The settigns apply for all Firefox (desktop), Fennec F-Droid, and Firefox for Android. Note that my settings for CanvasBlocker and My Fingerprint are designed to be used together to solve <https://github.com/kkapsner/CanvasBlocker/issues/473> and to spoof fingerprints that are not supported by one of them. Disable one of them may cause fingerprint leak.
 
 - [CanvasBlocker-settings.json](CanvasBlocker-settings.json): My settings for CanvasBlocker.
-- [chameleon.json](chameleon.json): My settings for Chameleon.
 - [CAD_CoreSettings.json](CAD_CoreSettings.json): My settings for Cookie AutoDelete. Note that you need to go to `Menu > List of Expression` to add Whitelist sites, whose cookies will not be deleted automatically.
 - [My_Fingerprint.json](My_Fingerprint.json): My settings for My Fingerprint. You can go to `Config > Script Config` to turn on Fast Injection Mode, and go to `More > Subscribe`, paste `https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/My_Fingerprint.json` in it, and click the check mark to use my config.
 
