@@ -1,0 +1,69 @@
+{
+  "config": {
+    "enabled": true,
+    "notificationsEnabled": true,
+    "theme": "dark",
+    "reloadIPStartupDelay": 0,
+    "hasPrivacyPermission": false
+  },
+  "excluded": [],
+  "headers": {
+    "blockEtag": true,
+    "enableDNT": false,
+    "referer": {
+      "disabled": true,
+      "xorigin": 0,
+      "trimming": 0
+    },
+    "spoofAcceptLang": {
+      "enabled": false,
+      "value": "default"
+    },
+    "spoofIP": {
+      "enabled": true,
+      "option": 0,
+      "rangeFrom": "",
+      "rangeTo": ""
+    }
+  },
+  "ipRules": [],
+  "options": {
+    "cookieNotPersistent": false,
+    "cookiePolicy": "allow_all",
+    "blockMediaDevices": false,
+    "blockCSSExfil": true,
+    "disableWebRTC": false,
+    "firstPartyIsolate": false,
+    "limitHistory": false,
+    "protectKBFingerprint": {
+      "enabled": true,
+      "delay": 1
+    },
+    "protectWinName": false,
+    "resistFingerprinting": false,
+    "screenSize": "default",
+    "spoofAudioContext": false,
+    "spoofClientRects": false,
+    "spoofFontFingerprint": false,
+    "spoofMediaDevices": true,
+    "timeZone": "default",
+    "trackingProtectionMode": "always",
+    "webRTCPolicy": "default",
+    "webSockets": "allow_all"
+  },
+  "profile": {
+    "selected": "none",
+    "interval": {
+      "option": 0,
+      "min": 1,
+      "max": 1
+    },
+    "showProfileOnIcon": true
+  },
+  "version": "0.22.83.1",
+  "whitelist": {
+    "enabledContextMenu": false,
+    "defaultProfile": "none",
+    "rules": []
+  }
+}

@@ -1,34 +1,9 @@
 {
 	"logLevel": 1,
-	"urlSettings": [
-		{
-			"url": "mail.google.com",
-			"protectDOMRect": false
-		},
-		{
-			"url": "onedrive.live.com",
-			"protectDOMRect": false
-		},
-		{
-			"url": "^https://[^/]*ebay\\.([a-z]+|com\\.(au|hk|my|sg)|co\\.uk)(/|$)",
-			"protectDOMRect": false
-		},
-		{
-			"url": "paypal.com",
-			"protectWindow": false
-		},
-		{
-			"url": "dhl.de",
-			"protectWindow": false
-		},
-		{
-			"url": "jnn-pa.googleapis.com",
-			"protectNavigator": false
-		}
-	],
+	"urlSettings": [],
 	"hiddenSettings": {},
 	"expandStatus": {},
-	"displayHiddenSettings": false,
+	"displayHiddenSettings": true,
 	"whiteList": "",
 	"sessionWhiteList": "",
 	"blackList": "",
@@ -37,7 +12,17 @@
 	"minFakeSize": 1,
 	"maxFakeSize": 1000000,
 	"rng": "nonPersistent",
-	"protectedAPIFeatures": {},
+	"protectedAPIFeatures": {
+		"readPixels @ canvas": false,
+		"getParameter @ canvas": true,
+		"getExtension @ canvas": false,
+		"getImageData @ canvas": true,
+		"getContext @ canvas": true,
+		"isPointInStroke @ canvas": true,
+		"isPointInPath @ canvas": true,
+		"mozGetAsFile @ canvas": true,
+		"convertToBlob @ canvas": false
+	},
 	"useCanvasCache": true,
 	"ignoreFrequentColors": 0,
 	"minColors": 0,
@@ -51,7 +36,7 @@
 	"storePersistentRnd": false,
 	"persistentRndClearIntervalValue": 0,
 	"persistentRndClearIntervalUnit": "days",
-	"lastPersistentRndClearing": 1776921362168,
+	"lastPersistentRndClearing": 1779191614495,
 	"sharePersistentRndBetweenDomains": false,
 	"askOnlyOnce": "individual",
 	"askDenyMode": "block",
@@ -74,8 +59,8 @@
 	"useAudioCache": true,
 	"audioUseFixedIndices": true,
 	"audioFixedIndices": "6",
-	"historyLengthThreshold": 2,
-	"protectWindow": false,
+	"historyLengthThreshold": 0,
+	"protectWindow": true,
 	"allowWindowNameInFrames": true,
 	"protectDOMRect": true,
 	"domRectIntegerFactor": 4,
@@ -87,7 +72,7 @@
 	"protectScreen": true,
 	"screenSize": "",
 	"fakeMinimalScreenSize": false,
-	"displayAdvancedSettings": false,
+	"displayAdvancedSettings": true,
 	"displayDescriptions": false,
 	"theme": "auto",
 	"showPresetsOnInstallation": true,

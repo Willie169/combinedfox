@@ -2,8 +2,8 @@
   "config": {
     "enable": true,
     "seed": {
-      "browser": 5283719304708096,
-      "global": 7686707600162815
+      "browser": 522621556883456,
+      "global": 153869814333440
     },
     "fp": {
       "navigator": {
@@ -22,8 +22,7 @@
       },
       "screen": {
         "size": {
-          "type": 2,
-          "value": null
+          "type": 0
         },
         "depth": {
           "type": 0
@@ -39,11 +38,10 @@
           "type": 0
         },
         "canvas": {
-          "type": 2
+          "type": 0
         },
         "audio": {
-          "type": 2,
-          "value": null
+          "type": 0
         },
         "webgl": {
           "type": 2
@@ -58,11 +56,11 @@
           "type": 2
         },
         "domRect": {
-          "type": 2,
-          "value": null
+          "type": 0
         },
         "serviceWorker": {
-          "type": 0
+          "type": 0,
+          "value": null
         }
       }
     },
@@ -70,7 +68,7 @@
       "fastInject": true
     },
     "input": {
-      "globalSeed": "7686707600162815"
+      "globalSeed": "153869814333440"
     },
     "subscribe": {
       "url": "config.json"
