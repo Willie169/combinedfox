@@ -46,7 +46,7 @@ Use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater
 For people with higher threat models:
 - [IronFox](https://gitlab.com/ironfox-oss/IronFox)
 - [Tor Browser](https://torproject.org)
-- Use desktop: Firefox derivatives on Android is less secure than Chromium derivatives, while Chromium derivatives might lack enough privacy settings.
+- Use desktop: Gecko-based browsers on Android are less secure than Chromium-based browsers, while Chromium-based browser might lack enough privacy settings.
 
 ### Desktop
 
@@ -174,3 +174,7 @@ TODO: update
 - <https://www.privacyguides.org/en/mobile-browsers>
 - <https://www.privacyguides.org/en/passwords>
 - <https://www.privacyguides.org/en/tor>
+
+## LICENSE
+
+This repo is licensed under GPL-3.0-or-later. See [LICENSE.md](LICENSE.md) for the terms.
