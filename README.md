@@ -10,7 +10,7 @@ For iOS users, many suggestions may not apply to you and many extensions may not
 
 A particular strength is my hardening of Firefox beyond [Enhanced Tracking Protection (ETP) Strict Mode](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) and uBlock Origin for both Android and desktop without site breaking. Some explanation and recommendations are provided below.
 
-### Firefox uBlock Origin
+### uBlock Origin
 
 My settings for uBlock Origin (uBO) uses [dynamic filtering of third-party iframe tags](https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-Benefits-of-blocking-3rd-party-iframe-tags) to avoid site breaking. See [uBlock Origin wiki](https://github.com/gorhill/uBlock/wiki) for more information.
 
@@ -60,7 +60,7 @@ I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use 
 
 According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode. You can test them in sites such as [Test pages for CanvasBlocker](https://canvasblocker.kkapsner.de/test), [BrowserLeaks](https://browserleaks.com), and [Am I Unique?](http://amiunique.org). My settings is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas, while [CanvasBlocker only fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
 
-If this level of fingerprint protection is not enough for your threat model, consider [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may breaks some sites.
+If this level of fingerprint protection is not enough for your threat model, consider [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
 
 ### Firefox for People with Higher Threat Models
 
