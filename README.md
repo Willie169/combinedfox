@@ -4,7 +4,7 @@ This repo contains my recommendations on daily browsers setup on Android and Des
 
 For people with higher threat models that are willing to trade off some convenience for privacy, security, or anonymity, some suggestions is also listed below but covered less thoroughly.
 
-For iOS users, some suggestions may not apply to you and many extensions may not be available. You may refer to recommendations by [Privacy Guides](https://www.privacyguides.org/en/mobile-browsers).
+For iOS users, some suggestions may not apply to you and many extensions may not be available. You may refer to [Privacy Guides](https://www.privacyguides.org/en/mobile-browsers) for some information.
 
 ## Browser Hardening without Site Breaking
 
@@ -16,15 +16,19 @@ My settings for uBlock Origin (uBO) for Firefox uses [dynamic filtering of third
 <!-- TODO -->
 I haven't decide whether this should be applied to Brave browsers as well due to fingerprint detection.
 
-### Firefox Cookies
+### Firefox Cookies and Supercookies
 
-TODO: dFPI, TCP, Supercookie Protections
+- Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI): Included in Enhanced Tracking Protection (ETP) Strict Mode. Work by maintaining a separate cookie jar for each website you visit. Any time a website, or third-party content embedded in a website, deposits a cookie in your browser, that cookie is confined to the cookie jar assigned to that website, such that it is not allowed to be shared with any other website.
+- State Partitioning / Supercookies Protection: Enabled by default for all users.
+  - Network Partitioning: Networking-related APIs are not intended to be used for websites to store data, but they can be abused for cross-site tracking. As such, the following network APIs and caches are permanently partitioned by the top-level site: HTTP Cache, Image Cache, Favicon Cache, Connection Pooling, Script Cache, Stylesheet Cache, DNS, HTTP Authentication, Alt-Svc, Speculative Connections, Fonts & Font Cache, HSTS, OCSP, Intermediate CA Cache, TLS Client Certificates, TLS Session Identifiers, Prefetch, Preconnect, CORS-preflight Cache, WebRTC deviceID, Backward/forward cache (bfcache).
+  - Dynamic State Partitioning: To prevent JavaScript-accessible storage APIs from being used for cross-site tracking, accessible storage is partitioned by top-level site. To improve web compatibility, Firefox currently includes some heuristics to grant unpartitioned access to cookies automatically to third parties that receive user interaction. These heuristics are intended to allow some third-party integrations that are common on the web to continue to function.
+- Multi-Account Containers: Use if you want to keep different set of cookies such as login info for a site. If you have no such need, this won't enhance your privacy more than the protection listed above.
 
 ### Firefox Fingerprint
 
 I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use the later is to spoof fingerprints that are not supported by the former, such as offscreen canvas, fonts, and language. Thus, if you disable one of them, some metrics will be leaked. However, all randomizing is detectable. Only Tor Browser (and maybe Mullvad Browser) can confidently address advanced scripts: enough metrics covered and a large crowd.
 
-According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode. You can test them in sites such as [Test pages for CanvasBlocker](https://canvasblocker.kkapsner.de/test) and [Am I Unique?](http://amiunique.org). My settings is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas, while [CanvasBlocker only fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and My Fingerprint only doesn't spoof parameter.
+According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode. You can test them in sites such as [Test pages for CanvasBlocker](https://canvasblocker.kkapsner.de/test), [BrowserLeaks](https://browserleaks.com), and [Am I Unique?](http://amiunique.org). My settings is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas, while [CanvasBlocker only fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas.
 
 ### Firefox for People with Higher Threat Models
 
@@ -36,7 +40,7 @@ Make sure your browsers are up-to-date.
 
 ### Android
 
-Use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`), which you can install from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater), to auto update them.
+You can use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`), which you can install from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater), to auto update them.
 
 - [Fennec F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Gecko-based.
 - [Firefox for Android](https://www.firefox.com): Gecko-based.
@@ -46,7 +50,7 @@ Use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater
 For people with higher threat models:
 - [IronFox](https://gitlab.com/ironfox-oss/IronFox)
 - [Tor Browser](https://torproject.org)
-- Use desktop: Gecko-based browsers on Android are less secure than Chromium-based browsers, while Chromium-based browser might lack enough privacy settings.
+- Use desktop: Gecko-based browsers on Android are less secure than Chromium-based browsers, while Chromium-based browser might lack enough privacy settings. You may refer to [GrapheneOS on web-browsing](https://grapheneos.org/usage#web-browsing) for some information.
 
 ### Desktop
 
@@ -120,7 +124,7 @@ Types:
 <tr><th>Ctrl + Shift + C Should Copy</th><th><a hre="https://github.com/jscher2000/Ctrl-Shift-C-Should-Copy">GitHub</a></th><th>No need on Android.</th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/ctrl-shift-c-should-copy">Desktop</a></th><th>1</th><th>Use if you want Ctrl+Shift+C to copy.</th><th>Intercepts Ctrl+Shift+C, blocks opening developer tools, and copies the selection to the clipboard.</th></tr>
 <tr><th>Disable AI</th><th><a hre="https://github.com/jruns/disable-ai">GitHub</a></th><th><a hre="https://addons.mozilla.org/en-US/android/addon/disable-ai">Android</a></th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/disable-ai">Desktop</a></th><th>1</th><th></th><th>Don't just hide results. Disable AI overviews on Brave Search, DuckDuckGo, Ecosia, Google, and Qwant so your searches consume less energy and water.</th></tr>
 <tr><th>Download All Images</th><th><a hre="https://github.com/belaviyo/save-images/">GitHub</a></th><th>No available on Android.</th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/save-all-images-webextension">Desktop</a></th><th>1</th><th></th><th>Easily save images with a wide range of customization features, such as file size, dimensions, and image type.</th></tr>
-<tr><th>Firefox Multi-Account Containers</th><th><a hre="https://github.com/mozilla/multi-account-containers">GitHub</a></th><th>Not available on Android.</th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers">Desktop</a></th><th>1</th><th>Use if you want to keep different set of cookies such as login info for a site. See [Firefox Cookies](#firefox-cookies) section for more information.</th><th>Firefox Multi-Account Containers lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate Mozilla VPN for an extra layer of privacy.</th></tr>
+<tr><th>Firefox Multi-Account Containers</th><th><a hre="https://github.com/mozilla/multi-account-containers">GitHub</a></th><th>Not available on Android. See [Bug 1807456](https://bugzilla.mozilla.org/show_bug.cgi?id=1807456) for details.</th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers">Desktop</a></th><th>1</th><th>Use if you want to keep different set of cookies such as login info for a site. See [Firefox Cookies and Supercookies](#firefox-cookies-and-supercookies) section for more information.</th><th>Firefox Multi-Account Containers lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate Mozilla VPN for an extra layer of privacy.</th></tr>
 <tr><th>Firefox Relay</th><th><a hre="https://github.com/mozilla/fx-private-relay-add-on">GitHub</a></th><th><a hre="https://addons.mozilla.org/en-US/android/addon/private-relay">Android</a></th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/private-relay">Desktop</a></th><th>1</th><th></th><th>Firefox Relay lets you generate email aliases that forward to your real inbox. Use it to hide your real email address and protect yourself from hackers and unwanted mail.</th></tr>
 <tr><th>Force Copy</th><th><a hre="https://github.com/WindrunnerMax/TKScript">GitHub</a></th><th><a hre="https://addons.mozilla.org/en-US/android/addon/force-copy">Android</a></th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/force-copy">Desktop</a></th><th>1</th><th></th><th>Force Copy professionally circumvents limitations pertaining to Web Copying, Keyboard Usage, and Right-click Functionalities, facilitating an unhindered browsing experience. Open Source Project: https://github.com/WindrunnerMax/TKScript.</th></tr>
 <tr><th>My Fingerprint</th><th><a hre="https://github.com/omegaee/my-fingerprint">GitHub</a></th><th><a hre="https://addons.mozilla.org/en-US/android/addon/my-fingerprint">Android</a></th><th><a hre="https://addons.mozilla.org/en-US/firefox/addon/my-fingerprint">Desktop</a></th><th>2</th>[My_Fingerprint.json](My_Fingerprint.json) is my settings. To apply it, go to any site, click My Fingerprint from Extensions, go to `Config > Script Config` and turn on Fast Injection Mode, go to `More > Subscribe`, paste `https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/My_Fingerprint.json` in it, and click the check mark.<th></th><th>Protect Your Browser Fingerprints</th></tr>
@@ -165,9 +169,11 @@ TODO: update
 - <https://canvasblocker.kkapsner.de>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/params>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/save>
+- <https://github.com/arkenfox/user.js/wiki>
 - <https://github.com/jruns/disable-ai>
 - <https://github.com/kkapsner/CanvasBlocker>
 - <https://github.com/omegaee/my-fingerprint>
+- <https://grapheneos.org/usage#web-browsing>
 - <https://serpapi.com/blog/google-search-parameters>
 - <https://www.dedoimedo.com/computers/bing-search-no-ai.html>
 - <https://www.privacyguides.org/en/desktop-browsers>
