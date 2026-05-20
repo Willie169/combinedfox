@@ -1,12 +1,15 @@
 {
-  "timeStamp": 1775287045155,
+  "timeStamp": 1779217049911,
   "version": "1.70.0",
   "userSettings": {
-    "externalLists": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+    "advancedUserEnabled": true,
+    "cloudStorageEnabled": true,
+    "externalLists": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt\nhttps://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
     "importedLists": [
+      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
       "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
     ],
-    "popupPanelSections": 31,
+    "popupPanelSections": 63,
     "webrtcIPAddressHidden": true
   },
   "selectedFilterLists": [
@@ -74,14 +77,15 @@
     "TUR-0",
     "UKR-0",
     "VIE-1",
-    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt"
   ],
   "hiddenSettings": {},
   "whitelist": [
     "chrome-extension-scheme",
     "moz-extension-scheme"
   ],
-  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
+  "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop\n* * 3p-script noop\n* * 3p-frame noop\n* * 3p noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
   "userFilters": "www.bing.com##.b_genserp_container\nwww.bing.com##.ca_top_sec\nwww.bing.com##.gs_temp\nwww.bing.com##.gs_temp_with_iv.gs_temp_content\n||api.ecosia.org/v2/aie-exa-proxy*"
