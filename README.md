@@ -68,6 +68,8 @@ Make sure your browsers are up-to-date for security reason.
 
 ### Android Browsers
 
+The link of a name of the browser is source code. The link of a store where it comes from is the link to install it.
+
 Managers:
 - [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`) from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater): Install and update browsers. All browsers below can be installed and updated in it.
 - [Droid-fy](https://github.com/Droid-ify/client) (`com.looker.droidify`) from [F-Droid](https://f-droid.org/packages/com.looker.droidify): Install apps from F-Droid repositories (hereafter referred to as F-Droid).
@@ -76,12 +78,12 @@ Managers:
 Gecko-based browsers:
 - [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed. My default browser.
 - [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox.
+- [Brave Browser](https://brave.com): Based on Chromium. Currently doesn't support extensions.
+- [Cromite](https://github.com/uazo/cromite): Based on Chromium.
 - [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
 - [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
 - [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security. WebGL is disabled by default. [A few sites and functions](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat) may break.
-- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites may break.
-- [Brave Browser](https://brave.com): Based on Chromium. Currently doesn't support extensions.
-- [Cromite](https://github.com/uazo/cromite): Based on Chromium.
+- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites may break. Refer to [Tor Project](https://torproject.org) for more information.
 - [Vanadium](https://grapheneos.org/features#vanadium): Based on Chromium. For GrapheneOS only.
 
 Since Firefox Multi-Account Containers (MAC) doesn't support Android, you can use multiple browsers to achieve similar functionality. Besides different browsers, Work Profile (in contrast to Personal Profile) can provide the second instance for each browser. I recommend using [Insular](https://gitlab.com/secure-system/Insular) (`com.oasisfeng.island.fdroid`) from [F-Droid](https://f-droid.org/packages/com.oasisfeng.island.fdroid) or [Shelter](https://gitea.angry.im/PeterCxy/Shelter) (`net.typeblog.shelter`) from [F-Droid](https://droidify.app/app/?id=net.typeblog.shelter&repo_address=https://fdroid.typeblog.net) to manage Work Profile.
@@ -90,13 +92,10 @@ For people with higher threat models, note that Gecko-based browsers on Android 
 
 ### Desktop Browsers
 
-- [Firefox Browser](https://www.firefox.com): Mozilla Firefox. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo.
-- [Brave Browser](https://brave.com): Chromium-based.
-
-For people with higher threat models:
-- Refer to [Firefox for People with Higher Threat Models](#firefox-for-people-with-higher-threat-models)
-- [Mullvad Browser](https://mullvad.net/en/browser)
-- [Tor Browser](https://torproject.org)
+- [Firefox Browser](https://www.firefox.com): Mozilla Firefox. My default browser. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo. For people with higher threat models, refer to [Firefox for People with Higher Threat Models](#firefox-for-people-with-higher-threat-models).
+- [Brave Browser](https://brave.com): Based on Chromium.
+- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with VPN are the only browsers that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites may break. Refer to [Tor Project](https://torproject.org) for more information.
+- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. Some sites may break.
 
 ## Search Engines
 
