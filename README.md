@@ -2,7 +2,7 @@
 
 This repo contains my recommendations on daily browsers setup on Android and Desktop to enhance privacy without site breaking.
 
-For people with higher threat models that are willing to trade off some convenience for privacy, security, or anonymity, some suggestions is also listed below but covered less thoroughly.
+For people with higher threat models that are, some suggestions is also mentioned but covered less thoroughly.
 
 For iOS users, many suggestions may not apply to you and many extensions may not be available. You may refer to [Privacy Guides](https://www.privacyguides.org/en/mobile-browsers) for some information.
 
@@ -16,7 +16,7 @@ A particular strength is my hardening of Firefox beyond [Enhanced Tracking Prote
 - [State Partitioning](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/State_Partitioning): Enabled by default for all users.
   - Network Partitioning: Networking-related APIs are not intended to be used for websites to store data, but they can be abused for cross-site tracking. As such, the following network APIs and caches are permanently partitioned by the top-level site: HTTP Cache, Image Cache, Favicon Cache, Connection Pooling, Script Cache, Stylesheet Cache, DNS, HTTP Authentication, Alt-Svc, Speculative Connections, Fonts & Font Cache, HSTS, OCSP, Intermediate CA Cache, TLS Client Certificates, TLS Session Identifiers, Prefetch, Preconnect, CORS-preflight Cache, WebRTC deviceID, Backward/forward cache (bfcache).
   - Dynamic State Partitioning: To prevent JavaScript-accessible storage APIs from being used for cross-site tracking, accessible storage is partitioned by top-level site. To improve web compatibility, Firefox currently includes some heuristics to grant unpartitioned access to cookies automatically to third parties that receive user interaction. These heuristics are intended to allow some third-party integrations that are common on the web to continue to function.
-- Multi-Account Containers: Use if you want to keep different set of cookies such as login info for a site. If you have no such need, this won't enhance your privacy more than the protection listed above.
+- Firefox Multi-Account Containers (MAC): Use if you want to keep different set of cookies such as login info for a site. If you have no such need, this won't enhance your privacy more than Enhanced Tracking Protection (ETP) Strict Mode.
 
 <p>Disabling Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI) will expose you to cross-site cookies, which weaken your privacy a lot. Therefore:</p>
 <ul>
@@ -52,7 +52,7 @@ A particular strength is my hardening of Firefox beyond [Enhanced Tracking Prote
 
 ### Firefox Fingerprint
 
-I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use the later is to spoof fingerprints that are not supported by the former, such as offscreen canvas, fonts, and language. Thus, if you disable one of them, some metrics will be leaked. However, all randomizing is detectable. Only Tor Browser (and maybe Mullvad Browser) can confidently address advanced scripts: enough metrics covered and a large crowd.
+I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use the later is to spoof fingerprints that are not supported by the former, such as offscreen canvas, fonts, and language. Thus, if you disable one of them, some metrics will be leaked. However, all randomizing is detectable. Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts: enough metrics covered and a large crowd.
 
 According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode. You can test them in sites such as [Test pages for CanvasBlocker](https://canvasblocker.kkapsner.de/test), [BrowserLeaks](https://browserleaks.com), and [Am I Unique?](http://amiunique.org). My settings is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas, while [CanvasBlocker only fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
 
@@ -60,29 +60,37 @@ If this level of fingerprint protection is not enough for your threat model, con
 
 ### Firefox for People with Higher Threat Models
 
-Take a look at [Arkenfox](https://github.com/arkenfox/user.js), [higher block mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode), and [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
+Refer to [Arkenfox](https://github.com/arkenfox/user.js), [Phonix](https://codeberg.org/celenity/Phoenix), [higher block mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode), and [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
 
 ## Browsers
 
-Make sure your browsers are up-to-date.
+Make sure your browsers are up-to-date for security reason.
 
-### Android
+### Android Browsers
 
-You can use [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`), which you can install from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater), to auto update them.
+Managers:
+- [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`) from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater): Install and update browsers. All browsers below can be installed and updated in it.
+- [Droid-fy](https://github.com/Droid-ify/client) (`com.looker.droidify`) from [F-Droid](https://f-droid.org/packages/com.looker.droidify): Install apps from F-Droid repositories (hereafter referred to as F-Droid).
+- [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore) (`com.aurora.store`) from [F-Droid](https://f-droid.org/packages/com.aurora.store): Unofficial, FOSS client to Google Play to install and update apps on Google Play without login to a Google account.
 
-- [Fennec F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Gecko-based.
-- [Firefox for Android](https://www.firefox.com): Gecko-based.
-- [Brave Browser](https://brave.com): Chromium-based. Currently doesn't support extensions.
-- [Cromite](https://github.com/uazo/cromite): Chromium-based.
+Gecko-based browsers:
+- [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed.
+- [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox.
+- [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
+- [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
+- [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security. WebGL is disabled by default. [A few sites and functions](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat) may break.
+- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites may break.
+- [Brave Browser](https://brave.com): Based on Chromium. Currently doesn't support extensions.
+- [Cromite](https://github.com/uazo/cromite): Based on Chromium.
+- [Vanadium](https://grapheneos.org/features#vanadium): Based on Chromium. For GrapheneOS only.
 
-For people with higher threat models:
-- [IronFox](https://gitlab.com/ironfox-oss/IronFox)
-- [Tor Browser](https://torproject.org)
-- Use desktop: Gecko-based browsers on Android are less secure than Chromium-based browsers, while Chromium-based browser might lack enough privacy settings. You may refer to [GrapheneOS on web-browsing](https://grapheneos.org/usage#web-browsing) for some information.
+Since Firefox Multi-Account Containers (MAC) doesn't support Android, you can use multiple browsers to achieve similar functionality. Besides different browsers, Work Profile (in contrast to Personal Profile) can provide the second instance for each browser. I recommend using [Insular](https://gitlab.com/secure-system/Insular) (`com.oasisfeng.island.fdroid`) from [F-Droid](https://f-droid.org/packages/com.oasisfeng.island.fdroid) or [Shelter](https://gitea.angry.im/PeterCxy/Shelter) (`net.typeblog.shelter`) from [F-Droid](https://droidify.app/app/?id=net.typeblog.shelter&repo_address=https://fdroid.typeblog.net) to manage Work Profile.
 
-### Desktop
+For people with higher threat models, note that Gecko-based browsers on Android are less secure than Chromium-based browsers (refer to [GrapheneOS](https://grapheneos.org/usage#web-browsing) and [madaidans](https://madaidans-insecurities.github.io/firefox-chromium.html)), while Chromium-based browser might lack enough privacy settings.
 
-- [Firefox](https://www.firefox.com): Gecko-based. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo.
+### Desktop Browsers
+
+- [Firefox](https://www.firefox.com): If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo.
 - [Brave Browser](https://brave.com): Chromium-based.
 
 For people with higher threat models:
@@ -153,7 +161,7 @@ Types:
 <tr><td>Ctrl + Shift + C Should Copy</td><td><a href="https://github.com/jscher2000/Ctrl-Shift-C-Should-Copy">GitHub</a></td><td>No need on Android.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/ctrl-shift-c-should-copy">Desktop</a></td><td>1</td><td>Use if you want Ctrl+Shift+C to copy.</td><td>Intercepts Ctrl+Shift+C, blocks opening developer tools, and copies the selection to the clipboard.</td></tr>
 <tr><td>Disable AI</td><td><a href="https://github.com/jruns/disable-ai">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/disable-ai">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/disable-ai">Desktop</a></td><td>1</td><td></td><td>Don't just hide results. Disable AI overviews on Brave Search, DuckDuckGo, Ecosia, Google, and Qwant so your searches consume less energy and water.</td></tr>
 <tr><td>Download All Images</td><td><a href="https://github.com/belaviyo/save-images/">GitHub</a></td><td>Not available on Android.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/save-all-images-webextension">Desktop</a></td><td>1</td><td></td><td>Easily save images with a wide range of customization features, such as file size, dimensions, and image type.</td></tr>
-<tr><td>Firefox Multi-Account Containers</td><td><a href="https://github.com/mozilla/multi-account-containers">GitHub</a></td><td>Not available on Android. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1807456">Bug 1807456</a> for details.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers">Desktop</a></td><td>1</td><td>Use if you want to keep different set of cookies such as login info for a site. See <a href="#firefox-cookies-and-supercookies">Firefox Cookies and Supercookies</a> section.</td><td>Firefox Multi-Account Containers lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate Mozilla VPN for an extra layer of privacy.</td></tr>
+<tr><td>Firefox Multi-Account Containers</td><td><a href="https://github.com/mozilla/multi-account-containers">GitHub</a></td><td>Not available on Android due to <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1807456">Bug 1807456</a>. See <a href="#android-browsers"</a>Android Browsers</a> for instructions.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers">Desktop</a></td><td>1</td><td>Use if you want to keep different set of cookies such as login info for a site. If you have no such need, this won't enhance your privacy more than Enhanced Tracking Protection (ETP) Strict Mode. See <a href="#firefox-cookies-and-supercookies">Firefox Cookies and Supercookies</a>.</td><td>Firefox Multi-Account Containers lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate Mozilla VPN for an extra layer of privacy.</td></tr>
 <tr><td>Firefox Relay</td><td><a href="https://github.com/mozilla/fx-private-relay-add-on">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/private-relay">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/private-relay">Desktop</a></td><td>1</td><td>Need login to Mozilla account.</td><td>Firefox Relay lets you generate email aliases that forward to your real inbox. Use it to hide your real email address and protect yourself from hackers and unwanted mail.</td></tr>
 <tr><td>Force Copy</td><td><a href="https://github.com/WindrunnerMax/TKScript">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/force-copy">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/force-copy">Desktop</a></td><td>1</td><td></td><td>Force Copy professionally circumvents limitations pertaining to Web Copying, Keyboard Usage, and Right-click Functionalities, facilitating an unhindered browsing experience. Open Source Project: https://github.com/WindrunnerMax/TKScript.</td></tr>
 <tr><td>My Fingerprint</td><td><a href="https://github.com/omegaee/my-fingerprint">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/my-fingerprint">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/my-fingerprint">Desktop</a></td><td>2</td><td><a href="My_Fingerprint.json">My_Fingerprint.json</a> is my settings. To apply it, go to any site, click My Fingerprint from Extensions, go to <code>Config > Script Config</code> and turn on Fast Injection Mode, go to <code>More > Subscribe</code>, paste <code>https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/My_Fingerprint.json</code> in it, and click the check mark.</td><td>Protect Your Browser Fingerprints</td></tr>
@@ -174,13 +182,13 @@ Types:
 </table>
 
 The following extensions should NOT be used because they will weaken your privacy or security:
-- Privacy Badger: can be easily fingerprined and redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin.
+- Privacy Badger: can be easily fingerprined, send deprecated Do Not Track (DNT), and redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin.
 - Cookie or supercookie-related extensions that don't work well with Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI), State Partitioning, and/or Multi-Account Containers, such as Cookie AutoDelete: Refer to [Firefox Cookies and Supercookies](#firefox-cookies-and-supercookies) for why.
 - uMatrix: No longer maintained. Most things it can do are covered by other extensions that do it better, notably uBlock Origin for any content blocking. If you still want to use it, do not add any content-security-policy (CSP) in it because it will affect the CSP of uBlock Origin due to [Bug 1462989](https://bugzilla.mozilla.org/show_bug.cgi?id=1462989).
 - Ghostery – Privacy Ad Blocker, Disconnect, AdGuard AdBlocker, and other advertising, trackers, and/or pop-ups blockers: Redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin. If you still want to use them, do not add any content-security-policy (CSP) in it because it will affect the CSP of uBlock Origin due to [Bug 1462989](https://bugzilla.mozilla.org/show_bug.cgi?id=1462989).
 - HTTPS Everywhere: Replaced by HTTPS-Only Mode in browser settings.
 - Chameleon and other fingerprint protection extensions: Already covered by settings and extensions in this repo. Use multiple extensions to protect a metric may cause significant performance issue. Refer to [Firefox Fingerprint](#firefox-fingerprint) for more information.
-- LocalCDN, Decentraleyes, and other CDN extensions (arguably):
+- LocalCDN, Decentraleyes, and other CDN extensions (arguably, according to [Arkenfox wiki](https://github.com/arkenfox/user.js/wiki/4.1-Extensions)):
   - Most of them are outdated.
   - They may break some sites.
   - Some functionalities are redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin.
