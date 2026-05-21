@@ -68,9 +68,9 @@ Make sure your browsers are up-to-date for security reason.
 
 ### Android Browsers
 
-The link of a name of the browser is source code. The link of a store where it comes from is the link to install it.
+The link on the name of a browser is the link to its source code. The link on the store that it comes from is the link to install it.
 
-Managers:
+Stores:
 - [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`) from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater): Install and update browsers. All browsers below can be installed and updated in it.
 - [Droid-fy](https://github.com/Droid-ify/client) (`com.looker.droidify`) from [F-Droid](https://f-droid.org/packages/com.looker.droidify): Install apps from F-Droid repositories (hereafter referred to as F-Droid).
 - [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore) (`com.aurora.store`) from [F-Droid](https://f-droid.org/packages/com.aurora.store): Unofficial, FOSS client to Google Play to install and update apps on Google Play without login to a Google account.
