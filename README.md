@@ -60,7 +60,45 @@ I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use 
 
 According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode, and is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
 
-### Firefox Referer Policy
+### Firefox Referrer Policy
+
+The HTTP `Referer` request header contains the absolute or partial address from which a resource has been requested. There are problematic uses such as tracking or stealing information, or even just side effects such as inadvertently leaking sensitive information.
+
+`Referrer`-Policy header: The `Referrer`-Policy header provides fine-grained control over how and when browsers transmit the Referer header.
+- `no-referrer`: Never send the Referer header.
+- `same-origin`: Send the `Referrer` header, but only on same-origin requests.
+- `strict-origin`: Send the `Referrer` header to all origins, but only include the URL without the path (e.g., `https://example.com/`).
+- `strict-origin-when-cross-origin`: Send the full `Referrer` header on same-origin requests and only the URL without the path on cross-origin requests.
+
+The following settings in Firefox control `Referrer`-Policy:
+- `network.http.referer.defaultPolicy`: set the default referrer policy (default 2)
+  - 0 = `no-referrer`
+  - 1 = `same-origin`
+  - 2 = `strict-origin-when-cross-origin`
+- `network.http.referer.defaultPolicy.pbmode`: same as `network.http.referer.defaultPolicy` but only for Private Browsing (default 2)
+- `network.http.referer.defaultPolicy.trackers`: same as `network.http.referer.defaultPolicy` but only for trackers (default 2)
+- `network.http.referer.defaultPolicy.trackers.pbmode`: same as `network.http.referer.defaultPolicy.trackers` but only for Private Browsing (default 2)
+- `network.http.sendRefererHeader`: controls whether or not to send a referrer regardless of origin (default 2)
+  - 0 = never send the header
+  - 1 = send the header only when clicking on links and similar elements
+  - 2 = send on all requests (e.g. images, links, etc.)
+- `network.http.referer.trimmingPolicy`: controls how much referrer to send regardless of origin (default 0)
+  - 0 = send the full URL
+  - 1 = send the URL without its query string
+  - 2 = only send the origin
+- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0)
+- `network.http.referer.XOriginPolicy`: controls whether or not to send a referrer across origins (default 0)
+  - 0 = (default) send the referrer in all cases
+  - 1 = send a referrer only when the base domains are the same
+  - 2 = send a referrer only on same-origin
+- `network.http.referer.spoofSource`: (default false)
+  - false = use real referrer
+  - true = spoof with URI of the current request
+- `network.http.referer.disallowCrossSiteRelaxingDefault`: controls whether or not a referrer across origins can relax default `Referrer`-Policy (default true)
+- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default true)
+- `network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for top navigations (default true, due to [Bug 1734328](https://bugzilla.mozilla.org/show_bug.cgi?id=1734328).
+- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default false)
+- `network.http.referer.hideOnionSource`: hides Onion service sources
 
 ### Firefox for People with Higher Threat Models
 
@@ -94,7 +132,7 @@ Stores:
 
 Gecko-based browsers:
 - [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed. My default browser.
-- [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox.
+- [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox. `about:config` not accessible.
 - [Brave Browser](https://brave.com): Based on Chromium. Currently doesn't support extensions.
 - [Cromite](https://github.com/uazo/cromite): Based on Chromium.
 - [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
@@ -262,6 +300,15 @@ TODO: update
 - <https://www.privacyguides.org/en/mobile-browsers>
 - <https://www.privacyguides.org/en/passwords>
 - <https://www.privacyguides.org/en/tor>
+- <https://github.com/arkenfox/user.js/issues/1439>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1734328>
+- <https://trustmyip.com/referrer-leak-test>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer>
+- <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Referer_header:_privacy_and_security_concerns>
+- <https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Referrer_policy>
+- <https://wiki.mozilla.org/Security/Referrer>
+- <https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/>
+- <https://support.mozilla.org/en-US/questions/1130505>
 
 ## LICENSE
 
