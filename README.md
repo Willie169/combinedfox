@@ -16,6 +16,7 @@ A particular strength is my hardening of Firefox beyond [Enhanced Tracking Prote
 - [State Partitioning](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/State_Partitioning): Enabled by default for all users.
   - Network Partitioning: Networking-related APIs are not intended to be used for websites to store data, but they can be abused for cross-site tracking. As such, the following network APIs and caches are permanently partitioned by the top-level site: HTTP Cache, Image Cache, Favicon Cache, Connection Pooling, Script Cache, Stylesheet Cache, DNS, HTTP Authentication, Alt-Svc, Speculative Connections, Fonts & Font Cache, HSTS, OCSP, Intermediate CA Cache, TLS Client Certificates, TLS Session Identifiers, Prefetch, Preconnect, CORS-preflight Cache, WebRTC deviceID, Backward/forward cache (bfcache).
   - Dynamic State Partitioning: To prevent JavaScript-accessible storage APIs from being used for cross-site tracking, accessible storage is partitioned by top-level site. To improve web compatibility, Firefox currently includes some heuristics to grant unpartitioned access to cookies automatically to third parties that receive user interaction. These heuristics are intended to allow some third-party integrations that are common on the web to continue to function.
+- [Fission / Site Isolation](https://wiki.mozilla.org/Project_Fission): Site Isolation is a security feature that offers additional protection in case of large classes of security bugs. Site Isolation safely sandboxes web pages and web frames, isolating them from each other, further strengthening Firefox security.
 - Firefox Multi-Account Containers (MAC): Use if you want to keep different set of cookies such as login info for a site. If you have no such need, this won't enhance your privacy more than Enhanced Tracking Protection (ETP) Strict Mode.
 
 <p>Disabling Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI) will expose you to cross-site cookies, which weaken your privacy a lot. Therefore:</p>
@@ -54,13 +55,19 @@ A particular strength is my hardening of Firefox beyond [Enhanced Tracking Prote
 
 I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use the later is to spoof fingerprints that are not supported by the former, such as offscreen canvas, fonts, and language. Thus, if you disable one of them, some metrics will be leaked. However, all randomizing is detectable. Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts: enough metrics covered and a large crowd.
 
-According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode. You can test them in sites such as [Test pages for CanvasBlocker](https://canvasblocker.kkapsner.de/test), [BrowserLeaks](https://browserleaks.com), and [Am I Unique?](http://amiunique.org). My settings is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas, while [CanvasBlocker only fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
+According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode, and is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
 
 If this level of fingerprint protection is not enough for your threat model, consider [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
 
 ### Firefox for People with Higher Threat Models
 
 Refer to [Arkenfox](https://github.com/arkenfox/user.js), [Phonix](https://codeberg.org/celenity/Phoenix), [higher block mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode), and [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
+
+### Firefox Tests
+
+Refer to Arkenfox:
+- [Appendix A Test Sites](https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites)
+- [Appendix B Test Sites [Fingerprinting]](https://github.com/arkenfox/user.js/wiki/Appendix-B-Test-Sites-%5BFingerprinting%5D)
 
 ## Browsers
 
@@ -218,11 +225,9 @@ TODO: update
 
 ## References and Resources
 
-- <https://amiunique.org>
 - <https://api-dashboard.search.brave.com/app/documentation/news-search/query>
 - <https://blog.mozilla.org/security/2021/01/26/supercookie-protections>
 - <https://blog.mozilla.org/security/2021/02/23/total-cookie-protection>
-- <https://browserleaks.com>
 - <https://canvasblocker.kkapsner.de>
 - <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/State_Partitioning>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/params>
@@ -236,6 +241,7 @@ TODO: update
 - <https://serpapi.com/blog/google-search-parameters>
 - <https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop>
 - <https://support.mozilla.org/en-US/kb/resist-fingerprinting>
+- <https://wiki.mozilla.org/Project_Fission>
 - <https://www.dedoimedo.com/computers/bing-search-no-ai.html>
 - <https://www.privacyguides.org/en/desktop-browsers>
 - <https://www.privacyguides.org/en/mobile-browsers>
