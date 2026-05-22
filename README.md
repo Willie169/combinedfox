@@ -101,43 +101,20 @@ The following settings in Firefox control `Referrer`-Policy:
 
 ### Firefox XS-Leaks
 
+For people with higher threat models only.
+
 According to [XS-Leaks Wiki](https://xsleaks.dev),
 
 <blockquote>Cross-site leaks (aka XS-Leaks, XSLeaks) are a class of vulnerabilities derived from side-channels built into the web platform. They take advantage of the web’s core principle of composability, which allows websites to interact with each other, and abuse legitimate mechanisms to infer information about the user.</blockquote>
 
-All main-stream browsers, including Tor Browser is subjected to it.
-
-For Firefox hardened according to this guide, the following leaks (and possibly also others) are still exploitable:
-- Event Handler Leak (Object)
-- Event Handler Leak (Script)
-- Style Reload Error Leak
-- URL Max Length Leak
-- WebSocket Leak (FF)
-- WebSocket Leak (GC)
-- Media Dimensions Leak
-- Media Duration Leak
-- CORP Leak
-- CORB Leak
-- Performance API Download Detection
-- COOP Leak
-
-For Tor Project with NoScript default, the following leaks (and possibly also others) are still exploitable:
-- Event Handler Leak (Object)
-- Event Handler Leak (Script)
-- Style Reload Error Leak
-- URL Max Length Leak
-- CSP Redirect Detection
-- WebSocket Leak (FF)
-- Media Dimensions Leak
-- CSS Property Leak
-- CORP Leak
-- CORB Leak
-- COOP Leak
+Virtually all browsers, including Tor Browser, are subjected to it.
 
 Refer to:
 - [XSinator.com: From a Formal Model to the Automatic Evaluation of Cross-Site Leaks in Web Browsers (paper)](https://xsinator.com/paper.pdf)
 - [XS-Leaks Wiki](https://xsleaks.dev)
 - [XSinator XS-Leak Browser Test Suite](https://xsinator.com/testing.html)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XS-Leaks)
+- [Bug 1742425](https://bugzilla.mozilla.org/show_bug.cgi?id=1742425)
 
 ### Firefox for People with Higher Threat Models
 
@@ -319,12 +296,18 @@ TODO: update
 - <https://blog.mozilla.org/security/2021/01/26/supercookie-protections>
 - <https://blog.mozilla.org/security/2021/02/23/total-cookie-protection>
 - <https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1390089>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1462989>
 - <https://bugzilla.mozilla.org/show_bug.cgi?id=1734328>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1742425>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1767271>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1807456>
 - <https://canvasblocker.kkapsner.de>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer>
 - <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Referer_header:_privacy_and_security_concerns>
 - <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/State_Partitioning>
+- <https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XS-Leaks>
 - <https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Referrer_policy>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/params>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/save>
