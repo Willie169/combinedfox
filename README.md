@@ -8,7 +8,7 @@ For iOS users, many suggestions may not apply to you and many extensions may not
 
 ## Firefox Hardening without Site Breaking
 
-A particular strength is my hardening of Firefox beyond [Enhanced Tracking Protection (ETP) Strict Mode](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) and uBlock Origin (uBO) (see [Extensions](#extensions) section for my settings and remarks) for both Android and desktop without site breaking. Some explanation and recommendations are provided below.
+A particular strength is my hardening of Firefox beyond [Enhanced Tracking Protection (ETP) Strict Mode](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) and uBlock Origin (uBO) (see [uBlock Origin](#uBO) section for my settings and remarks) for both Android and desktop without site breaking. Some explanation and recommendations are provided below.
 
 ### Firefox Cookies and Supercookies
 
@@ -111,9 +111,10 @@ Search engines:
 - [Bing](Bing.txt)
 - [Brave](Brave.txt): Recommended.
 - [Cambridge Dictionary](Cambridge%20Dictionary.txt)
+- [DuckDuckGo](DuckDuckGo.txt):  Recommended.
 - [DuckDuckGo HTML](DuckDuckGo%20HTML.txt)
 - [DuckDuckGo Lite](DuckDuckGo%20Lite.txt)
-- [DuckDuckGo](DuckDuckGo.txt):  Recommended.
+- [DuckDuckGo NoAI](DuckDuckGo%20NoAI.txt)
 - [Ecosia](Ecosia.txt)
 - [GitHub](GitHub.txt)
 - [Google Scholar](Google%20Scholar.txt)
@@ -142,7 +143,7 @@ TODO
 
 ## Extensions
 
-### Geck-based Browsers
+### Geck-based Browsers Extensions
 
 TODO: desktop update
 
@@ -177,7 +178,7 @@ Types:
 <tr><td>Violentmonkey</td><td><a href="https://addons.mozilla.org/en-US/android/addon/violentmonkey">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/violentmonkey">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/violentmonkey">Desktop</a></td><td>1</td><td><p>My settings and installed scripts are in <a href="violentmonkey.zip">violentmonkey.zip</a>, which includes the following installed scripts <a href="https://github.com/adlered/CSDNGreener">最强的老牌脚本CSDNGreener：CSDN广告完全过滤、人性化脚本优化</a>, <a href="https://openuserjs.org/scripts/Bloggerpemula/Bypass_All_Shortlinks_Manual_Captcha">Bypass All Shortlinks Manual Captcha</a>, <a href="https://openuserjs.org/scripts/rourou007/All-in-One_Video_Downloader_%E2%80%93_HD_(YouTube,_TikTok,_Instagram,_X_More)">All-in-One Video Downloader – HD (YouTube, TikTok, Instagram, X & More)</a>, and <a href="https://github.com/WindrunnerMax/TKScript">🔥🔥🔥文本选中复制🔥🔥🔥</a>.</p><p>This is my only recommended extension for userscript support since many userscripts don't function correctly under Greasemonkey, and Tampermonkey is no longer open source.</p></td><td>Userscript support for browsers, open source.</td></tr>
 <tr><td>Web Archives</td><td><a href="https://github.com/dessant/web-archives">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/view-page-archive">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/view-page-archive">Desktop</a></td><td>1</td><td></td><td>View archived and cached versions of web pages on various search engines, such as the Wayback Machine and Archive․is.</td></tr>
 <tr><td>YouTube Dislike Counter</td><td><a href="https://github.com/Anarios/return-youtube-dislike">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/youtube-dislike-counter">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-dislike-counter">Desktop</a></td><td>1</td><td></td><td>Restores YouTube video dislike counts for both regular videos and shorts</td></tr>
-<tr><td>uBlock Origin</td><td><a href="https://github.com/gorhill/uBlock">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/ublock-origin">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin">Desktop</a></td><td>2</td><td>My settings is <a href="my-ublock-backup.txt">my-ublock-backup.txt</a>, which uses <a href="https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-Benefits-of-blocking-3rd-party-iframe-tags">dynamic filtering of third-party iframe tags</a> to avoid site breaking. Adjust Regions, languages filter lists to match the sites you typically visit. My settings contains <code>cn [tw]  tw: AdGuard Chinese (中文)</code> and <code>[jp]  jp: AdGuard Japanese</code>. Do not blindly enable excessive filter lists, otherwise the loading time when visiting a site will increase. If you are not using ClearURLs or similar extensions, you may want to add Actually Legitimate URL Shortener Tool (<code>https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt</code>) and/or ClearURLs for uBo (unofficial) (<code>https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt</code>) filter lists. See <a href="https://github.com/gorhill/uBlock/wiki">uBlock Origin wiki</a> for more information.</td><td>Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.</td></tr>
+<tr id="uBO"><td>uBlock Origin</td><td><a href="https://github.com/gorhill/uBlock">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/ublock-origin">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin">Desktop</a></td><td>2</td><td>My settings is <a href="my-ublock-backup.txt">my-ublock-backup.txt</a>, which uses <a href="https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-Benefits-of-blocking-3rd-party-iframe-tags">dynamic filtering of third-party iframe tags</a> to avoid site breaking. Adjust Regions, languages filter lists to match the sites you typically visit. My settings contains <code>cn [tw]  tw: AdGuard Chinese (中文)</code> and <code>[jp]  jp: AdGuard Japanese</code>. Do not blindly enable excessive filter lists, otherwise the loading time when visiting a site will increase. If you are not using ClearURLs or similar extensions, you may want to add Actually Legitimate URL Shortener Tool (<code>https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt</code>) and/or ClearURLs for uBo (unofficial) (<code>https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt</code>) filter lists. See <a href="https://github.com/gorhill/uBlock/wiki">uBlock Origin wiki</a> for more information.</td><td>Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.</td></tr>
 </table>
 
 The following extensions should NOT be used because they will weaken your privacy or security:
@@ -198,7 +199,7 @@ The following extensions should NOT be used because they will weaken your privac
   - break other privacy or security configurations, or
   - are unwantedly fingerprintable.
 
-### Brave Browser for Desktop
+### Brave Browser for Desktop Extensions
 
 TODO: update
 
