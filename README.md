@@ -100,6 +100,33 @@ The following settings in Firefox control `Referrer`-Policy:
 - `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default false)
 - `network.http.referer.hideOnionSource`: hides Onion service sources
 
+### Firefox XS-Leaks
+
+According to [XS-Leaks Wiki](https://xsleaks.dev),
+
+<blockquote>Cross-site leaks (aka XS-Leaks, XSLeaks) are a class of vulnerabilities derived from side-channels built into the web platform. They take advantage of the web’s core principle of composability, which allows websites to interact with each other, and abuse legitimate mechanisms to infer information about the user.</blockquote>
+
+All main-stream browsers, including Tor Browser is subjected to it.
+
+For Firefox with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin (uBO), the following leaks (and possibly also others) are still exploitable:
+- Event Handler Leak (Object)
+- Event Handler Leak (Script)
+- Style Reload Error Leak
+- URL Max Length Leak
+- WebSocket Leak (FF)
+- WebSocket Leak (GC)
+- Media Dimensions Leak
+- Media Duration Leak
+- CORP Leak
+- CORB Leak
+- Performance API Download Detection
+- COOP Leak
+
+Refer to
+- [XSinator.com: From a Formal Model to the Automatic Evaluation of Cross-Site Leaks in Web Browsers (paper)](https://xsinator.com/paper.pdf)
+- [XS-Leaks Wiki](https://xsleaks.dev)
+- [XSinator XS-Leak Browser Test Suite](https://xsinator.com/testing.html)
+
 ### Firefox for People with Higher Threat Models
 
 For people with higher threat model, consider the following hardening of Firefox, which may break some sites and functions.
@@ -109,7 +136,7 @@ For people with higher threat model, consider the following hardening of Firefox
 - [higher blocking mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode)
 - [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting)
 - Hardened Firefox fork: Refer to [Browsers](#browsers).
-
+Also take a look at [Firefox XS-Leaks](#firefox-xs-leaks).
 
 ### Firefox Tests
 
@@ -138,8 +165,8 @@ Gecko-based browsers:
 - [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
 - [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
 - [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security. WebGL is disabled by default. [A few sites and functions](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat) may break.
-- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information.
-- [Vanadium](https://grapheneos.org/features#vanadium): Based on Chromium. For GrapheneOS only.
+- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
+- [Vanadium](https://github.com/GrapheneOS/Vanadium): Based on Chromium. For GrapheneOS only. Refer to [GrapheneOS](https://grapheneos.org/features#vanadium).
 
 Since Firefox Multi-Account Containers (MAC) doesn't support Android, you can use multiple browsers to achieve similar functionality. Besides different browsers, Work Profile (in contrast to Personal Profile) can provide the second instance for each browser. I recommend using [Insular](https://gitlab.com/secure-system/Insular) (`com.oasisfeng.island.fdroid`) from [F-Droid](https://f-droid.org/packages/com.oasisfeng.island.fdroid) or [Shelter](https://gitea.angry.im/PeterCxy/Shelter) (`net.typeblog.shelter`) from [F-Droid](https://droidify.app/app/?id=net.typeblog.shelter&repo_address=https://fdroid.typeblog.net) to manage Work Profile.
 
@@ -150,8 +177,8 @@ For people with higher threat models, note that Gecko-based browsers on Android 
 - [Firefox Browser](https://www.firefox.com): Mozilla Firefox. My default browser. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo. For people with higher threat models, refer to [Firefox for People with Higher Threat Models](#firefox-for-people-with-higher-threat-models).
 - [Brave Browser](https://brave.com): Based on Chromium.
 - [LibreWolf](https://librewolf.net): Based on Mozilla Firefox. For advanced user only. LibreWolf is designed to increase protection against tracking and fingerprinting techniques, while also including a few security improvements. It has [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) enabled and sends referrer only when the full hostnames match (`network.http.referer.XOriginPolicy=2`). Some sites and functions may break.
-- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break.
-- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Tor Browser without the Tor Network developed in a collaboration between Mullvad VPN and the Tor Project ([source code (GitHub)](https://github.com/mullvad/mullvad-browser)), typically used with a trustworthy VPN. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break.
+- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
+- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Tor Browser without the Tor Network developed in a collaboration between Mullvad VPN and the Tor Project ([source code (GitHub)](https://github.com/mullvad/mullvad-browser)), typically used with a trustworthy VPN. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
 
 The fingerprint and tracking resistance of Firefox forks is Firefox Browser without Enhanced Tracking Protection (ETP) Strict Mode < Firefox Browser with Enhanced Tracking Protection (ETP) Strict Mode < LibreWolf < Mullvad Browser with a trustworthy VPN = Tor Browser, while the likelihood of breaking sites and functions is the same.
 
@@ -309,6 +336,11 @@ TODO: update
 - <https://www.privacyguides.org/en/mobile-browsers>
 - <https://www.privacyguides.org/en/passwords>
 - <https://www.privacyguides.org/en/tor>
+- <https://madaidans-insecurities.github.io/firefox-chromium.html>
+- <https://grapheneos.org/usage#web-browsing>
+- <https://xsinator.com/paper.pdf>
+- <https://xsinator.com/testing.html>
+- <https://xsleaks.dev>
 
 ## LICENSE
 
