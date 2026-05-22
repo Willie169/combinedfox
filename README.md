@@ -324,6 +324,7 @@ TODO: update
 - <https://github.com/kkapsner/CanvasBlocker>
 - <https://github.com/omegaee/my-fingerprint>
 - <https://grapheneos.org/usage#web-browsing>
+- <https://madaidans-insecurities.github.io/firefox-chromium.html>
 - <https://serpapi.com/blog/google-search-parameters>
 - <https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop>
 - <https://support.mozilla.org/en-US/kb/resist-fingerprinting>
@@ -336,8 +337,6 @@ TODO: update
 - <https://www.privacyguides.org/en/mobile-browsers>
 - <https://www.privacyguides.org/en/passwords>
 - <https://www.privacyguides.org/en/tor>
-- <https://madaidans-insecurities.github.io/firefox-chromium.html>
-- <https://grapheneos.org/usage#web-browsing>
 - <https://xsinator.com/paper.pdf>
 - <https://xsinator.com/testing.html>
 - <https://xsleaks.dev>
