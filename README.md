@@ -95,7 +95,7 @@ For people with higher threat models, note that Gecko-based browsers on Android 
 - [Firefox Browser](https://www.firefox.com): Mozilla Firefox. My default browser. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo. For people with higher threat models, refer to [Firefox for People with Higher Threat Models](#firefox-for-people-with-higher-threat-models).
 - [Brave Browser](https://brave.com): Based on Chromium.
 - [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with VPN are the only browsers that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information.
-- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. Some sites and functions may break.
+- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Tor Browser without the Tor Network developed in a collaboration between Mullvad VPN and the Tor Project ([source code (GitHub)](https://github.com/mullvad/mullvad-browser)), typically used with a trustworthy VPN. Some sites and functions may break.
 
 ## Search Engines
 
