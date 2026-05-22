@@ -279,12 +279,18 @@ TODO: update
 - <https://api-dashboard.search.brave.com/app/documentation/news-search/query>
 - <https://blog.mozilla.org/security/2021/01/26/supercookie-protections>
 - <https://blog.mozilla.org/security/2021/02/23/total-cookie-protection>
+- <https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/>
+- <https://bugzilla.mozilla.org/show_bug.cgi?id=1734328>
 - <https://canvasblocker.kkapsner.de>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer>
+- <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Referer_header:_privacy_and_security_concerns>
 - <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/State_Partitioning>
+- <https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Referrer_policy>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/params>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/save>
 - <https://en.wikipedia.org/wiki/Do_Not_Track>
+- <https://github.com/arkenfox/user.js/issues/1439>
 - <https://github.com/arkenfox/user.js/wiki>
 - <https://github.com/gorhill/uBlock/wiki>
 - <https://github.com/jruns/disable-ai>
@@ -294,21 +300,15 @@ TODO: update
 - <https://serpapi.com/blog/google-search-parameters>
 - <https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop>
 - <https://support.mozilla.org/en-US/kb/resist-fingerprinting>
+- <https://support.mozilla.org/en-US/questions/1130505>
+- <https://trustmyip.com/referrer-leak-test>
 - <https://wiki.mozilla.org/Project_Fission>
+- <https://wiki.mozilla.org/Security/Referrer>
 - <https://www.dedoimedo.com/computers/bing-search-no-ai.html>
 - <https://www.privacyguides.org/en/desktop-browsers>
 - <https://www.privacyguides.org/en/mobile-browsers>
 - <https://www.privacyguides.org/en/passwords>
 - <https://www.privacyguides.org/en/tor>
-- <https://github.com/arkenfox/user.js/issues/1439>
-- <https://bugzilla.mozilla.org/show_bug.cgi?id=1734328>
-- <https://trustmyip.com/referrer-leak-test>
-- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer>
-- <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Referer_header:_privacy_and_security_concerns>
-- <https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Referrer_policy>
-- <https://wiki.mozilla.org/Security/Referrer>
-- <https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/>
-- <https://support.mozilla.org/en-US/questions/1130505>
 
 ## LICENSE
 
