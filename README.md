@@ -60,11 +60,18 @@ I use CanvasBlocker and My Fingerprint to spoof fingerprints. The reason to use 
 
 According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than fingerprintingProtection (FPP) in Enhanced Tracking Protection (ETP) Strict Mode, and is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
 
-If this level of fingerprint protection is not enough for your threat model, consider [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
+### Firefox Referer
 
 ### Firefox for People with Higher Threat Models
 
-Refer to [Arkenfox](https://github.com/arkenfox/user.js), [Phonix](https://codeberg.org/celenity/Phoenix), [higher block mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode), and [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting), which may break some sites.
+For people with higher threat model, consider the following hardening of Firefox, which may break some sites and functions.
+- [Arkenfox](https://github.com/arkenfox/user.js)
+- [Betterfox](https://github.com/yokoffing/Betterfox)
+- [Phonix](https://codeberg.org/celenity/Phoenix)
+- [higher blocking mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode)
+- [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting)
+- Hardened Firefox fork: Refer to [Browsers](#browsers).
+
 
 ### Firefox Tests
 
@@ -104,8 +111,11 @@ For people with higher threat models, note that Gecko-based browsers on Android 
 
 - [Firefox Browser](https://www.firefox.com): Mozilla Firefox. My default browser. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo. For people with higher threat models, refer to [Firefox for People with Higher Threat Models](#firefox-for-people-with-higher-threat-models).
 - [Brave Browser](https://brave.com): Based on Chromium.
-- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with VPN are the only browsers that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information.
-- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Tor Browser without the Tor Network developed in a collaboration between Mullvad VPN and the Tor Project ([source code (GitHub)](https://github.com/mullvad/mullvad-browser)), typically used with a trustworthy VPN. Some sites and functions may break.
+- [LibreWolf](https://librewolf.net): Based on Mozilla Firefox. For advanced user only. LibreWolf is designed to increase protection against tracking and fingerprinting techniques, while also including a few security improvements. It has [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) enabled and sends referrer only when the full hostnames match (`network.http.referer.XOriginPolicy=2`). Some sites and functions may break.
+- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break.
+- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Tor Browser without the Tor Network developed in a collaboration between Mullvad VPN and the Tor Project ([source code (GitHub)](https://github.com/mullvad/mullvad-browser)), typically used with a trustworthy VPN. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break.
+
+The fingerprint and tracking resistance of Firefox forks is Firefox Browser without Enhanced Tracking Protection (ETP) Strict Mode < Firefox Browser with Enhanced Tracking Protection (ETP) Strict Mode < LibreWolf < Mullvad Browser with a trustworthy VPN = Tor Browser, while the likelihood of breaking sites and functions is the same.
 
 ## Search Engines
 
