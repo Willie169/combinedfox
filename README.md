@@ -82,23 +82,22 @@ The following settings in Firefox control `Referrer`-Policy:
   - 0 = never send the header
   - 1 = send the header only when clicking on links and similar elements
   - 2 = send on all requests (e.g. images, links, etc.)
-- `network.http.referer.trimmingPolicy`: controls how much referrer to send regardless of origin (default 0)
+- `network.http.referer.trimmingPolicy`: controls how much referrer to send regardless of origin (default 0). There's no need to set it other than 0. Only cross-origin requests matter.
   - 0 = send the full URL
   - 1 = send the URL without its query string
   - 2 = only send the origin
-- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0)
+- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0). For Enhanced Tracking Protection (ETP) Strict Mode, this doesn't matter since `network.http.referer.disallowCrossSiteRelaxingDefault` and `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode` are true.
 - `network.http.referer.XOriginPolicy`: controls whether or not to send a referrer across origins (default 0)
   - 0 = (default) send the referrer in all cases
   - 1 = send a referrer only when the base domains are the same
   - 2 = send a referrer only on same-origin
-- `network.http.referer.spoofSource`: (default false)
+- `network.http.referer.spoofSource`: (default false). False is recommended since spoofing can affect Cross-Site Request Forgery (CSRF) protection according to [Arkenfox](https://github.com/arkenfox/user.js/blob/master/user.js).
   - false = use real referrer
   - true = spoof with URI of the current request
-- `network.http.referer.disallowCrossSiteRelaxingDefault`: controls whether or not a referrer across origins can relax default `Referrer`-Policy (default true)
-- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default true)
-- `network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for top navigations (default true, due to [Bug 1734328](https://bugzilla.mozilla.org/show_bug.cgi?id=1734328).
-- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default false)
-- `network.http.referer.hideOnionSource`: hides Onion service sources
+- `network.http.referer.disallowCrossSiteRelaxingDefault`: controls whether or not a referrer across origins can relax default `Referrer`-Policy (ETP Strict Mode set to true)
+- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (ETP Strict Mode set to true)
+- `network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for top navigations (ETP Strict Mode set to true, due to [Bug 1734328](https://bugzilla.mozilla.org/show_bug.cgi?id=1734328).
+- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (ETP Strict Mode set to false)
 
 ### Firefox XS-Leaks
 
