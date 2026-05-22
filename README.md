@@ -107,12 +107,11 @@ According to [XS-Leaks Wiki](https://xsleaks.dev),
 
 <blockquote>Cross-site leaks (aka XS-Leaks, XSLeaks) are a class of vulnerabilities derived from side-channels built into the web platform. They take advantage of the web’s core principle of composability, which allows websites to interact with each other, and abuse legitimate mechanisms to infer information about the user.</blockquote>
 
-Virtually all browsers, including Tor Browser, are subjected to it.
+Virtually all browsers, including Tor Browser, are subjected to it. You can test it on [XSinator XS-Leak Browser Test Suite](https://xsinator.com/testing.html). Note that many tests may have different results on multiple runs on the same setup and may be influenced by features such as fingerprint spoofing.
 
 Refer to:
 - [XSinator.com: From a Formal Model to the Automatic Evaluation of Cross-Site Leaks in Web Browsers (paper)](https://xsinator.com/paper.pdf)
 - [XS-Leaks Wiki](https://xsleaks.dev)
-- [XSinator XS-Leak Browser Test Suite](https://xsinator.com/testing.html)
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XS-Leaks)
 - [Bug 1742425](https://bugzilla.mozilla.org/show_bug.cgi?id=1742425)
 
@@ -125,7 +124,6 @@ For people with higher threat model, consider the following hardening of Firefox
 - [higher blocking mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode)
 - [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting)
 - Hardened Firefox fork: Refer to [Browsers](#browsers).
-Also take a look at [Firefox XS-Leaks](#firefox-xs-leaks).
 
 ### Firefox Tests
 
