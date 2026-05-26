@@ -161,7 +161,7 @@ Gecko-based browsers:
 - [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed. My default browser.
 - [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox. `about:config` not accessible.
 - [Brave Browser](https://brave.com): Based on Chromium. Currently doesn't support extensions.
-- [Cromite](https://github.com/uazo/cromite): Based on Chromium.
+- [Cromite](https://github.com/uazo/cromite): Based on Chromium. Supports manifest V2 (needed by uBlock Origin) and extensions (experimental).
 - [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
 - [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
 - [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security. WebGL is disabled by default. [A few sites and functions](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat) may break.
