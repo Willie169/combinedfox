@@ -287,6 +287,7 @@ TODO: update
 ## References and Resources
 
 - <https://api-dashboard.search.brave.com/app/documentation/news-search/query>
+- <https://assets.ironfoxoss.org/ublock/assets.jsont>
 - <https://blog.mozilla.org/security/2021/01/26/supercookie-protections>
 - <https://blog.mozilla.org/security/2021/02/23/total-cookie-protection>
 - <https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/>
@@ -297,6 +298,8 @@ TODO: update
 - <https://bugzilla.mozilla.org/show_bug.cgi?id=1767271>
 - <https://bugzilla.mozilla.org/show_bug.cgi?id=1807456>
 - <https://canvasblocker.kkapsner.de>
+- <https://codeberg.org/celenity/BadBlock>
+- <https://codeberg.org/celenity/Phoenix>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer>
 - <https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Referer_header:_privacy_and_security_concerns>
@@ -305,13 +308,24 @@ TODO: update
 - <https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Referrer_policy>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/params>
 - <https://duckduckgo.com/duckduckgo-help-pages/settings/save>
+- <https://easylist.to>
 - <https://en.wikipedia.org/wiki/Do_Not_Track>
+- <https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters>
+- <https://github.com/AdguardTeam/AdGuardExtra>
 - <https://github.com/arkenfox/user.js/issues/1439>
+- <https://github.com/arkenfox/user.js/raw/refs/heads/master/user.js>
 - <https://github.com/arkenfox/user.js/wiki>
+- <https://github.com/arkenfox/user.js>
+- <https://github.com/easylist/easylist>
 - <https://github.com/gorhill/uBlock/wiki>
+- <https://github.com/gorhill/uBlock>
+- <https://github.com/hagezi/dns-blocklists>
 - <https://github.com/jruns/disable-ai>
 - <https://github.com/kkapsner/CanvasBlocker>
 - <https://github.com/omegaee/my-fingerprint>
+- <https://github.com/yokoffing/filterlists>
+- <https://gitlab.com/DandelionSprout/adfilt>
+- <https://gitlab.com/ironfox-oss/IronFox>
 - <https://grapheneos.org/usage#web-browsing>
 - <https://madaidans-insecurities.github.io/firefox-chromium.html>
 - <https://serpapi.com/blog/google-search-parameters>
@@ -334,3 +348,4 @@ TODO: update
 ## LICENSE
 
 This project is licensed under GPL-3.0-or-later. See [LICENSE.md](LICENSE.md).
+
