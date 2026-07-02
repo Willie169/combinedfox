@@ -18,6 +18,7 @@
       "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt",
       "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt"
     ],
+    "popupPanelSections": 63,
     "webrtcIPAddressHidden": true
   },
   "selectedFilterLists": [
