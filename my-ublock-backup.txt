@@ -4,7 +4,7 @@
   "userSettings": {
     "advancedUserEnabled": true,
     "cloudStorageEnabled": true,
-    "externalLists": "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txthttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/doh.txthttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/dyndns.txthttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txthttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txthttps://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AdRemovalListForUnusualAds.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Anti%C2%ABGooglePreferredSource%C2%BBList.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AntiFunctionalityRemovalList.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/BrowseWebsitesWithoutLoggingIn.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/EmptyPaddingRemover.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/I%20Don't%20Want%20to%20Download%20Your%20Browser.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Special%20security%20lists/IDNHomographProtection-USLatinTLDsOnly.txthttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/stayingonbrowser/Staying%20On%20The%20Phone%20Browserhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txthttps://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txthttps://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
+    "externalLists": "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt\nhttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/doh.txt\nhttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/dyndns.txt\nhttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt\nhttps://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt\nhttps://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AdRemovalListForUnusualAds.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Anti%C2%ABGooglePreferredSource%C2%BBList.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AntiFunctionalityRemovalList.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/BrowseWebsitesWithoutLoggingIn.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/EmptyPaddingRemover.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/I%20Don't%20Want%20to%20Download%20Your%20Browser.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Special%20security%20lists/IDNHomographProtection-USLatinTLDsOnly.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/stayingonbrowser/Staying%20On%20The%20Phone%20Browser\nhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt\nhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt\nhttps://raw.githubusercontent.com/liamengland1/miscfilters/refs/heads/master/antipaywall.txt\nhttps://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
     "importedLists": [
       "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt",
       "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/doh.txt",
@@ -24,6 +24,7 @@
       "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/stayingonbrowser/Staying%20On%20The%20Phone%20Browser",
       "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt",
       "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt",
+      "https://raw.githubusercontent.com/liamengland1/miscfilters/refs/heads/master/antipaywall.txt",
       "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
     ],
     "popupPanelSections": 63,
@@ -113,6 +114,7 @@
     "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/stayingonbrowser/Staying%20On%20The%20Phone%20Browser",
     "https://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt",
     "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt",
+    "https://raw.githubusercontent.com/liamengland1/miscfilters/refs/heads/master/antipaywall.txt",
     "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt"
   ],
   "hiddenSettings": {},

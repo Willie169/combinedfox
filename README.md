@@ -322,6 +322,7 @@ TODO: update
 - <https://github.com/hagezi/dns-blocklists>
 - <https://github.com/jruns/disable-ai>
 - <https://github.com/kkapsner/CanvasBlocker>
+- <https://github.com/liamengland1/miscfilters>
 - <https://github.com/omegaee/my-fingerprint>
 - <https://github.com/yokoffing/filterlists>
 - <https://gitlab.com/DandelionSprout/adfilt>
