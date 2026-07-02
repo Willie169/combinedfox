@@ -216,7 +216,7 @@ TODO
 
 ### Geck-based Browsers Extensions
 
-TODO: desktop update
+Note for Android: Some extensions will be shown as un available. Click Desktop site, ensure the link starts with `https://addons.mozilla.org/en-US/firefox/addon` instead of `https://addons.mozilla.org/en-US/android/addon`, and click the Add to Firefox button to add it.
 
 Types:
 - 2: Needed for privacy or security.
