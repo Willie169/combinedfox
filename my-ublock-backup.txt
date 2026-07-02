@@ -5,7 +5,7 @@
     "advancedUserEnabled": true,
     "cloudStorageEnabled": true,
     "externalLists":
-    "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt\nhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt\nhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AdRemovalListForUnusualAds.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AntiFunctionalityRemovalList.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/BrowseWebsitesWithoutLoggingIn.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/I%20Don't%20Want%20to%20Download%20Your%20Browser.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt\nhttps://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt",
+    "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt\nhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt\nhttps://gitlab.com/celenityy/BadBlock/-/raw/pages/abp/click-tracking.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AdRemovalListForUnusualAds.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/AntiFunctionalityRemovalList.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/BrowseWebsitesWithoutLoggingIn.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/I%20Don't%20Want%20to%20Download%20Your%20Browser.txt\nhttps://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt\nhttps://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt\nhttps://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt",
     "importedLists": [
       "https://assets.celenity.dev/ublock/phoenix/quick-fixes.txt",
       "https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt",
@@ -16,7 +16,8 @@
       "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/BrowseWebsitesWithoutLoggingIn.txt",
       "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/I%20Don't%20Want%20to%20Download%20Your%20Browser.txt",
       "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt",
-      "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt"
+      "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt",
+      "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt"
     ],
     "popupPanelSections": 63,
     "webrtcIPAddressHidden": true
@@ -56,7 +57,8 @@
     "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/BrowseWebsitesWithoutLoggingIn.txt",
     "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/I%20Don't%20Want%20to%20Download%20Your%20Browser.txt",
     "https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt",
-    "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt"
+    "https://raw.githubusercontent.com/fmhy/FMHYFilterlist/main/filterlist-basic.txt",
+    "https://gitflic.ru/project/magnolia1234/bypass-paywalls-clean-filters/blob/raw?file=bpc-paywall-filter.txt"
   ],
   "hiddenSettings": {},
   "whitelist": [
