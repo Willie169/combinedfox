@@ -52,8 +52,6 @@ A particular strength of this guide is my hardening of Firefox in addition to th
 </blockquote></li>
 </ul>
 
-Do Not Track (DNT) header has deprecated. Very few advertising companies actually supported DNT. Sending it may be a fingerprint. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/DNT) and [Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track).
-
 ### Firefox Fingerprint
 
 Besides [fingerprintingProtection (FPP)](https://wiki.mozilla.org/Fingerprinting) in Enhanced Tracking Protection (ETP) Strict Mode, I also use [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker) and [My Fingerprint](https://github.com/omegaee/my-fingerprint) to spoof fingerprints. (Refer to [CanvasBlocker](#canvasblocker) and [My Fingerprint](my_fingerprint) for my settings and remarks.) The reason to use the later is to spoof fingerprints that are not supported by the former, such as offscreen canvas, fonts, and language. Thus, if you disable one of them, some metrics will be leaked. However, all randomizing is detectable. Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts: enough metrics covered and a large crowd.
