@@ -202,6 +202,9 @@ Types:
 - 2: Needed for privacy or security.
 - 1: Optional, used to add more functionalities.
 
+https://addons.mozilla.org/en-US/android/addon/mobidevtools
+https://sourceforge.net/projects/mobidevtools
+
 <table>
 <tr><th>Name</th><th>Source Code</th><th>Android</th><th>Desktop</th><th>Type</th><th>My Settings or Remarks</th><th>Self Description</th></tr>
 <tr><td>Bitwarden Password Manager</td><td><a href="https://github.com/bitwarden/clients">GitHub</a></td><td>No need on Android. Use <a href="https://github.com/bitwarden/android">native app</a> from <a href="https://droidify.app/app/?id=com.x8bit.bitwarden&repo_address=https://mobileapp.bitwarden.com/fdroid/repo">F-Droid</a> or <a href="https://play.google.com/store/apps/details?id=com.x8bit.bitwarden">Google Play</a> instead.<td><a href="https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager">Desktop</a></td><td>1</td><td>Do not use the browsers' built-in password managers. They are not as secure as dedicated password managers. I recommend those recommended by <a href="https://www.privacyguides.org/en/passwords">Privacy Guides</a>.</td><td>At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.</td></tr>
