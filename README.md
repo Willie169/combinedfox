@@ -81,9 +81,24 @@ The following settings in Firefox control `Referrer`-Policy:
 
 To enable WebGPU in Firefox, go to <about:config>, and set `dom.webgpu.enabled` and `gfx.webrender.all` to `true`. This may not work on some GPUs and platforms.
 
-### Firefox for Android Debug
+### Firefox for Android Debug Menu
 
 To enable Debug menu in Firefox for Android and its forks, go to Settings > About Firefox (or fork's name), and click Firefox's (or fork's) logo five times. Entries such as Install extension from file and Secret Settings will be shown in Settings.
+
+### Firefox user.js
+
+According to [Arkenfox wiki](https://github.com/arkenfox/user.js/wiki),
+<blockquote>
+A `user.js` file is a javascript file and is text based, and resides in your profile folder. It is used to set preferences for that profile when Firefox starts. You can update the user.js while Firefox is open, it is only ever read when Firefox starts.
+
+Prefs must follow Mozilla's syntax which is `user_pref("prefname", value);`
+- the pref name must be wrapped in quotation marks
+- string values must be wrapped in quotation marks
+- prefs are case sensitive
+- a semi-colon is required at the end
+</blockquote>
+
+Some famous Firefox `user.js` include:
 
 ### Firefox Cross-Site Leaks (XS-Leaks)
 
@@ -131,20 +146,22 @@ Stores:
 - [Droid-fy](https://github.com/Droid-ify/client) (`com.looker.droidify`) from [F-Droid](https://f-droid.org/packages/com.looker.droidify): Install apps from F-Droid repositories (hereafter referred to as F-Droid).
 - [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore) (`com.aurora.store`) from [F-Droid](https://f-droid.org/packages/com.aurora.store): Unofficial, FOSS client to Google Play to install and update apps on Google Play without login to a Google account.
 
-Gecko-based browsers:
-- [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed. My default browser.
+Firefox and its forks:
+- [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed.
+- [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
 - [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox. `about:config` not accessible.
+- [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
+- [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security.
+- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
+
+Chromium forks:
+- [Vanadium](https://github.com/GrapheneOS/Vanadium): Based on Chromium. For GrapheneOS only. Refer to [GrapheneOS](https://grapheneos.org/features#vanadium).
 - [Brave Browser](https://brave.com): Based on Chromium. Currently doesn't support extensions.
 - [Cromite](https://github.com/uazo/cromite): Based on Chromium. Supports manifest V2 (needed by uBlock Origin) and extensions (experimental).
-- [Firefox Focus](https://www.firefox.com/en-US/mobile/focus) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.focus): Essentially Firefox browser's private browsing tab.
-- [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
-- [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security. WebGL is disabled by default. [A few sites and functions](https://codeberg.org/celenity/Phoenix/wiki/Web-Compat) may break.
-- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
-- [Vanadium](https://github.com/GrapheneOS/Vanadium): Based on Chromium. For GrapheneOS only. Refer to [GrapheneOS](https://grapheneos.org/features#vanadium).
 
 Since Firefox Multi-Account Containers (MAC) doesn't support Android, you can use multiple browsers to achieve similar functionality. Besides different browsers, Work Profile (in contrast to Personal Profile) can provide the second instance for each browser. I recommend using [Insular](https://gitlab.com/secure-system/Insular) (`com.oasisfeng.island.fdroid`) from [F-Droid](https://f-droid.org/packages/com.oasisfeng.island.fdroid) or [Shelter](https://gitea.angry.im/PeterCxy/Shelter) (`net.typeblog.shelter`) from [F-Droid](https://droidify.app/app/?id=net.typeblog.shelter&repo_address=https://fdroid.typeblog.net) to manage Work Profile.
 
-For people with higher threat models, note that Gecko-based browsers on Android are less secure than Chromium-based browsers (refer to [GrapheneOS](https://grapheneos.org/usage#web-browsing) and [madaidans](https://madaidans-insecurities.github.io/firefox-chromium.html)), while Chromium-based browser might lack enough privacy settings.
+For people with higher threat models, note that Firefox and its forks on Android are less secure than Chromium-based browsers (refer to [GrapheneOS](https://grapheneos.org/usage#web-browsing) and [madaidans](https://madaidans-insecurities.github.io/firefox-chromium.html)), while Chromium-based browser might lack enough privacy features.
 
 ### Desktop Browsers
 
@@ -247,6 +264,9 @@ Supported features:
 <tr><td>Download All Images</td><td><a href="https://github.com/belaviyo/save-images/">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/save-all-images-webextension">Android (Desktop)</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/save-all-images-webextension">Desktop</a></td><td>1</td><td></td><td>Easily save images with a wide range of customization features, such as file size, dimensions, and image type.</td></tr>
 <tr><td>Firefox Multi-Account Containers</td><td><a href="https://github.com/mozilla/multi-account-containers">GitHub</a></td><td>Not available on Android due to <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1807456">Bug 1807456</a>. See <a href="#android-browsers"</a>Android Browsers</a> for instructions.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers">Desktop</a></td><td>1</td><td>Use if you want to keep different set of cookies such as login info for a site. Refer to <a href="#firefox-cookies-and-supercookies">Firefox Cookies and Supercookies</a> section.</td><td>Firefox Multi-Account Containers lets you keep parts of your online life separated into color-coded tabs. Cookies are separated by container, allowing you to use the web with multiple accounts and integrate Mozilla VPN for an extra layer of privacy.</td></tr>
 <tr><td>Firefox Relay</td><td><a href="https://github.com/mozilla/fx-private-relay-add-on">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/private-relay">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/private-relay">Desktop</a></td><td>1</td><td>Need login to Mozilla account.</td><td>Firefox Relay lets you generate email aliases that forward to your real inbox. Use it to hide your real email address and protect yourself from hackers and unwanted mail.</td></tr>
+<tr><td>floccus</td><td><a href="https://github.com/floccusaddon/floccus">GitHub</a></td><td><blockquote>Floccus requires specific bookmarks APIs, however, which have not been implemented in Firefox for Android yet. So, we still wait, but the waiting won't be long.</blockquote></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/floccus">Desktop</a></td><td>1</td><td>You can sync with Nextcloud Bookmarks (cannot make use of end-to-end encryption), with Linkwarden (cannot make use of end-to-end encryption and does not support keeping the order of bookmarks across syncs), with Karakeep (cannot make use of end-to-end encryption and does not support keeping the order of bookmarks across syncs), via WebDAV (can choose to use end-to-end encryption), via Git over HTTPS (can not make use of end-to-end encryption and currently not available in the mobile app), and via Google Drive (can choose to use end-to-end encryption), and via Dropbox (can choose to use end-to-end encryption).
+
+The Android app floccus bookmark sync is available on [F-Droid](https://f-droid.org/packages/org.handmadeideas.floccus), [GitHub release](https://github.com/floccusaddon/floccus/releases), and [Google Play Store](https://play.google.com/store/apps/details?id=org.handmadeideas.floccus).</td><td>Securely synchronize bookmarks across Chrome, Firefox, Edge, and more using your own cloud storage.</td></tr>
 <tr><td>Force Copy</td><td><a href="https://github.com/WindrunnerMax/TKScript">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/force-copy">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/force-copy">Desktop</a></td><td>1</td><td>Do not use Start since it may break some sites. It's recommended to use Once when you need.</td><td>Force Copy professionally circumvents limitations pertaining to Web Copying, Keyboard Usage, and Right-click Functionalities, facilitating an unhindered browsing experience. Open Source Project: https://github.com/WindrunnerMax/TKScript.</td></tr>
 <tr><td>LibRedirect</td><td><a href="https://github.com/libredirect/browser_extension">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/libredirect">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/libredirect">Desktop</a></td><td>1</td><td></td><td>Redirects YouTube, Twitter, TikTok... requests to alternative privacy friendly frontends.</td></tr>
 <tr><td>MobiDevTools</td><td><a href="https://sourceforge.net/projects/mobidevtools">SourceForge</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/mobidevtools">Android</a></td><td>No need on desktop.</td><td>1</td><td></td><td>an extension that adds Eruda developer tools to Firefox Android. Lets you use the console, inspect elements, and network monitor on your phone</td></tr>
