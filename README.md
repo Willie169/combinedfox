@@ -29,27 +29,7 @@ A particular strength of this guide is my hardening of Firefox in addition to th
 <li>let all other sites in cookie-clearing exceptions access its cookies.</li>
 </ul>
 <p>If you want some cookies to be preserved just disable cookie clearing. This will have no direct impact on your privacy when using Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI) except for the scenario that you also change your IP address, at which you should consider clearing cookies for anonymity. For people with higher threat models, however, consider the possible security impact on cross-site scripting (XSS), cross-site request forgery (CSRF), and cross-site leaks (XS-Leaks) protection. Refer to <a href="#firefox-cross-site-scripting-xss">Firefox Cross-site Scripting (XSS)</a>, <a href="#firefox-cross-site-request-forgery-csrf">Firefox Cross-Site Request Forgery (CSRF)</a>, and <a href="#firefox-cross-site-leaks-xs-leaks">Firefox Cross-Site Leaks (XS-Leaks)</a> sections.</p></li>
-<li><p>You can view, delete, edit, import, and export cookies using an extension that is compatible with Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI) and Multi-Account Containers. I recommend Cookie Manager (<a href="https://addons.mozilla.org/en-US/android/addon/a-cookie-manager">Android</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/a-cookie-manager">Desktop</a>) because it supports the following features:</p>
-<blockquote>
-<ul>
-<li>Viewing all cookies</li>
-<li>Querying cookies by any combination of url, domain, path, cookie content (name/value), httpOnly/secure/sameSite/session flags, expiration time range.</li>
-<li>Recognizes cookie jars (default, private browsing mode, container tabs aka userContext).</li>
-<li>Allows you to remove individual cookies, or all matching cookies with one click.</li>
-<li>Supports Firefox for Android (Fenix)</li>
-<li>Supports the TOR Browser (and first-party domain cookies)</li>
-<li>Supports partitioned cookies (known as State Partitioning or Total Cookie Protection)</li>
-<li>Add cookies</li>
-<li>Edit cookies</li>
-<li>Import / export cookies<ul>
-<li>JSON format for backup and restoration purposes.</li>
-<li>Netscape HTTP Cookie File format for use with other tools like curl and wget.</li>
-</ul>
-</li>
-<li>Copying cookies to a different cookie jar</li>
-<li>Whitelisting cookies</li>
-</ul>
-</blockquote></li>
+<li>You can view, delete, edit, import, and export cookies using an extension that is compatible with Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI) and Multi-Account Containers. I recommend Cookie Manager (<a href="https://addons.mozilla.org/en-US/android/addon/a-cookie-manager">Android</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/a-cookie-manager">Desktop</a>).</li>
 </ul>
 
 ### Firefox Fingerprint
@@ -216,7 +196,7 @@ TODO
 
 ### Geck-based Browsers Extensions
 
-Note for Android: Some extensions will be shown as un available. Click Desktop site, ensure the link starts with `https://addons.mozilla.org/en-US/firefox/addon` instead of `https://addons.mozilla.org/en-US/android/addon`, and click the Add to Firefox button to add it.
+Note for Android: If an extension is shown as un available, click Desktop site and ensure the link starts with `https://addons.mozilla.org/en-US/firefox` instead of `https://addons.mozilla.org/en-US/android`, then the Add to Firefox button may become clickable.
 
 Types:
 - 2: Needed for privacy or security.
@@ -227,7 +207,31 @@ Types:
 <tr><td>Bitwarden Password Manager</td><td><a href="https://github.com/bitwarden/clients">GitHub</a></td><td>No need on Android. Use <a href="https://github.com/bitwarden/android">native app</a> from <a href="https://droidify.app/app/?id=com.x8bit.bitwarden&amp;repo_address=https://mobileapp.bitwarden.com/fdroid/repo">F-Droid</a> or <a href="https://play.google.com/store/apps/details?id=com.x8bit.bitwarden">Google Play</a> instead.<td><a href="https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager">Desktop</a></td><td>1</td><td>Do not use the browsers' built-in password managers. They are not as secure as dedicated password managers. I recommend those recommended by <a href="https://www.privacyguides.org/en/passwords">Privacy Guides</a>.</td><td>At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.</td></tr>
 <tr id="canvasblocker"><td>CanvasBlocker</td><td><a href="https://github.com/kkapsner/CanvasBlocker">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/canvasblocker">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker">Desktop</a></td><td>2</td><td></td><td>Alters some JS APIs to prevent fingerprinting.</td></tr>
 <tr><td>ClearURLs</td><td><a href="https://github.com/ClearURLs/Addon">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/clearurls">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/clearurls">Desktop</a></td><td>1</td><td></td><td>Removes tracking elements from URLs.</td></tr>
-<tr><td>Cookie Manager</td><td><a href="https://github.com/Rob--W/cookie-manager">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/a-cookie-manager">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/a-cookie-manager">Desktop</a></td><td>1</td><td><blockquote>By default, the Cookie Manager opens when the extension starts up. You can also turn off the automatic opening.</blockquote><p>Refer to <a href="#firefox-cookies-and-supercookies">Firefox Cookies and Supercookies</a> section.</p></td><td>An efficient cookie manager. View, edit, delete and search for cookies. Supports private mode and Firefox mobile too. Designed for privacy and security aware users. Enable this extension to open the cookie manager, disable it if you are done.</td></tr>
+<tr><td>Cookie Manager</td><td><a href="https://github.com/Rob--W/cookie-manager">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/a-cookie-manager">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/a-cookie-manager">Desktop</a></td><td>1</td><td><blockquote>
+By default, the Cookie Manager opens when the extension starts up. You can also turn off the automatic opening.
+
+Supported features:
+<ul>
+<li>Viewing all cookies</li>
+<li>Querying cookies by any combination of url, domain, path, cookie content (name/value), httpOnly/secure/sameSite/session flags, expiration time range.</li>
+<li>Recognizes cookie jars (default, private browsing mode, container tabs aka userContext).</li>
+<li>Allows you to remove individual cookies, or all matching cookies with one click.</li>
+<li>Supports Firefox for Android (Fenix)</li>
+<li>Supports the TOR Browser (and first-party domain cookies)</li>
+<li>Supports partitioned cookies (known as State Partitioning or Total Cookie Protection)</li>
+<li>Add cookies</li>
+<li>Edit cookies</li>
+<li>Import / export cookies
+<ul>
+<li>JSON format for backup and restoration purposes.</li>
+<li>Netscape HTTP Cookie File format for use with other tools like curl and wget.</li>
+</ul>
+</li>
+<li>Copying cookies to a different cookie jar</li>
+<li>Whitelisting cookies</li>
+</ul>
+</blockquote>
+<p>Refer to <a href="#firefox-cookies-and-supercookies">Firefox Cookies and Supercookies</a> section.</p></td><td>An efficient cookie manager. View, edit, delete and search for cookies. Supports private mode and Firefox mobile too. Designed for privacy and security aware users. Enable this extension to open the cookie manager, disable it if you are done.</td></tr>
 <tr><td>Copy Link Text</td><td><a href="https://github.com/AbdellahSlimani/copy-link-text">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/copy-link-text-sytelix">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/copy-link-text-sytelix">Desktop</a></td><td>1</td><td></td><td>The only extension that lets you effortlessly copy link text on both desktop and mobile—via right-click, Alt+C shortcut, or Copy Mode activation.</td></tr>
 <tr><td>Ctrl + Shift + C Should Copy</td><td><a href="https://github.com/jscher2000/Ctrl-Shift-C-Should-Copy">GitHub</a></td><td>No need on Android.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/ctrl-shift-c-should-copy">Desktop</a></td><td>1</td><td>Use if you want Ctrl+Shift+C to copy.</td><td>Intercepts Ctrl+Shift+C, blocks opening developer tools, and copies the selection to the clipboard.</td></tr>
 <tr><td>Disable AI</td><td><a href="https://github.com/jruns/disable-ai">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/disable-ai">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/disable-ai">Desktop</a></td><td>1</td><td></td><td>Don't just hide results. Disable AI overviews on Brave Search, DuckDuckGo, Ecosia, Google, and Qwant so your searches consume less energy and water.</td></tr>
