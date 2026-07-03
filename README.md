@@ -93,10 +93,14 @@ that the semicolon is required), where `prefname` is a string, and there are thr
 - Integer: a number without quotes, e.g., 6.
 - String: a string quoted with `""`, e.g., `"https://www.duckduckgo.com"`.
 
+A line starting with `//` is a single-line comment. Lines quoted with `/*` and `*/` are a multi-line comment. Comments are skipped when loading.
+
 For any `user.js`, be sure to
 - Only trust the official source.
 - Read the offical wiki before proceed.
 - Read the content of the `user.js` before proceed.
+
+A `user.js` applies prefs in the order they are written. If a pref is listed multiple times, then the last value would override the others.
 
 Some famous Firefox `user.js` will be listed below.
 
