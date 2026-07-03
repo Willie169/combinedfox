@@ -99,6 +99,9 @@ Prefs must follow Mozilla's syntax which is `user_pref("prefname", value);`
 </blockquote>
 
 Some famous Firefox `user.js` include:
+- [Arkenfox](https://github.com/arkenfox/user.js): Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening
+- [Betterfox](https://github.com/yokoffing/BetterFox): Firefox user.js for optimal privacy and security. Your favorite browser, but better.
+- [Phoenix](https://codeberg.org/celenity/Phoenix): Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev>
 
 ### Firefox Cross-Site Leaks (XS-Leaks)
 
