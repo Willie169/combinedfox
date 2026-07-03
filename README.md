@@ -98,6 +98,13 @@ Prefs must follow Mozilla's syntax which is `user_pref("prefname", value);`
 - a semi-colon is required at the end
 </blockquote>
 
+For any `user.js`, be sure to
+- Only trust the official source.
+- Read the offical wiki before proceed.
+- Read the content of the `user.js` before proceed.
+
+
+
 Some famous Firefox `user.js` include:
 - [Arkenfox](https://github.com/arkenfox/user.js): Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening
 - [Betterfox](https://github.com/yokoffing/BetterFox): Firefox user.js for optimal privacy and security. Your favorite browser, but better.
