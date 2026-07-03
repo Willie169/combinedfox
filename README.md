@@ -103,12 +103,19 @@ For any `user.js`, be sure to
 - Read the offical wiki before proceed.
 - Read the content of the `user.js` before proceed.
 
+Some famous Firefox `user.js` will be listed below.
 
+#### [Arkenfox](https://github.com/arkenfox/user.js)
 
-Some famous Firefox `user.js` include:
-- [Arkenfox](https://github.com/arkenfox/user.js): Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening
-- [Betterfox](https://github.com/yokoffing/BetterFox): Firefox user.js for optimal privacy and security. Your favorite browser, but better.
-- [Phoenix](https://codeberg.org/celenity/Phoenix): Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev>
+<blockquote>Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening</blockquote>
+
+#### [Betterfox](https://github.com/yokoffing/BetterFox)
+
+<blockquote>Firefox user.js for optimal privacy and security. Your favorite browser, but better.</blockquote>
+
+#### [Phoenix](https://codeberg.org/celenity/Phoenix)
+
+<blockquote>Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev></blockquote>
 
 ### Firefox Cross-Site Leaks (XS-Leaks)
 
