@@ -87,16 +87,11 @@ To enable Debug menu in Firefox for Android and its forks, go to Settings > Abou
 
 ### Firefox user.js
 
-According to [Arkenfox wiki](https://github.com/arkenfox/user.js/wiki),
-<blockquote>
-A `user.js` file is a javascript file and is text based, and resides in your profile folder. It is used to set preferences for that profile when Firefox starts. You can update the user.js while Firefox is open, it is only ever read when Firefox starts.
-
-Prefs must follow Mozilla's syntax which is `user_pref("prefname", value);`
-- the pref name must be wrapped in quotation marks
-- string values must be wrapped in quotation marks
-- prefs are case sensitive
-- a semi-colon is required at the end
-</blockquote>
+A `user.js` file is a Javascript file in your profile folder used to set preferences for that profile when Firefox starts. You can update the user.js while Firefox is open, it is only read when Firefox starts. If a preference set in `user.js` is changed in <about:config>, it will be overridden back to the value set in `user.js` when Firefox starts next time. Each preference must follow Mozilla's syntax, which is `user_pref("prefname", value);` (note
+that the semicolon is required), where `prefname` is a string, and there are three main types of values:
+- Boolean: `true` or `false` without quotes.
+- Integer: a number without quotes, e.g., 6.
+- String: a string quoted with `""`, e.g., `"https://www.duckduckgo.com"`.
 
 For any `user.js`, be sure to
 - Only trust the official source.
