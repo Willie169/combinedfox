@@ -213,6 +213,7 @@ Search engines:
 - [Google Translate](Google%20Translate.txt)
 - [Google](Google.txt)
 - [Mojeek](Mojeek.txt)
+- [No search](No%20search.txt): No search engine. Enter sites directly.
 - [Perplexity](Perplexity.txt)
 - [Qwant Lite](Qwant%20Lite.txt)
 - [Qwant](Qwant.txt)
