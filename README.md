@@ -127,23 +127,30 @@ For any `user.js`, be sure to
 - Only trust the official source.
 - Read the offical wiki before proceed.
 - Read the content of the `user.js` before proceed.
-- Write your overrides when needed.
+- Backup before proceed.
+- Write your overrides.
 
-Some famous Firefox `user.js` are listed below.
+### Arkenfox
 
-#### [Arkenfox](https://github.com/arkenfox/user.js)
+<blockquote>
+Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening
 
-<blockquote>Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening</blockquote>
+Arkenfox v115.1+ makes approx 110 pref changes. With that, you will get some inconvenience and breakage. Everybody's mileage and threat model will differ - EVERYONE will need some "overrides". You do this by keeping them in a separate user-overrides.js file in your profile folder, so updating doesn't wipe them but instead appends them (when you run the updater).
+</blockquote>
 
-It's likely the most comprehensive, private, and secure `user.js`, but expect some site-breakings when using it without lossening overrides.
+Refer to [Arkenfox wiki](https://github.com/arkenfox/user.js/wiki) and [repo](https://github.com/arkenfox/user.js) for more information.
 
-#### [Betterfox](https://github.com/yokoffing/BetterFox)
+### Betterfox
 
 <blockquote>Firefox user.js for optimal privacy and security. Your favorite browser, but better.</blockquote>
 
-#### [Phoenix](https://codeberg.org/celenity/Phoenix)
+Refer to [Betterfox wiki](https://github.com/yokoffing/BetterFox/wiki) and [repo](https://github.com/yokoffing/BetterFox) for more information.
+
+### Phoenix
 
 <blockquote>Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev></blockquote>
+
+Refer to [Phoenix wiki](https://codeberg.org/celenity/Phoenix/wiki) and [repo](https://codeberg.org/celenity/Phoenix) for more information.
 
 ### Tor Browser
 
