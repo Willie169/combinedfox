@@ -290,7 +290,7 @@ TODO
 
 ### Geck-based Browsers Extensions
 
-Note for Android: If an extension is shown as un available, click Desktop site and ensure the link starts with `https://addons.mozilla.org/en-US/firefox` instead of `https://addons.mozilla.org/en-US/android`, then the Add to Firefox button may become clickable. Those need this will be labeled Android (Desktop) below.
+Note for Android: If an extension is shown as un available, click Desktop site and ensure the link starts with `https://addons.mozilla.org/en-US/firefox` instead of `https://addons.mozilla.org/en-US/android`, then the Add to Firefox button may become clickable. Those need this will be labeled Android (Desktop) below. However, Firefox for Android lacks many APIs needed by some extensions. Thus, being able to be added doesn't imply being able to function.
 
 Types:
 - 2: Needed for privacy or security.
