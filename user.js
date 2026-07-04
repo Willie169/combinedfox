@@ -13,12 +13,6 @@ user_pref("browser.startup.homepage", "about:home");
  * [SETTING] Home>New Windows and Tabs>New tabs ***/
 user_pref("browser.newtabpage.enabled", true);
 
-/*** [SECTION 0200]: GEOLOCATION ***/
-/* 0202: disable using the OS's geolocation service ***/
-user_pref("geo.provider.ms-windows-location", true); // [WINDOWS]
-user_pref("geo.provider.use_corelocation", true); // [MAC]
-user_pref("geo.provider.use_geoclue", true); // [FF102+] [LINUX]
-
 /*** [SECTION 0300]: QUIETER FOX ***/
 /* 0360: disable Captive Portal detection
  * [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy ***/
