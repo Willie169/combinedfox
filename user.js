@@ -96,70 +96,7 @@ user_pref("browser.shell.shortcutFavicons", true);
 user_pref("dom.security.https_only_mode", true); // [FF76+]
 user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 
-/*** [SECTION 1600]: REFERERS ***/
-/* 1602: control the amount of cross-origin information to send [FF52+]
- * 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-
-/*** [SECTION 1700]: CONTAINERS ***/
-user_pref("_user.js.parrot", "1700 syntax error: the parrot's bit the dust!");
-/* 1701: enable Container Tabs and its UI setting [FF50+]
- * [SETTING] General>Tabs>Enable Container Tabs
- * https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers ***/
-user_pref("privacy.userContext.enabled", true);
-user_pref("privacy.userContext.ui.enabled", true);
-/* 1702: set behavior on "+ Tab" button to display container menu on left click [FF74+]
- * [NOTE] The menu is always shown on long press and right click
- * [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
-   // user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
-/* 1703: set external links to open in site-specific containers [FF123+]
- * [SETUP-WEB] Depending on your container extension(s) and their settings
- * true=Firefox will not choose a container (so your extension can)
- * false=Firefox will choose the container/no-container (default)
- * [1] https://bugzilla.mozilla.org/1874599 ***/
-   // user_pref("browser.link.force_default_user_context_id_for_external_opens", true);
-
-/*** [SECTION 2000]: PLUGINS / MEDIA / WEBRTC ***/
-user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
-/* 2002: force WebRTC inside the proxy [FF70+] ***/
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
-/* 2003: force a single network interface for ICE candidates generation [FF42+]
- * When using a system-wide proxy, it uses the proxy interface
- * [1] https://developer.mozilla.org/docs/Web/API/RTCIceCandidate
- * [2] https://wiki.mozilla.org/Media/WebRTC/Privacy ***/
-user_pref("media.peerconnection.ice.default_address_only", true);
-/* 2004: force exclusion of private IPs from ICE candidates [FF51+]
- * [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
- * grant device access, but often results in breakage on video-conferencing platforms ***/
-   // user_pref("media.peerconnection.ice.no_host", true);
-/* 2020: disable GMP (Gecko Media Plugins)
- * [1] https://wiki.mozilla.org/GeckoMediaPlugins ***/
-   // user_pref("media.gmp-provider.enabled", false);
-
-/*** [SECTION 2400]: DOM (DOCUMENT OBJECT MODEL) ***/
-user_pref("_user.js.parrot", "2400 syntax error: the parrot's kicked the bucket!");
-/* 2402: prevent scripts from moving and resizing open windows ***/
-user_pref("dom.disable_window_move_resize", true);
-
 /*** [SECTION 2600]: MISCELLANEOUS ***/
-user_pref("_user.js.parrot", "2600 syntax error: the parrot's run down the curtain!");
-/* 2603: remove temp files opened from non-PB windows with an external application
- * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=302433,1738574 ***/
-user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
-user_pref("browser.helperApps.deleteTempFileOnExit", true);
-/* 2606: disable UITour backend so there is no chance that a remote page can use it ***/
-user_pref("browser.uitour.enabled", false);
-   // user_pref("browser.uitour.url", ""); // Defense-in-depth
-/* 2608: reset remote debugging to disabled
- * [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222 ***/
-user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
-/* 2615: disable websites overriding Firefox's keyboard shortcuts [FF58+]
- * 0 (default) or 1=allow, 2=block
- * [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
-   // user_pref("permissions.default.shortcuts", 2);
-/* 2616: remove special permissions for certain mozilla domains [FF35+]
- * [1] resource://app/defaults/permissions ***/
-user_pref("permissions.manager.defaultsUrl", "");
 /* 2619: use Punycode in Internationalized Domain Names to eliminate possible spoofing
  * [SETUP-WEB] Might be undesirable for non-latin alphabet users since legitimate IDN's are also punycoded
  * [TEST] https://www.xn--80ak6aa92e.com/ (www.apple.com)
@@ -167,33 +104,12 @@ user_pref("permissions.manager.defaultsUrl", "");
  * [2] https://en.wikipedia.org/wiki/IDN_homograph_attack
  * [3] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=punycode+firefox
  * [4] https://www.xudongz.com/blog/2017/idn-phishing/ ***/
-user_pref("network.IDN_show_punycode", true);
-/* 2620: enforce PDFJS, disable PDFJS scripting
- * This setting controls if the option "Display in Firefox" is available in the setting below
- *   and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With")
- * [WHY] pdfjs is lightweight, open source, and secure: In the last 10 years it has only had
- *   two known exploits, both in 2024: one 'Severe' and one 'Important' [1]
- *   It doesn't break "state separation" of browser content (by not sharing with OS, independent apps).
- *   It maintains disk avoidance and application data isolation. It's convenient. You can still save to disk.
- * [NOTE] JS can still force a pdf to open in-browser by bundling its own code
- * [SETUP-CHROME] You may prefer a different pdf reader for security/workflow reasons
- * [SETTING] General>Applications>Portable Document Format (PDF)
- * [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=pdf.js+firefox ***/
-user_pref("pdfjs.disabled", false); // [DEFAULT: false]
-user_pref("pdfjs.enableScripting", false); // [FF86+]
-/* 2624: disable middle click on new tab button opening URLs or searches using clipboard [FF115+] ***/
-user_pref("browser.tabs.searchclipboardfor.middleclick", false); // [DEFAULT: false NON-LINUX]
-/* 2630: disable content analysis by DLP (Data Loss Prevention) agents
- * DLP agents are background processes on managed computers that allow enterprises to monitor locally running
- * applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
- * 0=Block all requests, 1=Warn on all requests (which lets the user decide), 2=Allow all requests
- * [1] https://github.com/chromium/content_analysis_sdk ***/
-user_pref("browser.contentanalysis.enabled", false); // [FF121+] [DEFAULT: false]
-user_pref("browser.contentanalysis.default_result", 0); // [FF127+] [DEFAULT: 0]
-/* 2635: disable referrer and storage access for resources injected by content scripts [FF139+] ***/
-user_pref("privacy.antitracking.isolateContentScriptResources", true);
-/* 2640: disable CSP Level 2 Reporting [FF140+] ***/
-user_pref("security.csp.reporting.enabled", false);
+user_pref("network.IDN_show_punycode", false);
+
+
+
+
+
 
 /** DOWNLOADS ***/
 /* 2651: enable user interaction for security by always asking where to download
