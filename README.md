@@ -32,15 +32,15 @@ A particular strength of this guide is my hardening of Firefox in addition to th
 
 ### Firefox Fingerprint
 
-According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. However, all randomizing is detectable. A script that does this is called advanced and varies by scripts. Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts due to enough metrics covered and a large crowd.
+According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. However, all randomizing is detectable. A script that does this is called advanced and varies by scripts. Only Tor Browser and Mullvad Browser with a truthworthy VPN can confidently address advanced scripts due to enough metrics covered and a large crowd. Refer to [Tor Browser](#tor-browser) and [Mullvad Browser](#mullvad-browser) sections for more information.
 
 I utilize [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker) and [My Fingerprint](https://github.com/omegaee/my-fingerprint) to spoof more metrics on top of [fingerprintingProtection (FPP)](https://wiki.mozilla.org/Fingerprinting) in Enhanced Tracking Protection (ETP) Strict Mode. Refer to [CanvasBlocker](#canvasblocker) and [My Fingerprint](my_fingerprint) for my settings and remarks. The reason to use two extensions is to spoof metrics that are not supported by one of them.
 
-This means that more scripts become naive. It is arguably harder to detect than Block Fingerprint of Brave browser in tests. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), it only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), it has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. Keep in mind that it does not, never has claimed, and likely never will defeat advanced fingerprinting.
+This means that more scripts become naive. It is arguably harder to detect than Block Fingerprint of Brave browser in tests. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), it only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), it has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. Keep in mind that it does not, never has claimed to, and likely never will defeat advanced fingerprinting.
 
 However, this comes with a price that the performance becomes slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
 
-For people with higher threat model, consider enabling [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting). RFP is a built-in solution in Firefox that blocks or randomizes many metrics without requiring a crowd like Tor browser. However, expect a lot of site-breakings when using it, which is mostly due to canvas randomizing.
+For people with higher threat model, consider enabling [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting). RFP is a built-in solution in Firefox that blocks or randomizes many metrics without requiring a crowd like Tor Browser. However, expect a lot of site-breakings when using it, which is mostly due to canvas randomizing.
 
 ### Firefox Referrer Policy
 
@@ -144,14 +144,41 @@ Refer to:
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XS-Leaks)
 - [Bug 1742425](https://bugzilla.mozilla.org/show_bug.cgi?id=1742425)
 
-### Tor and Mullvad
+### Tor Browser
 
-It is recommended to use Tor browser instead of normal browsers like Firefox and Brave if your thread model calls for it or for accessing hidden services.
+<blockquote>Tor Browser is a privacy-focused web browser that routes your traffic through the Tor network, hiding your real IP address, preventing tracking, and protecting you against surveillance and censorship. Tor Browser uses the Tor network to protect your privacy and anonymity.</blockquote>
 
-Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts: enough metrics covered and a large crowd.
+Tor Browser uses letterboxing and user-agent spoofing as well as other anti-fingerprinting features to mitigate browser fingerprinting and protect user privacy and achieve nearly identical fingerprint across its users. Expect site-breakings when using it.
 
+It is recommended to use Tor Browser instead of normal browsers like Firefox and Brave if your thread model calls for it or for accessing hidden services.
 
+Tor Browser includes NoScript by default to help control JavaScript. It's strongly discouraged to install new add-ons or change configs in Tor Browser because they can compromise your privacy and security by making your fingerprint unique.
 
+Refer to [Tor Project](www.torproject.org) for more information.
+
+### Mullvad Browser
+
+<blockquote>By using a trustworthy VPN in combination with a privacy-focused browser, you can put up a better resistance against the mass surveillance of today. That's why Mullvad partnered with the Tor Project to develop Mullvad Browser – a browser designed to minimize tracking and fingerprints.</blockquote>
+
+Mullvad Browser is roughly the Tor Browser without the Tor Network. Mullvad Browser uses [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) and letterboxing as well as other anti-fingerprinting features to mitigate browser fingerprinting and protect user privacy and achieve nearly identical fingerprint across its users. Expect site-breakings when using it.
+
+<blockquote>
+Differences with Tor Browser:
+- No Tor Network patches
+- No multilanguage support
+- No onboarding patches
+- Different branding/installer metadata
+- WebRTC is enabled
+- Web Audio API is enabled (needed for WebRTC)
+- uBlock Origin / Mullvad Browser Extension
+- NoScript Cross-tab Identity Leak Protection is disabled by default
+- Mullvad DoH
+- A Tor Browser specific cryptocurrency targeted protection is removed
+- No drag and drop protections (it's a specific proxy-bypass measure)
+- No download warning popup (the one that says that you should use Tails to open downloads)
+</blockquote>
+
+Refer to [Mullvad](https://mullvad.net/en/browser) and [Tor Project](https://support.torproject.org/mullvad-browser/faqs) for more information.
 
 ## Browsers
 
@@ -164,7 +191,8 @@ The link on the name of a browser is the link to its source code. The link on th
 Stores:
 - [FFUpdater](https://github.com/Tobi823/ffupdater) (`de.marmaro.krt.ffupdater`) from [F-Droid](https://f-droid.org/packages/de.marmaro.krt.ffupdater): Install and update browsers. All browsers below can be installed and updated in it.
 - [Droid-fy](https://github.com/Droid-ify/client) (`com.looker.droidify`) from [F-Droid](https://f-droid.org/packages/com.looker.droidify): Install apps from F-Droid repositories (hereafter referred to as F-Droid).
-- [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore) (`com.aurora.store`) from [F-Droid](https://f-droid.org/packages/com.aurora.store): Unofficial, FOSS client to Google Play to install and update apps on Google Play without login to a Google account.
+- [Google Play Store](https://play.google.com): App store developed by Google.Requiring a Google account. Some browsers below can be installed and updated in it.
+- [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore) (`com.aurora.store`) from [F-Droid](https://f-droid.org/packages/com.aurora.store): Unofficial, FOSS client to Google Play Store without requiring login to a Google account. Some browsers below can be installed and updated in it.
 
 Firefox and its forks:
 - [Fennec F-Droid](https://gitlab.com/relan/fennecbuild) (`org.mozilla.fennec_fdroid`) from FFUpdater or [F-Droid](https://f-droid.org/packages/org.mozilla.fennec_fdroid): Based on Mozilla Firefox with proprietary bits and telemetry removed.
