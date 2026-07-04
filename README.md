@@ -1,14 +1,12 @@
 # browser-privacy-guide
 
-This repo contains my recommendations on daily browsers setup on Android and Desktop to enhance privacy without site breaking.
+This repo contains my recommendations on daily browsers setup on Android and Desktop to enhance privacy without site breaking. For people with higher threat models, some suggestions are also mentioned but covered less thoroughly.
 
-For people with higher threat models that are, some suggestions is also mentioned but covered less thoroughly.
-
-For iOS users, most suggestions don't apply. You may refer to [Privacy Guides](https://www.privacyguides.org/en/mobile-browsers) for some information.
+Note: For iOS users, most suggestions don't apply.
 
 ## Firefox Hardening and Improvements
 
-A particular strength of this guide is my hardening of Firefox in addition to the typically recommended [Enhanced Tracking Protection (ETP) Strict Mode](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) and uBlock Origin (uBO) for both Android and desktop without site breaking and other improvements. (Refer to [uBlock Origin](#ublock_origin) for my settings and remarks on it.)
+A particular strength of this guide is my hardening of Firefox in addition to the typically recommended [Enhanced Tracking Protection (ETP) Strict Mode](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) and uBlock Origin (uBO) for both Android and desktop without site breaking, as well as other improvements. Refer to [uBlock Origin](#ublock_origin) for my settings and remarks on it.
 
 ### Firefox Cookies and Supercookies
 
@@ -34,9 +32,15 @@ A particular strength of this guide is my hardening of Firefox in addition to th
 
 ### Firefox Fingerprint
 
-Besides [fingerprintingProtection (FPP)](https://wiki.mozilla.org/Fingerprinting) in Enhanced Tracking Protection (ETP) Strict Mode, I also use [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker) and [My Fingerprint](https://github.com/omegaee/my-fingerprint) to spoof fingerprints. (Refer to [CanvasBlocker](#canvasblocker) and [My Fingerprint](my_fingerprint) for my settings and remarks.) The reason to use the later is to spoof fingerprints that are not supported by the former, such as offscreen canvas, fonts, and language. Thus, if you disable one of them, some metrics will be leaked. However, all randomizing is detectable. Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts: enough metrics covered and a large crowd.
+According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. However, all randomizing is detectable. A script that does this is called advanced and varies by scripts. Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts due to enough metrics covered and a large crowd.
 
-According to [fingerprint protection basics by Arkenfox](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-summary), a fingerprint protection should protect the real value of each metric, and a script that swallows a randomized value is a naive script. My settings protect more metrics than [fingerprintingProtection (FPP)](https://wiki.mozilla.org/Fingerprinting) in Enhanced Tracking Protection (ETP) Strict Mode, and is also arguably harder to detect than Block Fingerprint of Brave browser. This means that more scripts become naive. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), my settings only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), my settings has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. This settings cause the performance to be a bit slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
+I utilize [CanvasBlocker](https://github.com/kkapsner/CanvasBlocker) and [My Fingerprint](https://github.com/omegaee/my-fingerprint) to spoof more metrics on top of [fingerprintingProtection (FPP)](https://wiki.mozilla.org/Fingerprinting) in Enhanced Tracking Protection (ETP) Strict Mode. Refer to [CanvasBlocker](#canvasblocker) and [My Fingerprint](my_fingerprint) for my settings and remarks. The reason to use two extensions is to spoof metrics that are not supported by one of them.
+
+This means that more scripts become naive. It is arguably harder to detect than Block Fingerprint of Brave browser in tests. In [CanvasBlocker Detection test](https://canvasblocker.kkapsner.de/test/detectionTest.html), it only fails `known pixel value test 10: API tampering detected`, which is an [known issue of CanvasBlocker](https://github.com/kkapsner/CanvasBlocker/issues/593), while Block Fingerprint of Brave browser fails `error properties: API tampering detected`, `known pixel value test 1: API tampering detected`, `known pixel value test 10: API tampering detected`, and `readout - in - out test: API tampering detected`. In [CanvasBlocker webGL test](https://canvasblocker.kkapsner.de/test/webGL-Test.html), it has stealthy parameter spoofing and consistent offscreen canvas spoofing, while [using only CanvasBlocker fails the later](https://github.com/kkapsner/CanvasBlocker/issues/473) and using My Fingerprint only doesn't spoof parameter. See [Bug 1390089](https://bugzilla.mozilla.org/show_bug.cgi?id=1390089) for more information about offscreen canvas. Keep in mind that it does not, never has claimed, and likely never will defeat advanced fingerprinting.
+
+However, this comes with a price that the performance becomes slower due to fingerprint randomization process, which can be tested on [CanvasBlocker performance test](https://canvasblocker.kkapsner.de/test/performanceTest.html).
+
+For people with higher threat model, consider enabling [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting). RFP is a built-in solution in Firefox that blocks or randomizes many metrics without requiring a crowd like Tor browser. However, expect a lot of site-breakings when using it, which is mostly due to canvas randomizing.
 
 ### Firefox Referrer Policy
 
@@ -108,6 +112,8 @@ Some famous Firefox `user.js` will be listed below.
 
 <blockquote>Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening</blockquote>
 
+Likely the most private and secure `user.js` but expect some site-breakings when using it. For people with higher threat model only.
+
 #### [Betterfox](https://github.com/yokoffing/BetterFox)
 
 <blockquote>Firefox user.js for optimal privacy and security. Your favorite browser, but better.</blockquote>
@@ -116,9 +122,15 @@ Some famous Firefox `user.js` will be listed below.
 
 <blockquote>Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev></blockquote>
 
-### Firefox Cross-Site Leaks (XS-Leaks)
+### Tests
 
-For people with higher threat models only.
+Refer to Arkenfox wiki:
+- [Appendix A Test Sites](https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites)
+- [Appendix B Test Sites [Fingerprinting]](https://github.com/arkenfox/user.js/wiki/Appendix-B-Test-Sites-%5BFingerprinting%5D)
+
+### Cross-Site Leaks (XS-Leaks)
+
+For people with higher threat model only.
 
 According to [XS-Leaks Wiki](https://xsleaks.dev),
 
@@ -132,22 +144,14 @@ Refer to:
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XS-Leaks)
 - [Bug 1742425](https://bugzilla.mozilla.org/show_bug.cgi?id=1742425)
 
-### Firefox Further Hardening
+### Tor and Mullvad
 
-For people with higher threat model, consider further hardening Firefox, which may break some sites and functions.
-- [Arkenfox](https://github.com/arkenfox/user.js)
-- [Betterfox](https://github.com/yokoffing/Betterfox)
-- [Phonix](https://codeberg.org/celenity/Phoenix)
-- [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting)
-- [higher blocking mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode)
-- [NoScript Security Suite](https://noscript.net)
-- Hardened Firefox fork: Refer to [Browsers](#browsers) section.
+It is recommended to use Tor browser instead of normal browsers like Firefox and Brave if your thread model calls for it or for accessing hidden services.
 
-### Firefox Tests
+Only Tor Browser and Mullvad Browser with VPN can confidently address advanced scripts: enough metrics covered and a large crowd.
 
-Refer to Arkenfox wiki:
-- [Appendix A Test Sites](https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites)
-- [Appendix B Test Sites [Fingerprinting]](https://github.com/arkenfox/user.js/wiki/Appendix-B-Test-Sites-%5BFingerprinting%5D)
+
+
 
 ## Browsers
 
@@ -299,7 +303,7 @@ The Android app floccus bookmark sync is available on [F-Droid](https://f-droid.
 <tr><td>User-Agent Switcher and Manager</td><td><a href="https://github.com/ray-lothian/UserAgent-Switcher">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher">Android (Desktop)</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher">Desktop</a></td><td>1</td><td>Only change user agent string when you explicitly want to. Changing it by default may lead to inconsistent metrics and cause you to be more trackable.</td><td>Spoof websites trying to gather information about your web navigation—like your browser type and operating system—to deliver distinct content you may not want.</td></tr>
 <tr><td>Violentmonkey</td><td><a href="https://addons.mozilla.org/en-US/android/addon/violentmonkey">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/violentmonkey">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/violentmonkey">Desktop</a></td><td>1</td><td><p>My settings and installed scripts are in <a href="violentmonkey.zip">violentmonkey.zip</a>, which includes the following installed scripts <a href="https://greasyfork.org/zh-CN/scripts/378351-csdngreener-csdn%E5%B9%BF%E5%91%8A%E5%AE%8C%E5%85%A8%E8%BF%87%E6%BB%A4-%E5%85%8D%E7%99%BB%E5%BD%95-%E4%B8%AA%E6%80%A7%E5%8C%96%E6%8E%92%E7%89%88-%E6%9C%80%E5%BC%BA%E8%80%81%E7%89%8C%E8%84%9A%E6%9C%AC-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0">最强的老牌脚本CSDNGreener：CSDN广告完全过滤、人性化脚本优化</a> (homepage: <a href="https://github.com/adlered/CSDNGreener">CSDNGreener GitHub</a>), <a href="https://userscripts.adtidy.org/release/adguard-extra/1.0/adguard-extra.user.js">AdGuard Extra</a> (homepage: <a href="https://github.com/AdguardTeam/AdGuardExtra">AdGuardExtra GitHub</a>), and <a href="https://windrunnermax.github.io/TKScript/devtools.user.js">移除 DevTools 拦截器</a> (homepage: <a href="https://github.com/WindrunnerMax/TKScript">TKScript GitHub</a>).</p><p>This is my only recommended extension for userscript support since many userscripts don't function correctly under Greasemonkey, and Tampermonkey is no longer open source.</p></td><td>Userscript support for browsers, open source.</td></tr>
 <tr><td>Web Archives</td><td><a href="https://github.com/dessant/web-archives">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/view-page-archive">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/view-page-archive">Desktop</a></td><td>1</td><td></td><td>View archived and cached versions of web pages on various search engines, such as the Wayback Machine and Archive․is.</td></tr>
-<tr id="ublock_origin"><td>uBlock Origin</td><td><a href="https://github.com/gorhill/uBlock">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/ublock-origin">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin">Desktop</a></td><td>2</td><td>My settings is <a href="my-ublock-backup.txt">my-ublock-backup.txt</a>, which uses <a href="https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-Benefits-of-blocking-3rd-party-iframe-tags">dynamic filtering of third-party iframe tags</a> to avoid site breaking, <a href="https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt">Block Page Visibility</a> to allow background audio/vedio playback, and more. A lot of lists including some large and complex lists are used in it, which may slow down site loading for devices with limited resources. Try to disable some lists if you encounter performance issue. Refer to <a href="https://github.com/gorhill/uBlock/wiki">uBlock Origin wiki</a> for more information.</td><td>Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.</td></tr>
+<tr id="ublock_origin"><td>uBlock Origin</td><td><a href="https://github.com/gorhill/uBlock">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/ublock-origin">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin">Desktop</a></td><td>2</td><td>My settings is <a href="my-ublock-backup.txt">my-ublock-backup.txt</a>, which uses <a href="https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-Benefits-of-blocking-3rd-party-iframe-tags">dynamic filtering of third-party iframe tags</a> to avoid site breaking, <a href="https://gitlab.com/celenityy/BadBlock/-/raw/pages/hardened/block-page-visibility.txt">Block Page Visibility</a> to allow background audio/vedio playback, and more. A lot of lists including some large and complex lists are used in it, which may slow down site loading for devices with limited resources. Try to disable some lists if you encounter performance issue. For people with higher threat model, consider [higher blocking mode of uBlock Origin](https://github.com/gorhill/uBlock/wiki/Blocking-mode) but expect some site breakings. Refer to <a href="https://github.com/gorhill/uBlock/wiki">uBlock Origin wiki</a> for more information.</td><td>Finally, an efficient wide-spectrum content blocker. Easy on CPU and memory.</td></tr>
 </table>
 
 The following extensions should NOT be used because they may weaken your privacy or security:
