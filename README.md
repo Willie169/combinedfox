@@ -2,7 +2,9 @@
 
 This repo contains my recommendations on daily browsers setup on Android and Desktop to enhance privacy without site breaking. For people with higher threat models, some suggestions are also mentioned but covered less thoroughly.
 
-Note: For iOS users, most suggestions don't apply.
+Note:
+- For iOS users, most suggestions don't apply.
+- Hereafter, Firefox is sometimes used to refer it and all its forks, and Chromium is sometimes used to refer it and all its forks.
 
 ## Firefox Hardening and Improvements
 
@@ -300,7 +302,7 @@ Types:
 
 <table>
 <tr><th>Name</th><th>Source Code</th><th>Android</th><th>Desktop</th><th>Type</th><th>My Settings or Remarks</th><th>Self Description</th></tr>
-<tr><td>Anime4K WebExtension</td><td><a href="https://github.com/chenmozhijin/Anime4K-WebExtension">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/anime4k-webextension">Android (Desktop)</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/anime4k-webextension">Desktop</a></td><td>1</td><td>Need WebGPU enabled to work and may not work on some GPUs and platforms. Refer to <a href="firefox-webgpu">Firefox WebGPU</a> section.</td><td>Real-time video super-resolution browser extension based on Anime4K.</td></tr>
+<tr><td>Anime4K WebExtension</td><td><a href="https://github.com/chenmozhijin/Anime4K-WebExtension">GitHub</a></td><td>Not available on Android.</td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/anime4k-webextension">Desktop</a></td><td>1</td><td>Need WebGPU enabled to work and may not work on some devices. Refer to <a href="firefox-webgpu">Firefox WebGPU</a> section.</td><td>Real-time video super-resolution browser extension based on Anime4K.</td></tr>
 <tr><td>Bitwarden Password Manager</td><td><a href="https://github.com/bitwarden/clients">GitHub</a></td><td>No need on Android. Use <a href="https://github.com/bitwarden/android">native app</a> from <a href="https://droidify.app/app/?id=com.x8bit.bitwarden&repo_address=https://mobileapp.bitwarden.com/fdroid/repo">F-Droid</a> or <a href="https://play.google.com/store/apps/details?id=com.x8bit.bitwarden">Google Play</a> instead.<td><a href="https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager">Desktop</a></td><td>1</td><td>Do not use the browsers' built-in password managers. They are not as secure as dedicated password managers. I recommend those recommended by <a href="https://www.privacyguides.org/en/passwords">Privacy Guides</a>.</td><td>At home, at work, or on the go, Bitwarden easily secures all your passwords, passkeys, and sensitive information.</td></tr>
 <tr id="canvasblocker"><td>CanvasBlocker</td><td><a href="https://github.com/kkapsner/CanvasBlocker">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/canvasblocker">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker">Desktop</a></td><td>2</td><td></td><td>Alters some JS APIs to prevent fingerprinting.</td></tr>
 <tr><td>ClearURLs</td><td><a href="https://github.com/ClearURLs/Addon">GitHub</a></td><td><a href="https://addons.mozilla.org/en-US/android/addon/clearurls">Android</a></td><td><a href="https://addons.mozilla.org/en-US/firefox/addon/clearurls">Desktop</a></td><td>1</td><td></td><td>Removes tracking elements from URLs.</td></tr>
