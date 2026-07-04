@@ -68,7 +68,7 @@ The following settings in Firefox control `Referrer`-Policy:
   - 0 = send the full URL
   - 1 = send the URL without its query string
   - 2 = only send the origin
-- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0). For Enhanced Tracking Protection (ETP) Strict Mode, this doesn't matter since `network.http.referer.disallowCrossSiteRelaxingDefault` and `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode` are true.
+- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0). Doesn't matter when those start with `network.http.referer.disallowCrossSiteRelaxingDefault` are true.
 - `network.http.referer.XOriginPolicy`: controls whether or not to send a referrer across origins (default 0)
   - 0 = (default) send the referrer in all cases
   - 1 = send a referrer only when the base domains are the same
@@ -76,10 +76,10 @@ The following settings in Firefox control `Referrer`-Policy:
 - `network.http.referer.spoofSource`: (default false). False is recommended since spoofing can affect Cross-Site Request Forgery (CSRF) protection according to [Arkenfox](https://github.com/arkenfox/user.js/blob/master/user.js).
   - false = use real referrer
   - true = spoof with URI of the current request
-- `network.http.referer.disallowCrossSiteRelaxingDefault`: controls whether or not a referrer across origins can relax default `Referrer`-Policy (ETP Strict Mode set to true)
-- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (ETP Strict Mode set to true)
-- `network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for top navigations (ETP Strict Mode set to true, due to [Bug 1734328](https://bugzilla.mozilla.org/show_bug.cgi?id=1734328).
-- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (ETP Strict Mode set to false)
+- `network.http.referer.disallowCrossSiteRelaxingDefault`: controls whether or not a referrer across origins can relax default `Referrer`-Policy, true means not (default true)
+- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default true)
+- `network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for top navigations (default false due to [Bug 1734328](https://bugzilla.mozilla.org/show_bug.cgi?id=1734328), ETP Strict Mode set to true).
+- `network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation`: same as `network.http.referer.disallowCrossSiteRelaxingDefault` but only for Private Browsing (default true)
 
 ### Firefox WebGPU
 
@@ -88,40 +88,6 @@ To enable WebGPU in Firefox, go to <about:config>, and set `dom.webgpu.enabled` 
 ### Firefox for Android Debug Menu
 
 To enable Debug menu in Firefox for Android and its forks, go to Settings > About Firefox (or fork's name), and click Firefox's (or fork's) logo five times. Entries such as Install extension from file and Secret Settings will be shown in Settings.
-
-### Firefox user.js
-
-A `user.js` file is a Javascript file in your profile folder used to set preferences for that profile when Firefox starts. You can update the user.js while Firefox is open, it is only read when Firefox starts. If a preference set in `user.js` is changed in <about:config>, it will be overridden back to the value set in `user.js` when Firefox starts next time. Each preference must follow Mozilla's syntax, which is `user_pref("prefname", value);` (note
-that the semicolon is required), where `prefname` is a string, and there are three main types of values:
-- Boolean: `true` or `false` without quotes.
-- Integer: a number without quotes, e.g., 6.
-- String: a string quoted with `""`, e.g., `"https://www.duckduckgo.com"`.
-
-A line starting with `//` is a single-line comment. Lines quoted with `/*` and `*/` are a multi-line comment. Comments are skipped when loading.
-
-For any `user.js`, be sure to
-- Only trust the official source.
-- Read the offical wiki before proceed.
-- Read the content of the `user.js` before proceed.
-
-A `user.js` applies prefs in the order they are written. If a pref is listed multiple times, then the last value would override the others.
-
-Some famous Firefox `user.js` will be listed below.
-
-#### [Arkenfox](https://github.com/arkenfox/user.js)
-
-<blockquote>Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening</blockquote>
-
-It's likely the most private and secure `user.js`, but expect some site-breakings when using it. For people with higher threat model only.
-
-#### [Betterfox](https://github.com/yokoffing/BetterFox)
-
-<blockquote>Firefox user.js for optimal privacy and security. Your favorite browser, but better.</blockquote>
-
-
-#### [Phoenix](https://codeberg.org/celenity/Phoenix)
-
-<blockquote>Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev></blockquote>
 
 ### Tests
 
@@ -144,6 +110,40 @@ Refer to:
 - [XS-Leaks Wiki](https://xsleaks.dev)
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XS-Leaks)
 - [Bug 1742425](https://bugzilla.mozilla.org/show_bug.cgi?id=1742425)
+
+### Firefox user.js
+
+A `user.js` file is a Javascript file in your profile folder used to set preferences for that profile when Firefox starts. You can update the user.js while Firefox is open, it is only read when Firefox starts. If a preference set in `user.js` is changed in <about:config>, it will be overridden back to the value set in `user.js` when Firefox starts next time. Each preference must follow Mozilla's syntax, which is `user_pref("prefname", value);` (note
+that the semicolon is required), where `prefname` is a string, and there are three main types of values:
+- Boolean: `true` or `false` without quotes.
+- Integer: a number without quotes, e.g., 6.
+- String: a string quoted with `""`, e.g., `"https://www.duckduckgo.com"`.
+
+A line starting with `//` is a single-line comment. Lines quoted with `/*` and `*/` are a multi-line comment. Comments are skipped when loading.
+
+A `user.js` applies prefs in the order they are written. If a preference is listed multiple times, then the last value would override the others.
+
+For any `user.js`, be sure to
+- Only trust the official source.
+- Read the offical wiki before proceed.
+- Read the content of the `user.js` before proceed.
+- Write your overrides when needed.
+
+Some famous Firefox `user.js` are listed below.
+
+#### [Arkenfox](https://github.com/arkenfox/user.js)
+
+<blockquote>Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening</blockquote>
+
+It's likely the most comprehensive, private, and secure `user.js`, but expect some site-breakings when using it without lossening overrides.
+
+#### [Betterfox](https://github.com/yokoffing/BetterFox)
+
+<blockquote>Firefox user.js for optimal privacy and security. Your favorite browser, but better.</blockquote>
+
+#### [Phoenix](https://codeberg.org/celenity/Phoenix)
+
+<blockquote>Phoenix is a suite of configurations & advanced modifications for Mozilla Firefox, designed to put the user first - with a focus on privacy, security, freedom, & usability. <https://phoenix.celenity.dev></blockquote>
 
 ### Tor Browser
 
@@ -180,6 +180,20 @@ Differences with Tor Browser:
 </blockquote>
 
 Refer to [Mullvad](https://mullvad.net/en/browser) and [Tor Project](https://support.torproject.org/mullvad-browser/faqs) for more information.
+
+### IronFox
+
+<blockquote>
+Private, secure, user first web browser for Android. https://ironfoxoss.org/
+
+IronFox is a fork of [Divested Computing Group](https://divested.dev/)'s [Mull Browser](https://web.archive.org/web/20250113132510/https://divestos.org/pages/our_apps#mull), based on [Mozilla Firefox](https://www.firefox.com/). Our goal is to continue the legacy of Mull by providing a free and open source, privacy and security-oriented web browser for daily use.
+
+All users are HIGHLY recommended to take a look at our [documentation](https://ironfoxoss.org/docs/), ESPECIALLY the [Limitations](https://ironfoxoss.org/docs/limitations/) and [Frequently Asked Questions](https://ironfoxoss.org/docs/faq/) pages!
+
+IronFox uses configs from [Phoenix](https://phoenix.celenity.dev/) as well as IronFox-specific changes to harden and configure Gecko’s preferences. For more information on Phoenix’s features, please see [the documentation here](https://codeberg.org/celenity/Phoenix/wiki/Features).
+</blockquote>
+
+Refer to [IronFox documentation](https://ironfoxoss.org/docs) and [repo](https://gitlab.com/ironfox-oss/IronFox) for more information.
 
 ## Browsers
 
