@@ -435,6 +435,7 @@ TODO: update
 - <https://gitlab.com/ironfox-oss/IronFox>
 - <https://grapheneos.org/usage#web-browsing>
 - <https://greasyfork.org>
+- <https://kb.mozillazine.org/Knowledge_Base>
 - <https://madaidans-insecurities.github.io/firefox-chromium.html>
 - <https://openuserjs.org>
 - <https://serpapi.com/blog/google-search-parameters>
