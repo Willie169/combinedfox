@@ -68,7 +68,7 @@ The following settings in Firefox control `Referrer`-Policy:
   - 0 = send the full URL
   - 1 = send the URL without its query string
   - 2 = only send the origin
-- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0). Doesn't matter when those start with `network.http.referer.disallowCrossSiteRelaxingDefault` are true.
+- `network.http.referer.XOriginTrimmingPolicy`: same as `network.http.referer.trimmingPolicy` but only for referrers across origins (default 0, 2 recommended by me and used in Arkenfox).
 - `network.http.referer.XOriginPolicy`: controls whether or not to send a referrer across origins (default 0)
   - 0 = (default) send the referrer in all cases
   - 1 = send a referrer only when the base domains are the same
