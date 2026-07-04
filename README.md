@@ -112,11 +112,12 @@ Some famous Firefox `user.js` will be listed below.
 
 <blockquote>Firefox privacy, security and anti-tracking: a comprehensive user.js template for configuration and hardening</blockquote>
 
-Likely the most private and secure `user.js` but expect some site-breakings when using it. For people with higher threat model only.
+It's likely the most private and secure `user.js`, but expect some site-breakings when using it. For people with higher threat model only.
 
 #### [Betterfox](https://github.com/yokoffing/BetterFox)
 
 <blockquote>Firefox user.js for optimal privacy and security. Your favorite browser, but better.</blockquote>
+
 
 #### [Phoenix](https://codeberg.org/celenity/Phoenix)
 
