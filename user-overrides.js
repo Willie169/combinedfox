@@ -217,11 +217,5 @@ user_pref("_user-overrides.js.parrot", "9000 syntax error: the parrot's cashed i
 /*** [SECTION 9999]: DEPRECATED / RENAMED ***/
 user_pref("_user-overrides.js.parrot", "9999 syntax error: the parrot's shuffled off 'is mortal coil!");
 
-/*** [SECTION -0001]: CUSTOM OVERRIDES ***/
-user_pref("_user-overrides.js.parrot", "-0001 syntax error: the parrot's dead!");
-/* -0001 enable WebGPU ***/
-user_pref("dom.webgpu.enabled", "true");
-user_pref("gfx.webrender.all", "true");
-
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_user-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
