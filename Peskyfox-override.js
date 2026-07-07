@@ -233,130 +233,69 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // PREF: do not hide the pointer while typing [LINUX]
 user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
 
-// PREF: limit events that can cause a pop-up
-// Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
-// (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
-// (alternate) user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
-//user_pref("dom.popup_allowed_events", "click dblclick");
-//user_pref("dom.disable_open_during_load", true); // DEFAULT
-//user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
-
-// PREF: enable Tab Previews [FF122+, FF128+]
-// [1] https://github.com/yokoffing/Betterfox/issues/309
-//user_pref("browser.tabs.hoverPreview.enabled", true);
-    //user_pref("browser.tabs.hoverPreview.showThumbnails", true); // DEFAULT
-
 /****************************************************************************
  * SECTION: KEYBOARD AND SHORTCUTS                                          *
  ****************************************************************************/
+user_pref("_Peskyfox-overrides.js.parrot", "KEYBOARD AND SHORTCUTS syntax error: the parrot's dead!");
 
 // PREF: disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
-//user_pref("browser.backspace_action", 2); // DEFAULT
+user_pref("browser.backspace_action", 0);
 
 // PREF: disable ALT key toggling the menu bar
-//user_pref("ui.key.menuAccessKeyFocuses", false);
-    //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
-
-// PREF: cycle through tabs in recently used order
-// [SETTING] Ctrl+Tab cycles through tabs in recently used order
-//user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
-
-// PREF: disable websites overriding Firefox's keyboard shortcuts [FF58+]
-// 0=ask (default), 1=allow, 2=block
-// [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
-//user_pref("permissions.default.shortcuts", 2);
+/user_pref("ui.key.menuAccessKeyFocuses", false);
 
 // PREF: hide frequent sites on right-click of taskbar icon [WINDOWS?]
-//user_pref("browser.taskbar.lists.frequent.enabled", false);
+user_pref("browser.taskbar.lists.frequent.enabled", false);
 
 /****************************************************************************
  * SECTION: ACCESSIBILITY AND USABILITY                                     *
  ****************************************************************************/
-
-// PREF: disable Reader mode parse on load
-// Reader supposedly costs extra CPU after page load.
-// [TIP] Use about:reader?url=%s as a keyword to open links automatically in reader mode [1].
-// Firefox will not have to parse webpage for Reader when navigating.
-// Extremely minimal performance impact, if you disable.
-// [1] https://www.reddit.com/r/firefox/comments/621sr2/i_found_out_how_to_automatically_open_a_url_in/
-//user_pref("reader.parse-on-load.enabled", false);
-
-// PREF: Spell-check
-// 0=none, 1-multi-line, 2=multi-line & single-line
-//user_pref("layout.spellcheckDefault", 1); // DEFAULT
-
-// PREF: Spell Checker underline styles [HIDDEN]
-// [1] https://kb.mozillazine.org/Ui.SpellCheckerUnderlineStyle#Possible_values_and_their_effects
-//user_pref("ui.SpellCheckerUnderlineStyle", 1);
-
-// PREF: remove underlined characters from various settings
-//user_pref("ui.key.menuAccessKey", 0);
-
-// PREF: enable CSS moz document rules
-// Still needed for Stylus?
-// [1] https://reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
-//user_pref("layout.css.moz-document.content.enabled", true);
+user_pref("_Peskyfox-overrides.js.parrot", "ACCESSIBILITY AND USABILITY syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: BOOKMARK MANAGEMENT                                             *
  ****************************************************************************/
-
-// PREF: limit the number of bookmark backups Firefox keeps
-//user_pref("browser.bookmarks.max_backups", 1); // default=15
+user_pref("_Peskyfox-overrides.js.parrot", "BOOKMARK MANAGEMENT syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: ZOOM AND DISPLAY SETTINGS                                       *
  ****************************************************************************/
-
-// PREF: zoom only text on webpage, not other elements
-//user_pref("browser.zoom.full", false);
-
-// PREF: allow for more granular control of zoom levels
-// Especially useful if you want to set your default zoom to a custom level.
-//user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
-
-// PREF: restore zooming behavior [macOS] [FF109+]
-// On macOS, Ctrl or Cmd + trackpad or mouse wheel now scrolls the page instead of zooming.
-// This avoids accidental zooming and matches Safari's and Chrome's behavior.
-// The prefs below restores the previous zooming behavior
-//user_pref("mousewheel.with_control.action", 3);
-//user_pref("mousewheel.with_meta.action", 3);
+user_pref("_Peskyfox-overrides.js.parrot", "ZOOM AND DISPLAY SETTINGS syntax error: the parrot's dead!");
 
 // PREF: adjust the minimum tab width
 // Can be overridden by userChrome.css
-//user_pref("browser.tabs.tabMinWidth", 120); // default=76
-
-// PREF: always underline links [FF120+]
-//user_pref("layout.css.always_underline_links", false); // DEFAULT
+user_pref("browser.tabs.tabMinWidth", 38); // default=76
 
 /****************************************************************************
  * SECTION: DEVELOPER TOOLS                                                 *
  ****************************************************************************/
+user_pref("_Peskyfox-overrides.js.parrot", "DEVELOPER TOOLS syntax error: the parrot's dead!");
 
 // PREF: wrap long lines of text when using source / debugger
-//user_pref("view_source.wrap_long_lines", true);
-//user_pref("devtools.debugger.ui.editor-wrapping", true);
+user_pref("view_source.wrap_long_lines", true);
+user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 // PREF: enable ASRouter Devtools at about:newtab#devtools
 // This is useful if you're making your own CSS theme.
 // [1] https://firefox-source-docs.mozilla.org/browser/components/newtab/content-src/asrouter/docs/debugging-docs.html
-//user_pref("browser.newtabpage.activity-stream.asrouter.devtoolsEnabled", true);
+user_pref("browser.newtabpage.activity-stream.asrouter.devtoolsEnabled", true);
 
 // show user agent styles in the inspector
-//user_pref("devtools.inspector.showUserAgentStyles", true);
+user_pref("devtools.inspector.showUserAgentStyles", true);
 
 // show native anonymous content (like scrollbars or tooltips) and user
 // agent shadow roots (like the components of an <input> element) in the inspector
-//user_pref("devtools.inspector.showAllAnonymousContent", true);
+user_pref("devtools.inspector.showAllAnonymousContent", true);
 
 /****************************************************************************
  * SECTION: IMAGE AND MEDIA HANDLING                                        *
  ****************************************************************************/
+user_pref("_Peskyfox-overrides.js.parrot", "IMAGE AND MEDIA HANDLING syntax error: the parrot's dead!");
 
 // PREF: JPEG XL image format [NIGHTLY]
 // May not affect anything on ESR/Stable channel [2].
 // [TEST] https://www.jpegxl.io/firefox#firefox-jpegxl-tutorial
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
-//user_pref("image.jxl.enabled", true);
+user_pref("image.jxl.enabled", true);
