@@ -152,9 +152,11 @@ Refer to [Phoenix wiki](https://codeberg.org/celenity/Phoenix/wiki) and [repo](h
 
 ### Tor Browser
 
-<blockquote>Tor Browser is a privacy-focused web browser that routes your traffic through the Tor network, hiding your real IP address, preventing tracking, and protecting you against surveillance and censorship. Tor Browser uses the Tor network to protect your privacy and anonymity.</blockquote>
+<blockquote>Tor Browser is a privacy-focused web browser that routes your traffic through the Tor network, hiding your real IP address, preventing tracking, and protecting you against surveillance and censorship. Tor Browser uses the Tor network to protect your privacy and anonymity.
 
-Tor Browser uses letterboxing and user-agent spoofing as well as other anti-fingerprinting features to mitigate browser fingerprinting and protect user privacy and achieve nearly identical fingerprint across its users. Expect site-breakings when using it.
+Tor is a program you can run on your computer that helps keep you safe on the Internet. It protects you by bouncing your communications around a distributed network of relays run by volunteers all around the world: it prevents somebody watching your Internet connection from learning what sites you visit, and it prevents the sites you visit from learning your physical location. This set of volunteer relays is called the Tor network.</blockquote>
+
+Tor Browser uses [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) and letterboxing as well as other anti-fingerprinting features to mitigate browser fingerprinting and protect user privacy and achieve nearly identical fingerprint across its users. Expect site-breakings when using it.
 
 It is recommended to use Tor Browser instead of normal browsers like Firefox and Brave if your thread model calls for it or for accessing hidden services.
 
@@ -166,7 +168,7 @@ Refer to [Tor Project](www.torproject.org) for more information.
 
 <blockquote>By using a trustworthy VPN in combination with a privacy-focused browser, you can put up a better resistance against the mass surveillance of today. That's why Mullvad partnered with the Tor Project to develop Mullvad Browser – a browser designed to minimize tracking and fingerprints.</blockquote>
 
-Mullvad Browser is roughly the Tor Browser without the Tor Network. Mullvad Browser uses [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) and letterboxing as well as other anti-fingerprinting features to mitigate browser fingerprinting and protect user privacy and achieve nearly identical fingerprint across its users. Expect site-breakings when using it.
+Mullvad Browser is roughly the Tor Browser without the Tor Network, typically used with a trustworthy VPN. Mullvad Browser uses [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) and letterboxing as well as other anti-fingerprinting features to mitigate browser fingerprinting and protect user privacy and achieve nearly identical fingerprint across its users. Expect site-breakings when using it.
 
 <blockquote>
 Differences with Tor Browser:
@@ -220,7 +222,7 @@ Firefox and its forks:
 - [Firefox Browser](https://www.mozilla.org/firefox/browsers/mobile/android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox): Mozilla Firefox. `about:config` not accessible.
 - [Firefox Klar](https://support.mozilla.org/en-US/kb/what-firefox-klar-android) from FFUpdater or [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.klar): Firefox Focus with a different name in German and telemetry disabled by default.
 - [IronFox](https://gitlab.com/ironfox-oss/IronFox) from FFUpdater: Continuation of Divested Computing Group's Mull Browser, based on Mozilla Firefox. Hardened with [Phonix](https://codeberg.org/celenity/Phoenix) for privacy and security.
-- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. This is the only browser on Android that can confidently address advanced fingerprinting scripts and archive anonymity. Some sites and functions may break. Refer to [Tor Project](https://torproject.org) for more information. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
+- [Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser) from FFUpdater, [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser), or [F-Droid](https://droidify.app/app/?id=org.torproject.torbrowser&repo_address=https://guardianproject.info/fdroid/archive): Based on Mozilla Firefox. For advanced user only. Some sites and functions may break. Refer to [Tor Browser](#tor-browser) section.
 
 Chromium forks:
 - [Vanadium](https://github.com/GrapheneOS/Vanadium): Based on Chromium. For GrapheneOS only. Refer to [GrapheneOS](https://grapheneos.org/features#vanadium).
@@ -236,8 +238,8 @@ For people with higher threat models, note that Firefox and its forks on Android
 - [Firefox Browser](https://www.firefox.com): Mozilla Firefox. My default browser. If you are Debian derivatives users, you may want to checkout my [switch-firefox-from-snap-to-deb](https://github.com/Willie169/switch-firefox-from-snap-to-deb) repo.
 - [Brave Browser](https://brave.com): Based on Chromium.
 - [LibreWolf](https://librewolf.net): Based on Mozilla Firefox. For advanced user only. LibreWolf is designed to increase protection against tracking and fingerprinting techniques, while also including a few security improvements. It has [resistfingeprinting (RFP)](https://support.mozilla.org/en-US/kb/resist-fingerprinting) enabled and sends referrer only when the full hostnames match (`network.http.referer.XOriginPolicy=2`). Some sites and functions may break.
-- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Use Tor, a distributed network of relays run by volunteers all around the world to prevent censorship and surveillance, prevent sites you visit from obtaining your IP and fingerprint. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
-- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Tor Browser without the Tor Network developed in a collaboration between Mullvad VPN and the Tor Project ([source code (GitHub)](https://github.com/mullvad/mullvad-browser)), typically used with a trustworthy VPN. Tor Browser and Mullvad Browser with a trustworthy VPN are the only browsers that can confidently address advanced fingerprinting scripts and achieve anonymity. Some sites and functions may break. However, it is still subjected to XS-leaks. Refer to [Firefox XS-Leaks](#firefox-xs-leaks).
+- [Tor Browser](https://torproject.org): Based on Mozilla Firefox. For advanced user only. Some sites and functions may break. Refer to [Tor Browser](#tor-browser) section.
+- [Mullvad Browser](https://mullvad.net/en/browser): Based on Mozilla Firefox. For advanced user only. Some sites and functions may break. Refer to [Mullvad Browser](#mullvad-browser) section.
 
 The fingerprint and tracking resistance of Firefox forks is Firefox Browser without Enhanced Tracking Protection (ETP) Strict Mode < Firefox Browser with Enhanced Tracking Protection (ETP) Strict Mode < LibreWolf < Mullvad Browser with a trustworthy VPN = Tor Browser, while the likelihood of breaking sites and functions is the same.
 
@@ -357,7 +359,7 @@ The Android app floccus bookmark sync is available on [F-Droid](https://f-droid.
 </table>
 
 The following extensions should NOT be used because they may weaken your privacy or security:
-- Privacy Badger: can be easily fingerprined and redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin.
+- Privacy Badger: can be easily fingerprined, sends DNT (Do Not Track) HTTP header, and is redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin.
 - Cookie or supercookie-related extensions that don't work well with Total Cookie Protection (TCP) / dynamic First Party Isolation (dFPI), State Partitioning, and/or Multi-Account Containers, such as Cookie AutoDelete. I recommend to use Cookie Manager instead. Refer to [Firefox Cookies and Supercookies](#firefox-cookies-and-supercookies) section.
 - uMatrix: No longer maintained. Most things it can do are covered by other extensions that do it better, notably uBlock Origin for any content blocking. If you still want to use it, do not add any content-security-policy (CSP) in it because it will affect the CSP of uBlock Origin due to [Bug 1462989](https://bugzilla.mozilla.org/show_bug.cgi?id=1462989).
 - Ghostery – Privacy Ad Blocker, Disconnect, AdGuard AdBlocker, and other advertising, trackers, and/or pop-ups blockers: Redundant with Enhanced Tracking Protection (ETP) Strict Mode and uBlock Origin. If you still want to use them, do not add any content-security-policy (CSP) in it because it will affect the CSP of uBlock Origin due to [Bug 1462989](https://bugzilla.mozilla.org/show_bug.cgi?id=1462989).
