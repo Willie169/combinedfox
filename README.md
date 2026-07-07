@@ -123,9 +123,9 @@ A `user.js` applies prefs in the order they are written. If a preference is list
 
 For any `user.js`, be sure to
 - Only trust the official source.
-- Read the offical wiki before proceed.
-- Read the content of the `user.js` before proceed.
-- Backup before proceed.
+- Read the offical wiki/documentation before proceeding.
+- Read the content of the `user.js` before proceeding.
+- Backup before proceeding.
 - Write your overrides.
 
 ### Arkenfox
