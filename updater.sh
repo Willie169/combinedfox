@@ -50,7 +50,7 @@ show_banner() {
                 ############################################################################
                 ####                                                                    ####
                 ####                       browser-privacy-guide                        ####
-                ####         user-overrides.js updater for macOS and Linux          ####
+                ####           user-overrides.js updater for macOS and Linux            ####
                 ####                      Maintained by @Willie169                      ####
                 ####       Credit: arkenfox user.js updater for macOS and Linux         ####
                 ####                                                                    ####
