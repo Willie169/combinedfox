@@ -43,3 +43,4 @@ user_pref("media.cache_resume_threshold", 1800); // 5 min; default=30; when a ne
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
+

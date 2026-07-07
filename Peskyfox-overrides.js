@@ -299,3 +299,4 @@ user_pref("image.jxl.enabled", true);
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_Peskyfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
+
