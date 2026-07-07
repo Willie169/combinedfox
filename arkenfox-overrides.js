@@ -19,6 +19,10 @@ user_pref("browser.newtabpage.enabled", true);
 
 /*** [SECTION 0200]: GEOLOCATION ***/
 user_pref("_user-overrides.js.parrot", "0200 syntax error: the parrot's definitely deceased!");
+/* 0202: disable using the OS's geolocation service ***/
+user_pref("geo.provider.ms-windows-location", true); // [WINDOWS]
+user_pref("geo.provider.use_corelocation", true); // [MAC]
+user_pref("geo.provider.use_geoclue", true); // [FF102+] [LINUX]
 
 /*** [SECTION 0300]: QUIETER FOX ***/
 user_pref("_user-overrides.js.parrot", "0300 syntax error: the parrot's not pinin' for the fjords!");
