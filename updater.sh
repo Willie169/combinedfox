@@ -32,6 +32,13 @@ NC='\033[0m' # No Color
 
 # Argument defaults
 PROFILE_PATH=false
+CONFIRM='yes'
+OVERRIDE='custom-overrides.js'
+BACKUP='multiple'
+COMPARE=false
+SKIPOVERRIDE=false
+VIEW=false
+PROFILE_PATH=false
 
 # Download method priority: curl -> wget
 DOWNLOAD_METHOD=''
@@ -64,7 +71,7 @@ show_banner() {
 
 usage() {
   echo
-  echo -e "${BLUE}Usage: $0 [-bcdhlrsuv] [-p PROFILE]${NC}" 1>&2  # Echo usage string to standard error
+  echo -e "${BLUE}Usage: $0 [-bcdhlrsuv] [-p PROFILE] [-o OVERRIDE]${NC}" 1>&2  # Echo usage string to standard error
   echo -e "
 Optional Arguments:
     -h           Show this help message and exit.
@@ -73,11 +80,19 @@ Optional Arguments:
     -l           Choose your Firefox profile from a list
     -u           Update updater.sh and execute silently.  Do not seek confirmation.
     -d           Do not look for updates to updater.sh.
-    -s           Silently update Peskyfox.js.  Do not seek confirmation.
+    -s           Silently update user-overrides.js.  Do not seek confirmation.
     -b           Only keep one backup of each file.
-    -c           Create a diff file comparing old and new Peskyfox.js within Peskyfoxjs_diffs.
-    -v           Open the resulting Peskyfox.js file.
-    -r           Only download Pesky.js to a temporary file and open it."
+    -c           Create a diff file comparing old and new user-overrides.js within Peskyfoxjs_diffs.
+    -o OVERRIDE  Filename or path to overrides file (if different than custom-overrides.js).
+                 If used with -p, paths should be relative to PROFILE or absolute paths
+                 If given a directory, all files inside will be appended recursively.
+                 You can pass multiple files or directories by passing a comma separated list.
+                     Note: If a directory is given, only files inside ending in the extension .js are appended
+                     IMPORTANT: Do not add spaces between files/paths.  Ex: -o file1.js,file2.js,dir1
+                     IMPORTANT: If any file/path contains spaces, wrap the entire argument in quotes.
+                         Ex: -o \"override folder\"
+    -v           Open the resulting user-overrides.js file.
+    -r           Only compose user-overrides.js to a temporary file and open it."
   echo
   exit 1
 }
@@ -175,16 +190,16 @@ update_updater() {
   exit 0
 }
 
-#########################
-#  Update Peskyfox.js   #
-#########################
+#####################################################################################
+# Update Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js #
+#####################################################################################
 
 remove_comments() { # expects 2 arguments: from-file and to-file
   sed -e '/^\/\*.*\*\/[[:space:]]*$/d' -e '/^\/\*/,/\*\//d' -e 's|^[[:space:]]*//.*$||' -e '/^[[:space:]]*$/d' -e 's|);[[:space:]]*//.*|);|' "$1" > "$2"
 }
 
-# Applies latest version of Peskyfox.js
-update_Peskyfoxjs() {
+# Applies latest version of Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js
+update_js() {
   declare -r newfile="$(download_file 'https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Peskyfox.js')"
   [ -z "${newfile}" ] && echo -e "${RED}Error! Could not download Peskyfox.js${NC}" && return 1 # check if download failed
 
