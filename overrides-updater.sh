@@ -28,10 +28,10 @@ BLUE='\033[0;34m'
 BBLUE='\033[1;34m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
-CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Argument defaults
+UPDATE='check'
 CONFIRM='yes'
 OVERRIDE='custom-overrides.js'
 BACKUP='multiple'
@@ -126,6 +126,7 @@ readIniFile() { # expects one argument: absolute path of profiles.ini
   else
     echo -e "Profiles found:\n––––––––––––––––––––––––––––––"
     ## cmd-substitution to strip trailing newlines and in quotes to keep internal ones:
+    # shellcheck disable=2005
     echo "$(grep --color=never -E 'Default=[^1]|\[Profile[0-9]*\]|Name=|Path=|^$' "${inifile}")"
     echo '––––––––––––––––––––––––––––––'
     read -p 'Select the profile number ( 0 for Profile0, 1 for Profile1, etc ) : ' -r
@@ -168,9 +169,9 @@ getProfilePath() {
   fi
 }
 
-#########################
-#   Update overrides-updater.sh   #
-#########################
+#################################
+#  Update overrides-updater.sh  #
+#################################
 
 # Update overrides-updater.sh
 # Default: Check for update, if available, ask user if they want to execute it
@@ -183,40 +184,33 @@ update_updater() {
   declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/main/overrides-updater.sh')"
   [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download overrides-updater.sh${NC}" && return 1 # check if download failed
 
-  if [[ $(get_updater_version "$SCRIPT_FILE") < $(get_updater_version "${tmpfile}") ]]; then
-    if [ "$UPDATE" = 'check' ]; then
-      echo -e "There is a newer version of overrides-updater.sh available. ${RED}Update and execute Y/N?${NC}"
-      read -p "" -n 1 -r
-      echo -e "\n\n"
-      [[ $REPLY =~ ^[Yy]$ ]] || return 0   # Update available, but user chooses not to update
-    fi
-  else
-    return 0   # No update available
+  if [ "$UPDATE" = 'check' ]; then
+    echo -e "${RED}Update and execute overrides-updater.sh Y/N?${NC}"
+    read -p "" -n 1 -r
+    echo -e "\n\n"
+    [[ $REPLY =~ ^[Yy]$ ]] || return 0   # Update available, but user chooses not to update
   fi
+
   mv "${tmpfile}" "$SCRIPT_FILE"
   chmod u+x "$SCRIPT_FILE"
   "$SCRIPT_FILE" "$@" -d
   exit 0
 }
 
-#########################
-#    Update user.js     #
-#########################
-
-# Returns version number of a user.js file
-get_userjs_version() {
-  [ -e "$1" ] && echo "$(sed -n '4p' "$1")" || echo "Not detected."
-}
+##############################
+#  Update user-overrides.js  #
+##############################
 
 add_override() {
   input=$1
   if [ -f "$input" ]; then
-    echo "" >> user.js
-    cat "$input" >> user.js
+    echo "" >> user-overrides.js
+    cat "$input" >> user-overrides.js
     echo -e "Status: ${GREEN}Override file appended:${NC} ${input}"
   elif [ -d "$input" ]; then
     SAVEIFS=$IFS
     IFS=$'\n\b' # Set IFS
+    # shellcheck disable=2125
     FILES="${input}"/*.js
     for f in $FILES
     do
@@ -232,48 +226,68 @@ remove_comments() { # expects 2 arguments: from-file and to-file
   sed -e '/^\/\*.*\*\/[[:space:]]*$/d' -e '/^\/\*/,/\*\//d' -e 's|^[[:space:]]*//.*$||' -e '/^[[:space:]]*$/d' -e 's|);[[:space:]]*//.*|);|' "$1" > "$2"
 }
 
-# Applies latest version of user.js and any custom overrides
+# Applies latest version of Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, extra-overrides.js, and any custom overrides
 update_userjs() {
-  declare -r newfile="$(download_file 'https://raw.githubusercontent.com/arkenfox/user.js/master/user.js')"
-  [ -z "${newfile}" ] && echo -e "${RED}Error! Could not download user.js${NC}" && return 1 # check if download failed
+  declare -r peskyfox="$(download_file 'https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Peskyfox.js')"
+  [ -z "${peskyfox}" ] && echo -e "${RED}Error! Could not download Peskyfox.js${NC}" && return 1 # check if download failed
+  declare -r arkenfoxoverrides="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/main/arkenfox-overrides.js')"
+  [ -z "${arkenfoxoverrides}" ] && echo -e "${RED}Error! Could not download arkenfox-overrides.js${NC}" && return 1 # check if download failed
+  declare -r peskyfoxoverrides="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/main/Peskyfox-overrides.js')"
+  [ -z "${peskyfoxoverrides}" ] && echo -e "${RED}Error! Could not download Peskyfox-overrides.js${NC}" && return 1 # check if download failed
+  declare -r extraoverrides="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/main/extra-overrides.js')"
+  [ -z "${extraoverrides}" ] && echo -e "${RED}Error! Could not download extra-overrides.js${NC}" && return 1 # check if download failed
 
   echo -e "Please observe the following information:
     Firefox profile:  ${ORANGE}$(pwd)${NC}
-    Available online: ${ORANGE}$(get_userjs_version "$newfile")${NC}
-    Currently using:  ${ORANGE}$(get_userjs_version user.js)${NC}\n\n"
+    Downloaded: Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, and extra-overrides.js\n\n"
 
   if [ "$CONFIRM" = 'yes' ]; then
-    echo -e "This script will update to the latest user.js file and append any custom configurations from user-overrides.js. ${RED}Continue Y/N? ${NC}"
+    echo -e "This script will update and compose the latest user-overrides.js file with all custom configurations appended. ${RED}Continue Y/N? ${NC}"
     read -p "" -n 1 -r
     echo -e "\n"
     if ! [[ $REPLY =~ ^[Yy]$ ]]; then
       echo -e "${RED}Process aborted${NC}"
-      rm "$newfile"
+      rm "$peskyfox" "$arkenfoxoverrides" "$peskyfoxoverrides" "$extraoverrides"
       return 1
     fi
   fi
 
-  # Copy a version of user.js to diffs folder for later comparison
+  # Copy a version of user-overrides.js to diffs folder for later comparison
   if [ "$COMPARE" = true ]; then
-    mkdir -p userjs_diffs
-    cp user.js userjs_diffs/past_user.js &>/dev/null
+    mkdir -p useroverridesjs_diffs
+    cp user-overrides.js useroverridesjs_diffs/past_user-overrides.js &>/dev/null
   fi
 
-  # backup user.js
-  mkdir -p userjs_backups
-  local bakname="userjs_backups/user.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && bakname='userjs_backups/user.js.backup'
-  cp user.js "$bakname" &>/dev/null
+  # backup Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, extra-overrides.js, and user-overrides.js
+  mkdir -p useroverridesjs_backups
+  # shellcheck disable=2155
+  local peskyfoxbakname="useroverridesjs_backups/Peskyfox.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && peskyfoxbakname='userjs_backups/Peskyfox.js.backup'
+  cp Peskyfox.js "$peskyfoxbakname" &>/dev/null
+  # shellcheck disable=2155
+  local arkenfoxoverridesbakname="useroverridesjs_backups/arkenfox-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && arkenfoxoverridesbakname='userjs_backups/arkenfox-overrides.js.backup'
+  cp arkenfox-overrides.js "$arkenfoxoverridesbakname" &>/dev/null
+  # shellcheck disable=2155
+  local peskyfoxoverridesbakname="useroverridesjs_backups/Peskyfox-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && peskyfoxoverridesbakname='userjs_backups/Peskyfox-overrides.js.backup'
+  cp Peskyfox-overrides.js "$peskyfoxoverridesbakname" &>/dev/null
+  # shellcheck disable=2155
+  local extraoverridesbakname="useroverridesjs_backups/extra-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && extraoverridesbakname='userjs_backups/extra-overrides.js.backup'
+  cp extra-overrides.js "$extraoverridesbakname" &>/dev/null
+  # shellcheck disable=2155
+  local useroverridesbakname="useroverridesjs_backups/user-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && useroverridesbakname='userjs_backups/user-overrides.js.backup'
+  cp user-overrides.js "$useroverridesbakname" &>/dev/null
 
-  mv "${newfile}" user.js
-  echo -e "Status: ${GREEN}user.js has been backed up and replaced with the latest version!${NC}"
+  mv "$peskyfox" Peskyfox.js
+  mv "$arkenfoxoverrides" arkenfox-overrides.js
+  mv "$peskyfoxoverrides" Peskyfox-overrides.js
+  mv "$extraoverrides" extra-overrides.js
+  cat Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js > user-overrides.js
 
-  if [ "$ESR" = true ]; then
-    sed -e 's/\/\* \(ESR[0-9]\{2,\}\.x still uses all.*\)/\/\/ \1/' user.js > user.js.tmp && mv user.js.tmp user.js
-    echo -e "Status: ${GREEN}ESR related preferences have been activated!${NC}"
-  fi
-
-  # apply overrides
+  # apply custom overrides
   if [ "$SKIPCOMBINE" = false ]; then
     while IFS=',' read -ra FILES; do
       for FILE in "${FILES[@]}"; do
@@ -284,26 +298,25 @@ update_userjs() {
 
   # create diff
   if [ "$COMPARE" = true ]; then
-    pastuserjs='userjs_diffs/past_user.js'
-    past_nocomments='userjs_diffs/past_userjs.txt'
-    current_nocomments='userjs_diffs/current_userjs.txt'
+    pastuseroverridesjs='useroverridesjs_diffs/past_user-overrides.js'
+    past_nocomments='useroverridesjs_diffs/past_user-overrides.js'
+    current_nocomments='useroverridesjs_diffs/current_user-overrides.js'
 
-    remove_comments "$pastuserjs" "$past_nocomments"
-    remove_comments user.js "$current_nocomments"
+    remove_comments "$pastuseroverridesjs" "$past_nocomments"
+    remove_comments user-overrides.js "$current_nocomments"
 
-    diffname="userjs_diffs/diff_$(date +"%Y-%m-%d_%H%M").txt"
+    diffname="useroverridesjs_diffs/diff_$(date +"%Y-%m-%d_%H%M").txt"
     diff=$(diff -w -B -U 0 "$past_nocomments" "$current_nocomments")
     if [ -n "$diff" ]; then
       echo "$diff" > "$diffname"
       echo -e "Status: ${GREEN}A diff file was created:${NC} ${PWD}/${diffname}"
     else
-      echo -e "Warning: ${ORANGE}Your new user.js file appears to be identical.  No diff file was created.${NC}"
-      [ "$BACKUP" = 'multiple' ] && rm "$bakname" &>/dev/null
+      echo -e "Info: ${ORANGE}Your new user-overrides.js file appears to be identical.  No diff file was created.${NC}"
     fi
-    rm "$past_nocomments" "$current_nocomments" "$pastuserjs" &>/dev/null
+    rm "$past_nocomments" "$current_nocomments" "$pastuseroverridesjs" &>/dev/null
   fi
 
-  [ "$VIEW" = true ] && open_file "${PWD}/user.js"
+  [ "$VIEW" = true ] && open_file "${PWD}/user-overrides.js"
 }
 
 #########################
@@ -315,7 +328,7 @@ if [ $# != 0 ]; then
   if [ "$1" = '--help' ] || [ "$1" = '-help' ]; then
     usage
   else
-    while getopts ":hp:ludsno:bcvre" opt; do
+    while getopts ":hp:ludsno:bcv" opt; do
       case $opt in
         h)
           usage
@@ -350,17 +363,6 @@ if [ $# != 0 ]; then
         v)
           VIEW=true
           ;;
-        e)
-          ESR=true
-          ;;
-        r)
-          tfile="$(download_file 'https://raw.githubusercontent.com/arkenfox/user.js/master/user.js')"
-          [ -z "${tfile}" ] && echo -e "${RED}Error! Could not download user.js${NC}" && exit 1 # check if download failed
-          mv "$tfile" "${tfile}.js"
-          echo -e "${ORANGE}Warning: user.js was saved to temporary file ${tfile}.js${NC}"
-          open_file "${tfile}.js"
-          exit 0
-          ;;
         \?)
           echo -e "${RED}\n Error! Invalid option: -$OPTARG${NC}" >&2
           usage
@@ -385,10 +387,12 @@ if [ -n "$(find ./ -user 0)" ]; then
 	printf 'It looks like this script was previously run with elevated privileges,
 you will need to change ownership of the following files to your user:\n'
 	find . -user 0
+    # shellcheck disable=2164
 	cd "$CURRDIR"
 	exit 1
 fi
 
 update_userjs
 
+# shellcheck disable=2164
 cd "$CURRDIR"
