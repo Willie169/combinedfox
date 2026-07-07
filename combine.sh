@@ -1,1 +1,1 @@
-cat Peskyfox.js Peskyfox-override.js extra-override.js > user-overrides.js
+cat Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js > user-overrides.js
