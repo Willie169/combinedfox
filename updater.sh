@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## browser-privacy-guide Betterfox Peskyfox.js updater for macOS and Linux
+## browser-privacy-guide user-overrides.js updater for macOS and Linux
 ## Credit: arkenfox user.js updater for macOS and Linux https://github.com/arkenfox/user.js/blob/master/updater.sh
 
 # Check if running as root
@@ -50,7 +50,7 @@ show_banner() {
                 ############################################################################
                 ####                                                                    ####
                 ####                       browser-privacy-guide                        ####
-                ####         Betterfox Peskyfox.js updater for macOS and Linux          ####
+                ####         user-overrides.js updater for macOS and Linux          ####
                 ####                      Maintained by @Willie169                      ####
                 ####       Credit: arkenfox user.js updater for macOS and Linux         ####
                 ####                                                                    ####
@@ -71,8 +71,8 @@ Optional Arguments:
     -p PROFILE   Path to your Firefox profile (if different than the dir of this script)
                  IMPORTANT: If the path contains spaces, wrap the entire argument in quotes.
     -l           Choose your Firefox profile from a list
-    -u           Update Peskyfox.sh and execute silently.  Do not seek confirmation.
-    -d           Do not look for updates to Peskyfox.sh.
+    -u           Update updater.sh and execute silently.  Do not seek confirmation.
+    -d           Do not look for updates to updater.sh.
     -s           Silently update Peskyfox.js.  Do not seek confirmation.
     -b           Only keep one backup of each file.
     -c           Create a diff file comparing old and new Peskyfox.js within Peskyfoxjs_diffs.
@@ -155,10 +155,10 @@ getProfilePath() {
 }
 
 #########################
-#  Update Peskyfox.sh   #
+#  Update updater.sh   #
 #########################
 
-# Update Peskyfox.sh
+# Update updater.sh
 # Default: Check for update, if available, ask user if they want to execute it
 # Args:
 #   -d: New version will not be looked for and update will not occur
@@ -166,8 +166,8 @@ getProfilePath() {
 update_updater() {
   [ "$UPDATE" = 'no' ] && return 0 # User signified not to check for updates
 
-  declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/Peskyfox.sh')"
-  [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download Peskyfox.sh${NC}" && return 1 # check if download failed
+  declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/updater.sh')"
+  [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download updater.sh${NC}" && return 1 # check if download failed
 
   mv "${tmpfile}" "$SCRIPT_FILE"
   chmod u+x "$SCRIPT_FILE"
