@@ -1,3 +1,4 @@
+
 /*** CUSTOM ***/
 user_pref("_extra-overrides.js.parrot", "CUSTOM syntax error: the parrot's dead!");
 

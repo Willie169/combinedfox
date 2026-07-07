@@ -158,7 +158,7 @@ getProfilePath() {
 #  Update Peskyfox.sh   #
 #########################
 
-# Update updater.sh
+# Update Peskyfox.sh
 # Default: Check for update, if available, ask user if they want to execute it
 # Args:
 #   -d: New version will not be looked for and update will not occur
@@ -167,7 +167,7 @@ update_updater() {
   [ "$UPDATE" = 'no' ] && return 0 # User signified not to check for updates
 
   declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/browser-privacy-guide/refs/heads/main/Peskyfox.sh')"
-  [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download updater.sh${NC}" && return 1 # check if download failed
+  [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download Peskyfox.sh${NC}" && return 1 # check if download failed
 
   mv "${tmpfile}" "$SCRIPT_FILE"
   chmod u+x "$SCRIPT_FILE"
