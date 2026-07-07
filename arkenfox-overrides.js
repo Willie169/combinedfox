@@ -1,8 +1,8 @@
 /* START: internal custom pref to test for syntax errors ***/
-user_pref("_user-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
+user_pref("_arkenfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 
 /*** [SECTION 0100]: STARTUP ***/
-user_pref("_user-overrides.js.parrot", "0100 syntax error: the parrot's dead!");
+user_pref("_arkenfox-overrides.js.parrot", "0100 syntax error: the parrot's dead!");
 /* 0102: set startup page [SETUP-CHROME]
  * 0=blank, 1=home, 2=last visited page, 3=resume previous session
  * [NOTE] Session Restore is cleared if history is also cleared (2811+), and not used in Private Browsing mode
@@ -18,14 +18,14 @@ user_pref("browser.startup.homepage", "about:home");
 user_pref("browser.newtabpage.enabled", true);
 
 /*** [SECTION 0200]: GEOLOCATION ***/
-user_pref("_user-overrides.js.parrot", "0200 syntax error: the parrot's definitely deceased!");
+user_pref("_arkenfox-overrides.js.parrot", "0200 syntax error: the parrot's definitely deceased!");
 /* 0202: disable using the OS's geolocation service ***/
 user_pref("geo.provider.ms-windows-location", true); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", true); // [MAC]
 user_pref("geo.provider.use_geoclue", true); // [FF102+] [LINUX]
 
 /*** [SECTION 0300]: QUIETER FOX ***/
-user_pref("_user-overrides.js.parrot", "0300 syntax error: the parrot's not pinin' for the fjords!");
+user_pref("_arkenfox-overrides.js.parrot", "0300 syntax error: the parrot's not pinin' for the fjords!");
 /* 0360: disable Captive Portal detection
  * [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy ***/
 user_pref("captivedetect.canonicalURL", "http://detectportal.firefox.com/canonical.html");
@@ -35,7 +35,7 @@ user_pref("network.captive-portal-service.enabled", true); // [FF52+]
 user_pref("network.connectivity-service.enabled", true);
 
 /*** [SECTION 0400]: SAFE BROWSING (SB) ***/
-user_pref("_user-overrides.js.parrot", "0400 syntax error: the parrot's passed on!");
+user_pref("_arkenfox-overrides.js.parrot", "0400 syntax error: the parrot's passed on!");
 /* 0403: disable SB checks for downloads (remote)
  * To verify the safety of certain executable files, Firefox may submit some information about the
  * file, including the name, origin, size and a cryptographic hash of the contents, to the Google
@@ -44,14 +44,14 @@ user_pref("_user-overrides.js.parrot", "0400 syntax error: the parrot's passed o
 user_pref("browser.safebrowsing.downloads.remote.enabled", true);
 
 /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND [not explicitly asked for - e.g. clicked on] ***/
-user_pref("_user-overrides.js.parrot", "0600 syntax error: the parrot's no more!");
+user_pref("_arkenfox-overrides.js.parrot", "0600 syntax error: the parrot's no more!");
 /* 0602: disable DNS prefetching
  * [1] https://developer.mozilla.org/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control ***/
 user_pref("network.dns.disablePrefetch", false);
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
 /*** [SECTION 0700]: DNS / DoH / PROXY / SOCKS ***/
-user_pref("_user-overrides.js.parrot", "0700 syntax error: the parrot's given up the ghost!");
+user_pref("_arkenfox-overrides.js.parrot", "0700 syntax error: the parrot's given up the ghost!");
 /* 0702: set the proxy server to do any DNS lookups when using SOCKS
  * e.g. in Tor, this stops your local DNS server from knowing your Tor destination
  * as a remote Tor node will handle the DNS request
@@ -73,7 +73,7 @@ user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "	https://mozilla.cloudflare-dns.com/dns-query");
 
 /*** [SECTION 0800]: LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS ***/
-user_pref("_user-overrides.js.parrot", "0800 syntax error: the parrot's ceased to be!");
+user_pref("_arkenfox-overrides.js.parrot", "0800 syntax error: the parrot's ceased to be!");
 /* 0803: disable live search suggestions
  * [NOTE] Both must be true for live search to work in the location bar
  * [SETUP-CHROME] Override these if you trust and use a privacy respecting search engine
@@ -82,10 +82,10 @@ user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.searches", true);
 
 /*** [SECTION 0900]: PASSWORDS / PASSKEYS ***/
-user_pref("_user-overrides.js.parrot", "0900 syntax error: the parrot's expired!");
+user_pref("_arkenfox-overrides.js.parrot", "0900 syntax error: the parrot's expired!");
 
 /*** [SECTION 1000]: DISK AVOIDANCE ***/
-user_pref("_user-overrides.js.parrot", "1000 syntax error: the parrot's gone to meet 'is maker!");
+user_pref("_arkenfox-overrides.js.parrot", "1000 syntax error: the parrot's gone to meet 'is maker!");
 /* 1001: disable disk cache
  * [NOTE] We also clear cache on exit (2811+)
  * [SETUP-CHROME] If you think disk cache helps perf, then feel free to override this ***/
@@ -97,7 +97,7 @@ user_pref("browser.cache.disk.enable", true);
 user_pref("browser.shell.shortcutFavicons", true);
 
 /*** [SECTION 1200]: HTTPS (SSL/TLS / OCSP / CERTS / HPKP) ***/
-user_pref("_user-overrides.js.parrot", "1200 syntax error: the parrot's a stiff!");
+user_pref("_arkenfox-overrides.js.parrot", "1200 syntax error: the parrot's a stiff!");
 
 /** MIXED CONTENT ***/
 /* 1244: enable HTTPS-Only mode in all windows
@@ -110,19 +110,19 @@ user_pref("dom.security.https_only_mode", true); // [FF76+]
 user_pref("dom.security.https_only_mode_pbm", true); // [FF80+]
 
 /*** [SECTION 1600]: REFERERS ***/
-user_pref("_user-overrides.js.parrot", "1600 syntax error: the parrot rests in peace!");
+user_pref("_arkenfox-overrides.js.parrot", "1600 syntax error: the parrot rests in peace!");
 
 /*** [SECTION 1700]: CONTAINERS ***/
-user_pref("_user-overrides.js.parrot", "1700 syntax error: the parrot's bit the dust!");
+user_pref("_arkenfox-overrides.js.parrot", "1700 syntax error: the parrot's bit the dust!");
 
 /*** [SECTION 2000]: PLUGINS / MEDIA / WEBRTC ***/
-user_pref("_user-overrides.js.parrot", "2000 syntax error: the parrot's snuffed it!");
+user_pref("_arkenfox-overrides.js.parrot", "2000 syntax error: the parrot's snuffed it!");
 
 /*** [SECTION 2400]: DOM (DOCUMENT OBJECT MODEL) ***/
-user_pref("_user-overrides.js.parrot", "2400 syntax error: the parrot's kicked the bucket!");
+user_pref("_arkenfox-overrides.js.parrot", "2400 syntax error: the parrot's kicked the bucket!");
 
 /*** [SECTION 2600]: MISCELLANEOUS ***/
-user_pref("_user-overrides.js.parrot", "2600 syntax error: the parrot's run down the curtain!");
+user_pref("_arkenfox-overrides.js.parrot", "2600 syntax error: the parrot's run down the curtain!");
 /* 2619: use Punycode in Internationalized Domain Names to eliminate possible spoofing
  * [SETUP-WEB] Might be undesirable for non-latin alphabet users since legitimate IDN's are also punycoded
  * [TEST] https://www.xn--80ak6aa92e.com/ (www.apple.com)
@@ -138,10 +138,10 @@ user_pref("network.IDN_show_punycode", false);
 user_pref("extensions.webextensions.restrictedDomains", "");
 
 /*** [SECTION 2700]: ETP (ENHANCED TRACKING PROTECTION) ***/
-user_pref("_user-overrides.js.parrot", "2700 syntax error: the parrot's joined the bleedin' choir invisible!");
+user_pref("_arkenfox-overrides.js.parrot", "2700 syntax error: the parrot's joined the bleedin' choir invisible!");
 
 /*** [SECTION 2800]: SHUTDOWN & SANITIZING ***/
-user_pref("_user-overrides.js.parrot", "2800 syntax error: the parrot's bleedin' demised!");
+user_pref("_arkenfox-overrides.js.parrot", "2800 syntax error: the parrot's bleedin' demised!");
 
 /** SANITIZE ON SHUTDOWN: RESPECTS "ALLOW" SITE EXCEPTIONS ***/
 /* 2815: set "Cookies" and "Site Data" to clear on shutdown (if 2810 is true) [SETUP-CHROME] [FF128+]
@@ -159,10 +159,10 @@ user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);
 user_pref("privacy.clearSiteData.cookiesAndStorage", false); // keep false even after it respects "allow" site exceptions
 
 /*** [SECTION 4000]: FPP (fingerprintingProtection) ***/
-user_pref("_user-overrides.js.parrot", "4000 syntax error: the parrot's bereft of life!");
+user_pref("_arkenfox-overrides.js.parrot", "4000 syntax error: the parrot's bereft of life!");
 
 /*** [SECTION 4500]: OPTIONAL RFP (resistFingerprinting) ***/
-user_pref("_user-overrides.js.parrot", "4500 syntax error: the parrot's popped 'is clogs");
+user_pref("_arkenfox-overrides.js.parrot", "4500 syntax error: the parrot's popped 'is clogs");
 /* 4506: disable RFP spoof english prompt [FF59+]
  * 0=prompt, 1=disabled, 2=enabled
  * [NOTE] When changing from value 2, preferred languages ('intl.accept_languages') is not reset.
@@ -171,7 +171,7 @@ user_pref("_user-overrides.js.parrot", "4500 syntax error: the parrot's popped '
 user_pref("privacy.spoof_english", 2);
 
 /*** [SECTION 5000]: OPTIONAL OPSEC ***/
-user_pref("_user-overrides.js.parrot", "5000 syntax error: the parrot's taken 'is last bow");
+user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's taken 'is last bow");
 /* 5003: disable saving passwords
  * [NOTE] This does not clear any passwords already saved
  * [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites ***/
@@ -192,13 +192,13 @@ user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 
 /*** [SECTION 5500]: OPTIONAL HARDENING ***/
-user_pref("_user-overrides.js.parrot", "5500 syntax error: this is an ex-parrot!");
+user_pref("_arkenfox-overrides.js.parrot", "5500 syntax error: this is an ex-parrot!");
 
 /*** [SECTION 6000]: DON'T TOUCH ***/
-user_pref("_user-overrides.js.parrot", "6000 syntax error: the parrot's 'istory!");
+user_pref("_arkenfox-overrides.js.parrot", "6000 syntax error: the parrot's 'istory!");
 
 /*** [SECTION 7000]: DON'T BOTHER ***/
-user_pref("_user-overrides.js.parrot", "7000 syntax error: the parrot's pushing up daisies!");
+user_pref("_arkenfox-overrides.js.parrot", "7000 syntax error: the parrot's pushing up daisies!");
 /* 7015: enable the DNT (Do Not Track) HTTP header
  * [WHY] Fingerprintable. In FF141+ DNT is never enabled. DNT is slated for deprecation [1]
    [NOTE] In FF140, DNT is enforced with Tracking Protection which is used in ETP Strict (2701)
@@ -210,16 +210,16 @@ user_pref("privacy.donottrackheader.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", false);
 
 /*** [SECTION 8000]: DON'T BOTHER: FINGERPRINTING ***/
-user_pref("_user-overrides.js.parrot", "8000 syntax error: the parrot's crossed the Jordan");
+user_pref("_arkenfox-overrides.js.parrot", "8000 syntax error: the parrot's crossed the Jordan");
 
 /*** [SECTION 8500]: TELEMETRY ***/
-user_pref("_user-overrides.js.parrot", "8500 syntax error: the parrot's off the twig!");
+user_pref("_arkenfox-overrides.js.parrot", "8500 syntax error: the parrot's off the twig!");
 
 /*** [SECTION 9000]: NON-PROJECT RELATED ***/
-user_pref("_user-overrides.js.parrot", "9000 syntax error: the parrot's cashed in 'is chips!");
+user_pref("_arkenfox-overrides.js.parrot", "9000 syntax error: the parrot's cashed in 'is chips!");
 
 /*** [SECTION 9999]: DEPRECATED / RENAMED ***/
-user_pref("_user-overrides.js.parrot", "9999 syntax error: the parrot's shuffled off 'is mortal coil!");
+user_pref("_arkenfox-overrides.js.parrot", "9999 syntax error: the parrot's shuffled off 'is mortal coil!");
 
 /* END: internal custom pref to test for syntax errors ***/
-user_pref("_user-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
+user_pref("_arkenfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
