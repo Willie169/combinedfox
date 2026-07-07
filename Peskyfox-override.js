@@ -59,7 +59,7 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.suggest.clipboard", true);
 user_pref("browser.urlbar.suggest.engines", false);
-user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.importantDates", false);
 user_pref("browser.urlbar.suggest.mdn", false);
 user_pref("browser.urlbar.suggest.openpage", true);
@@ -121,10 +121,10 @@ user_pref("_Peskyfox-overrides.js.parrot", "POCKET syntax error: the parrot's de
 // PREF: disable built-in Pocket extension
 // [1] https://support.mozilla.org/kb/future-of-pocket
 user_pref("extensions.pocket.enabled", false); // DEFAULT
-      user_pref("extensions.pocket.api"," ");
-      user_pref("extensions.pocket.oAuthConsumerKey", " ");
-      user_pref("extensions.pocket.site", " ");
-      user_pref("extensions.pocket.showHome", false);
+user_pref("extensions.pocket.api"," ");
+user_pref("extensions.pocket.oAuthConsumerKey", " ");
+user_pref("extensions.pocket.site", " ");
+user_pref("extensions.pocket.showHome", false);
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
@@ -243,7 +243,7 @@ user_pref("_Peskyfox-overrides.js.parrot", "KEYBOARD AND SHORTCUTS syntax error:
 user_pref("browser.backspace_action", 0);
 
 // PREF: disable ALT key toggling the menu bar
-/user_pref("ui.key.menuAccessKeyFocuses", false);
+user_pref("ui.key.menuAccessKeyFocuses", false);
 
 // PREF: hide frequent sites on right-click of taskbar icon [WINDOWS?]
 user_pref("browser.taskbar.lists.frequent.enabled", false);
@@ -299,3 +299,6 @@ user_pref("_Peskyfox-overrides.js.parrot", "IMAGE AND MEDIA HANDLING syntax erro
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 user_pref("image.jxl.enabled", true);
+
+/* END: internal custom pref to test for syntax errors ***/
+user_pref("_Peskyfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");

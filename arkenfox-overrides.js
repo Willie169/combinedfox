@@ -178,7 +178,6 @@ user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's take
 user_pref("signon.rememberSignons", false);
 /* 5010: disable location bar suggestion types
  * [SETTING] Search>Address Bar>When using the address bar, suggest ***/
-user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 /* 5012: disable location bar autofill
  * [1] https://support.mozilla.org/kb/address-bar-autocomplete-firefox#w_url-autocomplete ***/
