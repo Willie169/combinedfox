@@ -238,10 +238,6 @@ user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
  ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "KEYBOARD AND SHORTCUTS syntax error: the parrot's dead!");
 
-// PREF: disable backspace action
-// 0=previous page, 1=scroll up, 2=do nothing
-user_pref("browser.backspace_action", 0);
-
 // PREF: disable ALT key toggling the menu bar
 user_pref("ui.key.menuAccessKeyFocuses", false);
 
