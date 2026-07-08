@@ -46,10 +46,6 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", true);
 
 /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND [not explicitly asked for - e.g. clicked on] ***/
 user_pref("_arkenfox-overrides.js.parrot", "0600 syntax error: the parrot's no more!");
-/* 0602: enable DNS prefetching
- * [1] https://developer.mozilla.org/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control ***/
-user_pref("network.dns.disablePrefetch", false);
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
 /*** [SECTION 0700]: DNS / DoH / PROXY / SOCKS ***/
 user_pref("_arkenfox-overrides.js.parrot", "0700 syntax error: the parrot's given up the ghost!");
