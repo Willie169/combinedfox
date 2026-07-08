@@ -710,7 +710,8 @@ user_pref("network.trr.mode", 3);
  * The custom uri is the value shown when you "Choose provider>Custom>"
  * [NOTE] If you USE custom then "network.trr.uri" should be set the same
  * [SETTING] Privacy & Security>DNS over HTTPS>Increased/Max>Choose provider ***/
-user_pref("network.trr.uri", "	https://mozilla.cloudflare-dns.com/dns-query");
+user_pref("network.trr.uri", "https://security.cloudflare-dns.com/dns-query");
+user_pref("network.trr.custom_uri", "https://security.cloudflare-dns.com/dns-query");
 
 /*** [SECTION 0800]: LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS ***/
 user_pref("_arkenfox-overrides.js.parrot", "0800 syntax error: the parrot's ceased to be!");
@@ -836,6 +837,11 @@ user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 
 /*** [SECTION 5500]: OPTIONAL HARDENING ***/
 user_pref("_arkenfox-overrides.js.parrot", "5500 syntax error: this is an ex-parrot!");
+/* 5511: set DoH bootstrap address [FF89+]
+ * Firefox uses the system DNS to initially resolve the IP address of your DoH server.
+ * When set to a valid, working value that matches your "network.trr.uri" (0712) Firefox
+ * won't use the system DNS. If the IP doesn't match then DoH won't work ***/
+user_pref("network.trr.bootstrapAddr", "1.1.1.2"); // [HIDDEN PREF]
 
 /*** [SECTION 6000]: DON'T TOUCH ***/
 user_pref("_arkenfox-overrides.js.parrot", "6000 syntax error: the parrot's 'istory!");
