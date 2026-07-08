@@ -64,29 +64,29 @@ Search suggestion URL with %s in place of search term (optional)
 ```
 
 Search engines:
-- [Bing](Bing.txt)
-- [Brave](Brave.txt): Recommended.
-- [Cambridge Dictionary](Cambridge%20Dictionary.txt)
-- [DuckDuckGo](DuckDuckGo.txt):  Recommended.
-- [DuckDuckGo HTML](DuckDuckGo%20HTML.txt)
-- [DuckDuckGo Lite](DuckDuckGo%20Lite.txt)
-- [DuckDuckGo NoAI](DuckDuckGo%20NoAI.txt)
-- [Ecosia](Ecosia.txt)
-- [GitHub](GitHub.txt)
-- [Google Scholar](Google%20Scholar.txt)
-- [Google Translate](Google%20Translate.txt)
-- [Google](Google.txt)
-- [Mojeek](Mojeek.txt)
-- [No search](No%20search.txt): No search engine. Enter sites directly.
-- [Perplexity](Perplexity.txt)
-- [Qwant Lite](Qwant%20Lite.txt)
-- [Qwant](Qwant.txt)
-- [Reddit](Reddit.txt)
+- [Bing](search-engines/Bing.txt)
+- [Brave](search-engines/Brave.txt): Recommended.
+- [Cambridge Dictionary](search-engines/Cambridge%20Dictionary.txt)
+- [DuckDuckGo](search-engines/DuckDuckGo.txt):  Recommended.
+- [DuckDuckGo HTML](search-engines/DuckDuckGo%20HTML.txt)
+- [DuckDuckGo Lite](search-engines/DuckDuckGo%20Lite.txt)
+- [DuckDuckGo NoAI](search-engines/DuckDuckGo%20NoAI.txt)
+- [Ecosia](search-engines/Ecosia.txt)
+- [GitHub](search-engines/GitHub.txt)
+- [Google Scholar](search-engines/Google%20Scholar.txt)
+- [Google Translate](search-engines/Google%20Translate.txt)
+- [Google](search-engines/Google.txt)
+- [Mojeek](search-engines/Mojeek.txt)
+- [No search](search-engines/No%20search.txt): No search engine. Enter sites directly.
+- [Perplexity](search-engines/Perplexity.txt)
+- [Qwant Lite](search-engines/Qwant%20Lite.txt)
+- [Qwant](search-engines/Qwant.txt)
+- [Reddit](search-engines/Reddit.txt)
 - SearXNG: Find a trusted instance near you from [SearXNG instances](https://searx.space) or self-host one. Search string URL with %s in place of search term is the instance URL with `?q=%s` appended, such as `https://search.anoni.net/?q=%s`. Recommended.
-- [Startpage](Startpage.txt): Recommended.
-- [Wikipedia (en)](Wikipedia%20(en).txt)
-- [Yahoo!](Yahoo!.txt)
-- [YouTube](YouTube.txt)
+- [Startpage](search-engines/Startpage.txt): Recommended.
+- [Wikipedia (en)](search-engines/Wikipedia%20(en).txt)
+- [Yahoo!](search-engines/Yahoo!.txt)
+- [YouTube](search-engines/YouTube.txt)
 
 ## Browser Settings
 
