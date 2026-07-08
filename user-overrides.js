@@ -1204,6 +1204,14 @@ user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("media.cache_readahead_limit", 3600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 1800); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
+/*** BETTERZEN
+   [1] https://github.com/yokoffing/Betterfox/blob/main/zen/user.js
+***/
+user_pref("_extra-overrides.js.parrot", "BETTERZEN syntax error: the parrot's dead!");
+
+// PREF: Disable the Picture in picture pop-out when changing tabs
+user_pref("media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled", false);
+
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
 
