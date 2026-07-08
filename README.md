@@ -121,13 +121,6 @@ A line starting with `//` is a single-line comment. Lines quoted with `/*` and `
 
 A `user.js` applies prefs in the order they are written. If a preference is listed multiple times, then the last value would override the others.
 
-For any `user.js`, be sure to
-- Only trust the official source.
-- Read the offical wiki/documentation before proceeding.
-- Read the content of the `user.js` before proceeding.
-- Backup before proceeding.
-- Write your overrides.
-
 ### Arkenfox
 
 <blockquote>
