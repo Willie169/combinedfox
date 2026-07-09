@@ -1,4 +1,6 @@
 
+/*** combinedfox overrides for arkenfox user.js arkenfox-overrides.js
+   [1] https://github.com/arkenfox/user.js/blob/master/user.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_arkenfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 

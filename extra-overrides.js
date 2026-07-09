@@ -1,4 +1,5 @@
 
+/*** combinedfox extra overrides extra-overrides.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 

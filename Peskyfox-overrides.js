@@ -1,4 +1,6 @@
 
+/*** combinedfox overrides for Betterfox Peskyfox.js Peskyfox-overrides.js
+   [1] https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_Peskyfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 
