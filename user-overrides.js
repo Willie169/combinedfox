@@ -643,6 +643,8 @@ user_pref("findbar.highlightAll", true);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 //user_pref("image.jxl.enabled", true);
 
+/*** combinedfox overrides for arkenfox user.js arkenfox-overrides.js
+   [1] https://github.com/arkenfox/user.js/blob/master/user.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_arkenfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 
@@ -864,6 +866,8 @@ user_pref("_arkenfox-overrides.js.parrot", "9999 syntax error: the parrot's shuf
 user_pref("_arkenfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
 
 
+/*** combinedfox overrides for Betterfox Peskyfox.js Peskyfox-overrides.js
+   [1] https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_Peskyfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 
@@ -1143,6 +1147,7 @@ user_pref("image.jxl.enabled", true);
 user_pref("_Peskyfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
 
 
+/*** combinedfox extra overrides extra-overrides.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
 
