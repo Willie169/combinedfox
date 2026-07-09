@@ -1161,7 +1161,6 @@ user_pref("browser.ui.zoom.force-user-scalable", true);
 // set language to en-US
 // [1] https://github.com/arkenfox/user.js/issues/1314
 user_pref("intl.accept_languages", "en-US, en");
-user_pref("javascript.use_us_english_locale", "true")
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
