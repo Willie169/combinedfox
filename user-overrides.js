@@ -802,6 +802,17 @@ user_pref("_arkenfox-overrides.js.parrot", "4000 syntax error: the parrot's bere
 
 /*** [SECTION 4500]: OPTIONAL RFP (resistFingerprinting) ***/
 user_pref("_arkenfox-overrides.js.parrot", "4500 syntax error: the parrot's popped 'is clogs");
+/* 4504: enable letterboxing [FF67+]
+ * Dynamically resizes the inner window by applying margins in stepped ranges [2]
+ * If you use the dimension pref, then it will only apply those resolutions.
+ * The format is "width1xheight1, width2xheight2, ..." (e.g. "800x600, 1000x1000")
+ * [SETUP-WEB] This is independent of RFP (4501). If you're using RFP, but dislike the
+ * margins, then don't enable this pref, keeping in mind that it is effectively fingerprintable
+ * [WARNING] DO NOT USE: the dimension pref is only meant for testing
+ * [1] https://bugzilla.mozilla.org/1407366
+ * [2] https://hg.mozilla.org/mozilla-central/rev/7211cb4f58ff#l5.13 ***/
+user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
+   // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 
 /*** [SECTION 5000]: OPTIONAL OPSEC ***/
 user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's taken 'is last bow");
