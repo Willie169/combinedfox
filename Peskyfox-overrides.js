@@ -188,10 +188,6 @@ user_pref("dom.disable_beforeunload", true);
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "TAB BEHAVIOR syntax error: the parrot's dead!");
 
-// PREF: search query opens in a new tab (instead of the current tab)
-user_pref("browser.search.openintab", true); // SEARCH BOX
-user_pref("browser.urlbar.openintab", true); // URL BAR
-
 // PREF: determine the behavior of pages opened by JavaScript (like popups)
 // 2 (default) = catch new windows opened by JavaScript that do not have
 // specific values set (how large the window should be, whether it
