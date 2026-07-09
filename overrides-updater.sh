@@ -181,6 +181,8 @@ getProfilePath() {
 update_updater() {
   [ "$UPDATE" = 'no' ] && return 0 # User signified not to check for updates
 
+  show_banner
+
   declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/overrides-updater.sh')"
   [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download overrides-updater.sh${NC}" && return 1 # check if download failed
 
@@ -377,7 +379,6 @@ if [ $# != 0 ]; then
 fi
 
 update_updater "$@"
-show_banner
 
 getProfilePath # updates PROFILE_PATH or exits on error
 cd "$PROFILE_PATH" || exit 1
