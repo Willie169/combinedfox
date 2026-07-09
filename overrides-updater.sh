@@ -376,8 +376,8 @@ if [ $# != 0 ]; then
   fi
 fi
 
-show_banner
 update_updater "$@"
+show_banner
 
 getProfilePath # updates PROFILE_PATH or exits on error
 cd "$PROFILE_PATH" || exit 1
