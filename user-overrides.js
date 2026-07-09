@@ -800,12 +800,6 @@ user_pref("_arkenfox-overrides.js.parrot", "4000 syntax error: the parrot's bere
 
 /*** [SECTION 4500]: OPTIONAL RFP (resistFingerprinting) ***/
 user_pref("_arkenfox-overrides.js.parrot", "4500 syntax error: the parrot's popped 'is clogs");
-/* 4506: enable RFP spoof english prompt [FF59+]
- * 0=prompt, 1=disabled, 2=enabled
- * [NOTE] When changing from value 2, preferred languages ('intl.accept_languages') is not reset.
- * [SETUP-WEB] when enabled, sets 'en-US, en' for displaying pages and 'en-US' as locale.
- * [SETTING] General>Language>Choose your preferred language for displaying pages>Choose>Request English... ***/
-user_pref("privacy.spoof_english", 2);
 
 /*** [SECTION 5000]: OPTIONAL OPSEC ***/
 user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's taken 'is last bow");
@@ -1163,6 +1157,11 @@ user_pref("gfx.webrender.all", "true");
 // force user scalable
 // [1] https://android.stackexchange.com/a/147869
 user_pref("browser.ui.zoom.force-user-scalable", true);
+
+// set language to en-US
+// [1] https://github.com/arkenfox/user.js/issues/1314
+user_pref("intl.accept_languages", "en-US, en");
+user_pref("javascript.use_us_english_locale", "true")
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
