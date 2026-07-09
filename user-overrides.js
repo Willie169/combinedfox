@@ -976,11 +976,6 @@ user_pref("media.autoplay.default", 5); // DEFAULT
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "NEW TAB PAGE syntax error: the parrot's dead!");
 
-// PREF: Pinned Shortcuts on New Tab
-// [SETTINGS] Home>Firefox Home Content
-// [1] https://github.com/arkenfox/user.js/issues/1556
-user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
-
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab (default)
 user_pref("browser.toolbars.bookmarks.visibility", "always");
