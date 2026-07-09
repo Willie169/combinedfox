@@ -1,2 +1,0 @@
-https://ecosia.org/search?q=%s
-https://ac.ecosia.org/autocomplete?q=%s&type=list

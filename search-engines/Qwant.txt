@@ -1,1 +1,0 @@
-https://www.qwant.com/?q=%s&llm=0

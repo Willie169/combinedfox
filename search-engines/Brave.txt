@@ -1,1 +1,0 @@
-https://search.brave.com/search?q=%s&summary=0&safesearch=off

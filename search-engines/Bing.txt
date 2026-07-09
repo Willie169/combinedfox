@@ -1,2 +1,0 @@
-https://www.bing.com/search?safeSearch=Off&q=%s
-https://api.bing.com/osjson.aspx?query=%s
