@@ -1,6 +1,6 @@
 ## combinedfox
 
-user.js combining Arkenfox, Betterfox, and combinedfox overrides for Firefox and its forks on deskop, and instructions for Firefox and its forks on desktop and Android, for privacy, security, and convenience.
+user.js combining arkenfox, Betterfox, and combinedfox overrides for Firefox and its forks on deskop, and instructions for Firefox and its forks on desktop and Android, for privacy, security, and convenience.
 
 Do not trust any site that claim to be combinedfox. This repo is the only official source.
 
