@@ -1175,6 +1175,7 @@ user_pref("gfx.webrender.all", true);
 user_pref("browser.ui.zoom.force-user-scalable", true);
 
 // Request English versions of web pages for enhanced privacy
+// [1] https://github.com/arkenfox/user.js/issues/1314
 user_pref("privacy.spoof_english", 2);
 user_pref("intl.accept_languages", "en-US, en");
 user_pref("javascript.use_us_english_locale", true);
