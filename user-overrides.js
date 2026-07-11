@@ -1147,13 +1147,6 @@ user_pref("devtools.inspector.showAllAnonymousContent", true);
  ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "IMAGE AND MEDIA HANDLING syntax error: the parrot's dead!");
 
-// PREF: JPEG XL image format [NIGHTLY]
-// May not affect anything on ESR/Stable channel [2].
-// [TEST] https://www.jpegxl.io/firefox#firefox-jpegxl-tutorial
-// [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
-user_pref("image.jxl.enabled", true);
-
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_Peskyfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
 
