@@ -1174,6 +1174,21 @@ user_pref("gfx.webrender.all", true);
 // [1] https://android.stackexchange.com/a/147869
 user_pref("browser.ui.zoom.force-user-scalable", true);
 
+// Request English versions of web pages for enhanced privacy
+user_pref("privacy.spoof_english", 2);
+user_pref("intl.accept_languages", "en-US, en");
+user_pref("javascript.use_us_english_locale", true);
+
+// DoH Additions
+// Additions by Acideburn in https://codeberg.org/librewolf/issues/issues/1975#issuecomment-2301916 , and other PR's
+// [1] https://librewolf.net/docs/faq/#doh-what-is-the-currently-recommended-way-to-enable-doh
+// [2] https://codeberg.org/librewolf/issues/issues/1975
+pref("network.trr.default_provider_uri", "https://doh.dns4all.eu/dns-query"); // Define a fallback DoH server (used only in mode 1)
+pref("network.trr.strict_native_fallback", false); // Allow native fallback
+pref("network.trr.retry_on_recoverable_errors", true); // Retry on recoverable errors
+pref("network.trr.disable-heuristics", true); // Disables the canary telemetry detection request "use-application-dns.net" for DOH
+pref("network.trr.allow-rfc1918", true); // Allows the use of private IP addresses (RFC 1918) in DOH responses
+
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 ***/
