@@ -1167,8 +1167,8 @@ user_pref("_extra-overrides.js.parrot", "OTHERS syntax error: the parrot's dead!
 
 // enable WebGPU
 // [1] https://www.reddit.com/r/Fedora/comments/12yxxzm/firefox_with_webgpu_seems_to_work_well_in_f38/
-user_pref("dom.webgpu.enabled", "true");
-user_pref("gfx.webrender.all", "true");
+user_pref("dom.webgpu.enabled", true);
+user_pref("gfx.webrender.all", true);
 
 // force user scalable
 // [1] https://android.stackexchange.com/a/147869
