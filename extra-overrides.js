@@ -15,10 +15,6 @@ user_pref("gfx.webrender.all", "true");
 // [1] https://android.stackexchange.com/a/147869
 user_pref("browser.ui.zoom.force-user-scalable", true);
 
-// set language to en-US
-// [1] https://github.com/arkenfox/user.js/issues/1314
-user_pref("intl.accept_languages", "en-US, en");
-
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 ***/
