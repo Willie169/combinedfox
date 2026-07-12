@@ -929,9 +929,6 @@ user_pref("_Peskyfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue...
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "MOZILLA UI syntax error: the parrot's dead!");
 
-// PREF: Not hide "More from Mozilla" in Settings
-user_pref("browser.preferences.moreFromMozilla", true);
-
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
@@ -1233,6 +1230,14 @@ user_pref("browser.search.region", "US"); // [HIDDEN PREF]
 // [1] https://kb.mozillazine.org/Clipboard.autocopy
 // [2] https://git.nixnet.services/Narsil/desktop_user.js
 user_pref("clipboard.autocopy", false);
+
+// Disable promos
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1773860
+user_pref("browser.promo.cookiebanners.enabled", false);
+user_pref("browser.promo.focus.enabled", false);
+user_pref("browser.promo.pin.enabled", false);
+user_pref("browser.vpn_promo.enabled", false);
+user_pref("browser.preferences.moreFromMozilla", false);
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
