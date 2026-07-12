@@ -21,6 +21,25 @@ user_pref("privacy.spoof_english", 2);
 user_pref("intl.accept_languages", "en-US, en");
 user_pref("javascript.use_us_english_locale", true);
 
+// Region
+// Removed from arkenfox
+// [1] https://github.com/arkenfox/user.js/pull/1606/changes/bd1a0c28ddd2fc1f170151f8f9e4baab8be0d21e
+// [2] https://github.com/arkenfox/user.js/issues/1590
+// [3] https://github.com/arkenfox/user.js/issues/1612
+// [4] https://git.nixnet.services/Narsil/desktop_user.js
+/* 0203: disable region updates
+ * [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html ***/
+user_pref("browser.region.update.enabled", false); // [FF79+]
+user_pref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
+/* 0204: set search region
+ * [NOTE] May not be hidden if Firefox has changed your settings due to your region (0203) ***/
+user_pref("browser.search.region", "US"); // [HIDDEN PREF]
+
+// clipboard.autocopy
+// [1] https://kb.mozillazine.org/Clipboard.autocopy
+// [2] https://git.nixnet.services/Narsil/desktop_user.js
+user_pref("clipboard.autocopy", false);
+
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 ***/

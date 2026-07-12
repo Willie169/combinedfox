@@ -205,10 +205,10 @@ user_pref("_arkenfox-overrides.js.parrot", "7000 syntax error: the parrot's push
    [NOTE] In FF140, DNT is enforced with Tracking Protection which is used in ETP Strict (2701)
    [1] https://bugzilla.mozilla.org/1967420 ***/
 user_pref("privacy.donottrackheader.enabled", false);
-/* 7021: disable GPC (Global Privacy Control) in non-PB windows
+/* 7021: enable GPC (Global Privacy Control) in non-PB windows
  * [WHY] Passive and active fingerprinting. Mostly redundant with Tracking Protection
  * in ETP Strict (2701) and sanitizing on close (2800s) ***/
-user_pref("privacy.globalprivacycontrol.enabled", false);
+user_pref("privacy.globalprivacycontrol.enabled", true);
 
 /*** [SECTION 8000]: DON'T BOTHER: FINGERPRINTING ***/
 user_pref("_arkenfox-overrides.js.parrot", "8000 syntax error: the parrot's crossed the Jordan");
