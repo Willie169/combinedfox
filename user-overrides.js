@@ -849,10 +849,10 @@ user_pref("_arkenfox-overrides.js.parrot", "7000 syntax error: the parrot's push
    [NOTE] In FF140, DNT is enforced with Tracking Protection which is used in ETP Strict (2701)
    [1] https://bugzilla.mozilla.org/1967420 ***/
 user_pref("privacy.donottrackheader.enabled", false);
-/* 7021: disable GPC (Global Privacy Control) in non-PB windows
+/* 7021: enable GPC (Global Privacy Control) in non-PB windows
  * [WHY] Passive and active fingerprinting. Mostly redundant with Tracking Protection
  * in ETP Strict (2701) and sanitizing on close (2800s) ***/
-user_pref("privacy.globalprivacycontrol.enabled", false);
+user_pref("privacy.globalprivacycontrol.enabled", true);
 
 /*** [SECTION 8000]: DON'T BOTHER: FINGERPRINTING ***/
 user_pref("_arkenfox-overrides.js.parrot", "8000 syntax error: the parrot's crossed the Jordan");
@@ -1214,6 +1214,25 @@ user_pref("browser.ui.zoom.force-user-scalable", true);
 user_pref("privacy.spoof_english", 2);
 user_pref("intl.accept_languages", "en-US, en");
 user_pref("javascript.use_us_english_locale", true);
+
+// Region
+// Removed from arkenfox
+// [1] https://github.com/arkenfox/user.js/pull/1606/changes/bd1a0c28ddd2fc1f170151f8f9e4baab8be0d21e
+// [2] https://github.com/arkenfox/user.js/issues/1590
+// [3] https://github.com/arkenfox/user.js/issues/1612
+// [4] https://git.nixnet.services/Narsil/desktop_user.js
+/* 0203: disable region updates
+ * [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html ***/
+user_pref("browser.region.update.enabled", false); // [FF79+]
+user_pref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
+/* 0204: set search region
+ * [NOTE] May not be hidden if Firefox has changed your settings due to your region (0203) ***/
+user_pref("browser.search.region", "US"); // [HIDDEN PREF]
+
+// clipboard.autocopy
+// [1] https://kb.mozillazine.org/Clipboard.autocopy
+// [2] https://git.nixnet.services/Narsil/desktop_user.js
+user_pref("clipboard.autocopy", false);
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
