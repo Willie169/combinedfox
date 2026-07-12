@@ -9,9 +9,6 @@ user_pref("_Peskyfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue...
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "MOZILLA UI syntax error: the parrot's dead!");
 
-// PREF: Not hide "More from Mozilla" in Settings
-user_pref("browser.preferences.moreFromMozilla", true);
-
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
