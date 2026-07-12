@@ -676,12 +676,6 @@ user_pref("network.captive-portal-service.enabled", true); // [FF52+]
 
 /*** [SECTION 0400]: SAFE BROWSING (SB) ***/
 user_pref("_arkenfox-overrides.js.parrot", "0400 syntax error: the parrot's passed on!");
-/* 0403: enable SB checks for downloads (remote)
- * To verify the safety of certain executable files, Firefox may submit some information about the
- * file, including the name, origin, size and a cryptographic hash of the contents, to the Google
- * Safe Browsing service which helps Firefox determine whether or not the file should be blocked
- * [SETUP-SECURITY] If you do not understand this, or you want this protection, then override this ***/
-user_pref("browser.safebrowsing.downloads.remote.enabled", true);
 
 /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND [not explicitly asked for - e.g. clicked on] ***/
 user_pref("_arkenfox-overrides.js.parrot", "0600 syntax error: the parrot's no more!");
