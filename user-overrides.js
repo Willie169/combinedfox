@@ -673,9 +673,6 @@ user_pref("_arkenfox-overrides.js.parrot", "0300 syntax error: the parrot's not 
  * [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy ***/
 user_pref("captivedetect.canonicalURL", "http://detectportal.firefox.com/canonical.html");
 user_pref("network.captive-portal-service.enabled", true); // [FF52+]
-/* 0361: enable Network Connectivity checks [FF65+]
- * [1] https://bugzilla.mozilla.org/1460537 ***/
-user_pref("network.connectivity-service.enabled", true);
 
 /*** [SECTION 0400]: SAFE BROWSING (SB) ***/
 user_pref("_arkenfox-overrides.js.parrot", "0400 syntax error: the parrot's passed on!");
@@ -1217,16 +1214,6 @@ user_pref("browser.ui.zoom.force-user-scalable", true);
 user_pref("privacy.spoof_english", 2);
 user_pref("intl.accept_languages", "en-US, en");
 user_pref("javascript.use_us_english_locale", true);
-
-// DoH Additions
-// Additions by Acideburn in https://codeberg.org/librewolf/issues/issues/1975#issuecomment-2301916 , and other PR's
-// [1] https://librewolf.net/docs/faq/#doh-what-is-the-currently-recommended-way-to-enable-doh
-// [2] https://codeberg.org/librewolf/issues/issues/1975
-pref("network.trr.default_provider_uri", "https://doh.dns4all.eu/dns-query"); // Define a fallback DoH server (used only in mode 1)
-pref("network.trr.strict_native_fallback", false); // Allow native fallback
-pref("network.trr.retry_on_recoverable_errors", true); // Retry on recoverable errors
-pref("network.trr.disable-heuristics", true); // Disables the canary telemetry detection request "use-application-dns.net" for DOH
-pref("network.trr.allow-rfc1918", true); // Allows the use of private IP addresses (RFC 1918) in DOH responses
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
