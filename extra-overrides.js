@@ -35,11 +35,6 @@ user_pref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
  * [NOTE] May not be hidden if Firefox has changed your settings due to your region (0203) ***/
 user_pref("browser.search.region", "US"); // [HIDDEN PREF]
 
-// clipboard.autocopy
-// [1] https://kb.mozillazine.org/Clipboard.autocopy
-// [2] https://git.nixnet.services/Narsil/desktop_user.js
-user_pref("clipboard.autocopy", false);
-
 // Disable promos
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1773860
 user_pref("browser.promo.cookiebanners.enabled", false);
