@@ -48,6 +48,12 @@ user_pref("browser.promo.pin.enabled", false);
 user_pref("browser.vpn_promo.enabled", false);
 user_pref("browser.preferences.moreFromMozilla", false);
 
+// Disable all visited styling to stop CSS history leak
+// [1] https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak
+// [2] https://earthlng.github.io/testpages/visited_links.html
+// [3] http://frantzmiccoli.github.io/visited-captcha-history
+user_pref("layout.css.visited_links_enabled", false)
+
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 ***/
