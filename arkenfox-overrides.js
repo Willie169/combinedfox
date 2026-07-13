@@ -172,6 +172,8 @@ user_pref("browser.download.folderList", 1);
  * [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill ***/
 user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
 user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
+/* 5018: limit events that can cause a pop-up ***/
+user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 
 /*** [SECTION 5500]: OPTIONAL HARDENING ***/
 user_pref("_arkenfox-overrides.js.parrot", "5500 syntax error: this is an ex-parrot!");
