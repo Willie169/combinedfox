@@ -105,14 +105,6 @@ user_pref("_arkenfox-overrides.js.parrot", "2400 syntax error: the parrot's kick
 
 /*** [SECTION 2600]: MISCELLANEOUS ***/
 user_pref("_arkenfox-overrides.js.parrot", "2600 syntax error: the parrot's run down the curtain!");
-/* 2619: Not use Punycode in Internationalized Domain Names to eliminate possible spoofing
- * [SETUP-WEB] Might be undesirable for non-latin alphabet users since legitimate IDN's are also punycoded
- * [TEST] https://www.xn--80ak6aa92e.com/ (www.apple.com)
- * [1] https://wiki.mozilla.org/IDN_Display_Algorithm
- * [2] https://en.wikipedia.org/wiki/IDN_homograph_attack
- * [3] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=punycode+firefox
- * [4] https://www.xudongz.com/blog/2017/idn-phishing/ ***/
-user_pref("network.IDN_show_punycode", false);
 
 /** EXTENSIONS ***/
 /* 2662: disable webextension restrictions on certain mozilla domains (you also need 4503) [FF60+]
