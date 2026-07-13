@@ -1007,12 +1007,6 @@ user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "AUTOPLAY syntax error: the parrot's dead!");
 
-// PREF: do not autoplay media audio
-// [NOTE] You can set exceptions under site permissions
-// [SETTING] Privacy & Security>Permissions>Autoplay>Settings>Default for all websites
-// 0=Allow all, 1=Block non-muted media (default), 5=Block all
-user_pref("media.autoplay.default", 5); // DEFAULT
-
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
