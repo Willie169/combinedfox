@@ -54,8 +54,11 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [3] http://frantzmiccoli.github.io/visited-captcha-history
 user_pref("layout.css.visited_links_enabled", false)
 
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1861889
+user_pref("network.preconnect", false)
+
 // RFPTargets
-//user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-HttpUserAgent,-FrameRate")
+//user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-FrameRate")
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js

@@ -80,8 +80,18 @@ user_pref("browser.urlbar.suggest.yelp", false);
 user_pref("browser.urlbar.suggest.yelpRealtime", false);
 
 // PREF: browser.urlbar.*.featureGate
+user_pref("browser.urlbar.addons.featureGate", false);
+user_pref("browser.urlbar.amp.featureGate", false);
 user_pref("browser.urlbar.clipboard.featureGate", true);
+user_pref("browser.urlbar.importantDates.featureGate", false);
+user_pref("browser.urlbar.market.featureGate", false);
+user_pref("browser.urlbar.mdn.featureGate", false);
+user_pref("browser.urlbar.sports.featureGate", false);
 user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("browser.urlbar.weather.featureGate", false);
+user_pref("browser.urlbar.wikipedia.featureGate", false);
+user_pref("browser.urlbar.yelp.featureGate", false);
+user_pref("browser.urlbar.yelpRealtime.featureGate", false);
 
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
