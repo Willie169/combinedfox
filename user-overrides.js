@@ -1227,6 +1227,9 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [3] http://frantzmiccoli.github.io/visited-captcha-history
 user_pref("layout.css.visited_links_enabled", false)
 
+// RFPTargets
+user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-SpeechSynthesis,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-HttpUserAgent,-FrameRate")
+
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
 ***/
