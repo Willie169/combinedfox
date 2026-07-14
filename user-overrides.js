@@ -1228,7 +1228,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("layout.css.visited_links_enabled", false)
 
 // RFPTargets
-user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-SpeechSynthesis,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-HttpUserAgent,-FrameRate")
+//user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-HttpUserAgent,-FrameRate")
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
