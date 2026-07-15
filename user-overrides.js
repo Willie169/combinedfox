@@ -1235,13 +1235,13 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak
 // [2] https://earthlng.github.io/testpages/visited_links.html
 // [3] http://frantzmiccoli.github.io/visited-captcha-history
-user_pref("layout.css.visited_links_enabled", false)
+user_pref("layout.css.visited_links_enabled", false);
 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1861889
-user_pref("network.preconnect", false)
+user_pref("network.preconnect", false);
 
 // RFPTargets
-user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-FrameRate")
+user_pref("privacy.fingerprintingProtection.overrides", "+AllTargets,-CSSPrefersColorScheme,-CanvasImageExtractionPrompt,-CanvasExtractionBeforeUserInputIsBlocked,-CanvasExtractionFromThirdPartiesIsBlocked,-JSDateTimeUTC,-FrameRate");
 
 /*** FASTFOX
    [1] https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
