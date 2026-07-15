@@ -61,6 +61,7 @@ user_pref("_arkenfox-overrides.js.parrot", "0800 syntax error: the parrot's ceas
  * [SETUP-CHROME] Override these if you trust and use a privacy respecting search engine
  * [SETTING] Search>Show search suggestions | Show search suggestions in address bar results ***/
 user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.search.suggest.enabled.private", true); // added in combinedfox
 user_pref("browser.urlbar.suggest.searches", true);
 
 /*** [SECTION 0900]: PASSWORDS / PASSKEYS ***/

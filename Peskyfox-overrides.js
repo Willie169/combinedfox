@@ -53,6 +53,7 @@ user_pref("_Peskyfox-overrides.js.parrot", "FONT APPEARANCE syntax error: the pa
 user_pref("_Peskyfox-overrides.js.parrot", "URL BAR syntax error: the parrot's dead!");
 
 // PREF: browser.urlbar.suggest.*
+// added in combinedfox
 user_pref("browser.urlbar.suggest.addons", false);
 user_pref("browser.urlbar.suggest.amp", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
@@ -80,6 +81,7 @@ user_pref("browser.urlbar.suggest.yelp", false);
 user_pref("browser.urlbar.suggest.yelpRealtime", false);
 
 // PREF: browser.urlbar.*.featureGate
+// added in combinedfox
 user_pref("browser.urlbar.addons.featureGate", false);
 user_pref("browser.urlbar.amp.featureGate", false);
 user_pref("browser.urlbar.clipboard.featureGate", true);
