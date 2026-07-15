@@ -705,6 +705,7 @@ user_pref("_arkenfox-overrides.js.parrot", "0800 syntax error: the parrot's ceas
  * [SETUP-CHROME] Override these if you trust and use a privacy respecting search engine
  * [SETTING] Search>Show search suggestions | Show search suggestions in address bar results ***/
 user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.search.suggest.enabled.private", true); // added in combinedfox
 user_pref("browser.urlbar.suggest.searches", true);
 
 /*** [SECTION 0900]: PASSWORDS / PASSKEYS ***/
@@ -961,6 +962,7 @@ user_pref("_Peskyfox-overrides.js.parrot", "FONT APPEARANCE syntax error: the pa
 user_pref("_Peskyfox-overrides.js.parrot", "URL BAR syntax error: the parrot's dead!");
 
 // PREF: browser.urlbar.suggest.*
+// added in combinedfox
 user_pref("browser.urlbar.suggest.addons", false);
 user_pref("browser.urlbar.suggest.amp", false);
 user_pref("browser.urlbar.suggest.bookmark", true);
@@ -988,6 +990,7 @@ user_pref("browser.urlbar.suggest.yelp", false);
 user_pref("browser.urlbar.suggest.yelpRealtime", false);
 
 // PREF: browser.urlbar.*.featureGate
+// added in combinedfox
 user_pref("browser.urlbar.addons.featureGate", false);
 user_pref("browser.urlbar.amp.featureGate", false);
 user_pref("browser.urlbar.clipboard.featureGate", true);
