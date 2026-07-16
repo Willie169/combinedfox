@@ -182,7 +182,7 @@ user_pref("_arkenfox-overrides.js.parrot", "5500 syntax error: this is an ex-par
  * Firefox uses the system DNS to initially resolve the IP address of your DoH server.
  * When set to a valid, working value that matches your "network.trr.uri" (0712) Firefox
  * won't use the system DNS. If the IP doesn't match then DoH won't work ***/
-user_pref("network.trr.bootstrapAddr", "1.1.1.1"); // [HIDDEN PREF]
+user_pref("network.trr.bootstrapAddr", "2a06:98c1:52::4"); // [HIDDEN PREF]
 
 /*** [SECTION 6000]: DON'T TOUCH ***/
 user_pref("_arkenfox-overrides.js.parrot", "6000 syntax error: the parrot's 'istory!");
