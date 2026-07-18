@@ -14,6 +14,9 @@ user_pref("_Peskyfox-overrides.js.parrot", "MOZILLA UI syntax error: the parrot'
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "THEME ADJUSTMENTS syntax error: the parrot's dead!");
 
+// PREF: disable always using dark theme for private browsing windows [FF106+]
+user_pref("browser.theme.dark-private-windows", false);
+
 // PREF: show search bar [FF122+]
 // Mozilla has removed the search bar option from the settings window.
 user_pref("browser.search.widget.inNavBar", true);
