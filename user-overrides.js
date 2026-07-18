@@ -717,6 +717,9 @@ user_pref("_arkenfox-overrides.js.parrot", "1000 syntax error: the parrot's gone
  * [NOTE] We also clear cache on exit (2811+)
  * [SETUP-CHROME] If you think disk cache helps perf, then feel free to override this ***/
 user_pref("browser.cache.disk.enable", true);
+/* 1002: reverse setting media cache in Private Browsing to in-memory and increase its maximum size
+ * [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB ***/
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", false); // [FF75+]
 /* 1006: enable favicons in shortcuts [WINDOWS]
  * URL shortcuts use a cached randomly named .ico file which is stored in your
  * profile/shortcutCache directory. The .ico remains after the shortcut is deleted
@@ -761,21 +764,6 @@ user_pref("_arkenfox-overrides.js.parrot", "2700 syntax error: the parrot's join
 
 /*** [SECTION 2800]: SHUTDOWN & SANITIZING ***/
 user_pref("_arkenfox-overrides.js.parrot", "2800 syntax error: the parrot's bleedin' demised!");
-
-/** SANITIZE ON SHUTDOWN: RESPECTS "ALLOW" SITE EXCEPTIONS ***/
-/* 2815: set "Cookies" and "Site Data" to not clear on shutdown (if 2810 is true) [SETUP-CHROME] [FF128+]
- * [NOTE] Exceptions: For cross-domain logins, add exceptions for both sites
- * e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
- * [WARNING] Be selective with what sites you "Allow", as they also disable partitioning (1767271)
- * [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
- * [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Settings ***/
-user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", false);
-
-/** SANITIZE SITE DATA: IGNORES "ALLOW" SITE EXCEPTIONS ***/
-/* 2820: set manual "Clear Data" items [SETUP-CHROME] [FF128+]
- * Firefox remembers your last choices. This will reset them when you start Firefox
- * [SETTING] Privacy & Security>Browser Privacy>Cookies and Site Data>Clear Data ***/
-user_pref("privacy.clearSiteData.cookiesAndStorage", false); // keep false even after it respects "allow" site exceptions
 
 /*** [SECTION 4000]: FPP (fingerprintingProtection) ***/
 user_pref("_arkenfox-overrides.js.parrot", "4000 syntax error: the parrot's bereft of life!");
@@ -922,6 +910,9 @@ user_pref("_Peskyfox-overrides.js.parrot", "MOZILLA UI syntax error: the parrot'
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "THEME ADJUSTMENTS syntax error: the parrot's dead!");
+
+// PREF: disable always using dark theme for private browsing windows [FF106+]
+user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: show search bar [FF122+]
 // Mozilla has removed the search bar option from the settings window.
