@@ -9,7 +9,11 @@ on:
       - "arkenfox-overrides.js"
       - "Peskyfox-overrides.js"
       - "extra-overrides.js"
+    branches:
+      - main
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
