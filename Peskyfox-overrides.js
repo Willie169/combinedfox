@@ -171,7 +171,7 @@ user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 // PREF: default zoom for PDFs [HIDDEN]
 // [NOTE] "page-width" not needed if using sidebar on load
-user_pref("pdfjs.defaultZoomValue", page-width);
+user_pref("pdfjs.defaultZoomValue", "page-width");
 
 /****************************************************************************
  * SECTION: DOM (DOCUMENT OBJECT MODEL)                                     *
