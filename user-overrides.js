@@ -753,6 +753,10 @@ user_pref("_arkenfox-overrides.js.parrot", "2400 syntax error: the parrot's kick
 
 /*** [SECTION 2600]: MISCELLANEOUS ***/
 user_pref("_arkenfox-overrides.js.parrot", "2600 syntax error: the parrot's run down the curtain!");
+/* 2615: disable websites overriding Firefox's keyboard shortcuts [FF58+]
+ * 0 (default) or 1=allow, 2=block
+ * [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
+user_pref("permissions.default.shortcuts", 2);
 
 /** EXTENSIONS ***/
 /* 2662: disable webextension restrictions on certain mozilla domains (you also need 4503) [FF60+]
