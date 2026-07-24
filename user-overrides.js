@@ -758,6 +758,15 @@ user_pref("_arkenfox-overrides.js.parrot", "2600 syntax error: the parrot's run 
  * [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
 user_pref("permissions.default.shortcuts", 2);
 
+/** DOWNLOADS ***/
+/* 2651: disable always asking where to download
+ * [SETUP-CHROME] On Android enabling this blocks longtapping and saving images
+ * [SETTING] General>Downloads>Always ask you where to save files ***/
+user_pref("browser.download.useDownloadDir", true);
+/* 2654: disable always asking how to handle new mimetypes [FF101+]
+ * [SETTING] General>Files and Applications>What should Firefox do with other files ***/
+user_pref("browser.download.always_ask_before_handling_new_types", false);
+
 /** EXTENSIONS ***/
 /* 2662: disable webextension restrictions on certain mozilla domains (you also need 4503) [FF60+]
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988 ***/
@@ -792,16 +801,16 @@ user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's take
  * [NOTE] This does not clear any passwords already saved
  * [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites ***/
 user_pref("signon.rememberSignons", false);
+/* 5009: disable "open with" in download dialog [FF50+]
+ * Application data isolation [1]
+ * [1] https://bugzilla.mozilla.org/1281959 ***/
+user_pref("browser.download.forbid_open_with", true);
 /* 5010: disable location bar suggestion types
  * [SETTING] Search>Address Bar>When using the address bar, suggest ***/
 user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 /* 5012: disable location bar autofill
  * [1] https://support.mozilla.org/kb/address-bar-autocomplete-firefox#w_url-autocomplete ***/
 user_pref("browser.urlbar.autoFill", false);
-/* 5016: discourage downloading to desktop
- * 0=desktop, 1=downloads (default), 2=custom
- * [SETTING] To set your custom default "downloads": General>Downloads>Save files to ***/
-user_pref("browser.download.folderList", 1);
 /* 5017: disable Form Autofill
  * If .supportedCountries includes your region (browser.search.region) and .supported
  * is "detect" (default), then the UI will show. Stored data is not secure, uses JSON
@@ -1028,35 +1037,9 @@ user_pref("_Peskyfox-overrides.js.parrot", "POCKET syntax error: the parrot's de
 ******************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "DOWNLOADS syntax error: the parrot's dead!");
 
-// PREF: choose download location
-// [SETTING] To set your default "downloads": General>Downloads>Save files to...
-// 0=desktop, 1=downloads (default), 2=last used
-user_pref("browser.download.folderList", 1); // DEFAULT
-
-// PREF: always ask how to handle new mimetypes [FF101+]
-// Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
-// false=Save files
-// true=Ask whether to open or save files
-user_pref("browser.download.always_ask_before_handling_new_types", true);
-
-// PREF: always ask where to download
-// [OPTIONAL HARDENING] Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
-// [DIALOGUE] "Ask whether to open or save files"
-// true=direct download (default)
-// false=the user is asked what to do
-// [1] https://github.com/yokoffing/Betterfox/issues/267
-user_pref("browser.download.useDownloadDir", false);
-
-// PREF: autohide the downloads button
+// PREF: disable autohide the downloads button
 // default true
 user_pref("browser.download.autohideButton", false);
-
-// PREF: disable download panel opening on every download [non-functional?]
-// Controls whether to open the download panel every time a download begins.
-// [NOTE] The first download ever ran in a new profile will still open the panel.
-user_pref("browser.download.alwaysOpenPanel", false);
 
 /****************************************************************************
  * SECTION: PDF                                                             *
