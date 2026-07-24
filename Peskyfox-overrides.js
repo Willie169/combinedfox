@@ -127,35 +127,9 @@ user_pref("_Peskyfox-overrides.js.parrot", "POCKET syntax error: the parrot's de
 ******************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "DOWNLOADS syntax error: the parrot's dead!");
 
-// PREF: choose download location
-// [SETTING] To set your default "downloads": General>Downloads>Save files to...
-// 0=desktop, 1=downloads (default), 2=last used
-user_pref("browser.download.folderList", 1); // DEFAULT
-
-// PREF: always ask how to handle new mimetypes [FF101+]
-// Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
-// false=Save files
-// true=Ask whether to open or save files
-user_pref("browser.download.always_ask_before_handling_new_types", true);
-
-// PREF: always ask where to download
-// [OPTIONAL HARDENING] Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
-// [DIALOGUE] "Ask whether to open or save files"
-// true=direct download (default)
-// false=the user is asked what to do
-// [1] https://github.com/yokoffing/Betterfox/issues/267
-user_pref("browser.download.useDownloadDir", false);
-
-// PREF: autohide the downloads button
+// PREF: disable autohide the downloads button
 // default true
 user_pref("browser.download.autohideButton", false);
-
-// PREF: disable download panel opening on every download [non-functional?]
-// Controls whether to open the download panel every time a download begins.
-// [NOTE] The first download ever ran in a new profile will still open the panel.
-user_pref("browser.download.alwaysOpenPanel", false);
 
 /****************************************************************************
  * SECTION: PDF                                                             *
