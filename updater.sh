@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
 ## combinedfox user.js updater for macOS and Linux
+
+## version: 4.1
+## Author: Pat Johnson (@overdodactyl) and Willie Shen (@Willie169)
+## Additional contributors: @earthlng, @ema-pe, @claustromaniac, @infinitewarp
 ## Credit: arkenfox user.js updater for macOS and Linux https://github.com/arkenfox/user.js/blob/master/updater.sh
+
+## DON'T GO HIGHER THAN VERSION x.9 !! ( because of ASCII comparison in update_updater() )
 
 # Check if running as root
 if [ "${EUID:-"$(id -u)"}" -eq 0 ]; then
@@ -27,6 +33,7 @@ BLUE='\033[0;34m'
 BBLUE='\033[1;34m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
+CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Argument defaults
@@ -35,9 +42,10 @@ CONFIRM='yes'
 OVERRIDE='user-overrides.js'
 BACKUP='multiple'
 COMPARE=false
-SKIPCOMBINE=false
+SKIPOVERRIDE=false
 VIEW=false
 PROFILE_PATH=false
+ESR=false
 
 # Download method priority: curl -> wget
 DOWNLOAD_METHOD=''
@@ -52,15 +60,15 @@ fi
 
 show_banner() {
   echo -e "${BBLUE}
-                #############################################################################################
-                ####                                                                                     ####
-                ####                   combinedfox user.js updater for macOS and Linux                   ####
-                ####          Authors: Pat Johnson (@overdodactyl) and Willie Shen (@Willie169)          ####
-                ####                Credit: arkenfox user.js updater for macOS and Linux                 ####
-                #### Instructions: https://github.com/Willie169/combinedfox/wiki/2-Usage#macos-and-linux ####
-                ####                                                                                     ####
-                #############################################################################################"
+                ############################################################################
+                ####                                                                    ####
+                ####          combinedfox user.js updater for macOS and Linux           ####
+                #### Authors: Pat Johnson (@overdodactyl) and Willie Shen (@Willie169)  ####
+                ####        Credit: arkenfox user.js updater for macOS and Linux        ####
+                ####                                                                    ####
+                ############################################################################"
   echo -e "${NC}\n"
+  echo -e "Documentation for this script is available here: ${CYAN}https://github.com/Willie169/combinedfox/wiki/2-Usage#macos-and-linux${NC}\n"
 }
 
 #########################
@@ -69,7 +77,7 @@ show_banner() {
 
 usage() {
   echo
-  echo -e "${BLUE}Usage: $0 [-bcdhlnsuv] [-p PROFILE] [-o OVERRIDE]${NC}" 1>&2 # Echo usage string to standard error
+  echo -e "${BLUE}Usage: $0 [-bcdehlnrsuv] [-p PROFILE] [-o OVERRIDE]${NC}" 1>&2 # Echo usage string to standard error
   echo -e "
 Optional Arguments:
     -h           Show this help message and exit.
@@ -81,7 +89,7 @@ Optional Arguments:
     -s           Silently update user.js.  Do not seek confirmation.
     -b           Only keep one backup of each file.
     -c           Create a diff file comparing old and new user.js within userjs_diffs.
-    -o OVERRIDE  Filename or path to overrides file (if different than custom-overrides.js).
+    -o OVERRIDE  Filename or path to overrides file (if different than user-overrides.js).
                  If used with -p, paths should be relative to PROFILE or absolute paths
                  If given a directory, all files inside will be appended recursively.
                  You can pass multiple files or directories by passing a comma separated list.
@@ -89,8 +97,10 @@ Optional Arguments:
                      IMPORTANT: Do not add spaces between files/paths.  Ex: -o file1.js,file2.js,dir1
                      IMPORTANT: If any file/path contains spaces, wrap the entire argument in quotes.
                          Ex: -o \"override folder\"
-    -n           Do not combine files to user.js.
-    -v           Open the resulting user.js file."
+    -n           Do not append any overrides, even if user-overrides.js exists.
+    -v           Open the resulting user.js file.
+    -r           Only download user.js to a temporary file and open it.
+    -e           Activate ESR related preferences."
   echo
   exit 1
 }
@@ -167,9 +177,15 @@ getProfilePath() {
   fi
 }
 
-#################################
-#  Update updater.sh  #
-#################################
+#########################
+#   Update updater.sh   #
+#########################
+
+# Returns the version number of a updater.sh file
+get_updater_version() {
+  # shellcheck disable=2005
+  echo "$(sed -n '5 s/.*[[:blank:]]\([[:digit:]]*\.[[:digit:]]*\)/\1/p' "$1")"
+}
 
 # Update updater.sh
 # Default: Check for update, if available, ask user if they want to execute it
@@ -177,29 +193,38 @@ getProfilePath() {
 #   -d: New version will not be looked for and update will not occur
 #   -u: Check for update, if available, execute without asking
 update_updater() {
-  [ "$UPDATE" = 'no' ] && return 0 # User signified not to check for updates
-
   show_banner
+
+  [ "$UPDATE" = 'no' ] && return 0 # User signified not to check for updates
 
   declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/updater.sh')"
   [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download updater.sh${NC}" && return 1 # check if download failed
 
-  if [ "$UPDATE" = 'check' ]; then
-    echo -e "${RED}Update and execute updater.sh Y/N?${NC}"
-    read -p "" -n 1 -r
-    echo -e "\n\n"
-    [[ $REPLY =~ ^[Yy]$ ]] || return 0 # Update available, but user chooses not to update
+  if [[ $(get_updater_version "$SCRIPT_FILE") < $(get_updater_version "${tmpfile}") ]]; then
+    if [ "$UPDATE" = 'check' ]; then
+      echo -e "There is a newer version of updater.sh available. ${RED}Update and execute Y/N?${NC}"
+      read -p "" -n 1 -r
+      echo -e "\n\n"
+      [[ $REPLY =~ ^[Yy]$ ]] || return 0 # Update available, but user chooses not to update
+    fi
+  else
+    return 0 # No update available
   fi
-
   mv "${tmpfile}" "$SCRIPT_FILE"
   chmod u+x "$SCRIPT_FILE"
   "$SCRIPT_FILE" "$@" -d
   exit 0
 }
 
-##############################
-#  Update user.js  #
-##############################
+#########################
+#    Update user.js     #
+#########################
+
+# Returns version number of a user.js file
+get_userjs_version() {
+  # shellcheck disable=2005
+  [ -e "$1" ] && echo "$(sed -n '4p' "$1")" || echo "Not detected."
+}
 
 add_override() {
   input=$1
@@ -225,21 +250,23 @@ remove_comments() { # expects 2 arguments: from-file and to-file
   sed -e '/^\/\*.*\*\/[[:space:]]*$/d' -e '/^\/\*/,/\*\//d' -e 's|^[[:space:]]*//.*$||' -e '/^[[:space:]]*$/d' -e 's|);[[:space:]]*//.*|);|' "$1" >"$2"
 }
 
+# Applies latest version of user.js and any custom overrides
 update_userjs() {
-  declare -r userjs="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/user.js')"
-  [ -z "${userjs}" ] && echo -e "${RED}Error! Could not download user.js${NC}" && return 1 # check if download failed
+  declare -r newfile="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/user.js')"
+  [ -z "${newfile}" ] && echo -e "${RED}Error! Could not download user.js${NC}" && return 1 # check if download failed
 
   echo -e "Please observe the following information:
     Firefox profile:  ${ORANGE}$(pwd)${NC}
-    Downloaded: user.js\n\n"
+    Available online: ${ORANGE}$(get_userjs_version "$newfile")${NC}
+    Currently using:  ${ORANGE}$(get_userjs_version user.js)${NC}\n\n"
 
   if [ "$CONFIRM" = 'yes' ]; then
-    echo -e "This script will update and compose the latest user.js file with all custom configurations appended. ${RED}Continue Y/N? ${NC}"
+    echo -e "This script will update to the latest user.js file and append any custom configurations from user-overrides.js. ${RED}Continue Y/N? ${NC}"
     read -p "" -n 1 -r
     echo -e "\n"
     if ! [[ $REPLY =~ ^[Yy]$ ]]; then
       echo -e "${RED}Process aborted${NC}"
-      rm "$userjs"
+      rm "$newfile"
       return 1
     fi
   fi
@@ -253,14 +280,20 @@ update_userjs() {
   # backup user.js
   mkdir -p userjs_backups
   # shellcheck disable=2155
-  local userjsbakname="userjs_backups/user.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && userjsbakname='userjs_backups/user.js.backup'
-  cp user.js "$userjsbakname" &>/dev/null
+  local bakname="userjs_backups/user.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && bakname='userjs_backups/user.js.backup'
+  cp user.js "$bakname" &>/dev/null
 
-  mv "$userjs" user.js
+  mv "${newfile}" user.js
+  echo -e "Status: ${GREEN}user.js has been backed up and replaced with the latest version!${NC}"
 
-  # apply custom overrides
-  if [ "$SKIPCOMBINE" = false ]; then
+  if [ "$ESR" = true ]; then
+    sed -e 's/\/\* \(ESR[0-9]\{2,\}\.x still uses all.*\)/\/\/ \1/' user.js >user.js.tmp && mv user.js.tmp user.js
+    echo -e "Status: ${GREEN}ESR related preferences have been activated!${NC}"
+  fi
+
+  # apply overrides
+  if [ "$SKIPOVERRIDE" = false ]; then
     while IFS=',' read -ra FILES; do
       for FILE in "${FILES[@]}"; do
         add_override "$FILE"
@@ -271,8 +304,8 @@ update_userjs() {
   # create diff
   if [ "$COMPARE" = true ]; then
     pastuserjs='userjs_diffs/past_user.js'
-    past_nocomments='userjs_diffs/past_user.js'
-    current_nocomments='userjs_diffs/current_user.js'
+    past_nocomments='userjs_diffs/past_userjs.txt'
+    current_nocomments='userjs_diffs/current_userjs.txt'
 
     remove_comments "$pastuserjs" "$past_nocomments"
     remove_comments user.js "$current_nocomments"
@@ -300,7 +333,7 @@ if [ $# != 0 ]; then
   if [ "$1" = '--help' ] || [ "$1" = '-help' ]; then
     usage
   else
-    while getopts ":hp:ludsno:bcv" opt; do
+    while getopts ":hp:ludsno:bcvre" opt; do
       case $opt in
         h)
           usage
@@ -321,7 +354,7 @@ if [ $# != 0 ]; then
           CONFIRM='no'
           ;;
         n)
-          SKIPCOMBINE=true
+          SKIPOVERRIDE=true
           ;;
         o)
           OVERRIDE=${OPTARG}
@@ -334,6 +367,17 @@ if [ $# != 0 ]; then
           ;;
         v)
           VIEW=true
+          ;;
+        e)
+          ESR=true
+          ;;
+        r)
+          tfile="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/user.js')"
+          [ -z "${tfile}" ] && echo -e "${RED}Error! Could not download user.js${NC}" && exit 1 # check if download failed
+          mv "$tfile" "${tfile}.js"
+          echo -e "${ORANGE}Warning: user.js was saved to temporary file ${tfile}.js${NC}"
+          open_file "${tfile}.js"
+          exit 0
           ;;
         \?)
           echo -e "${RED}\n Error! Invalid option: -$OPTARG${NC}" >&2
