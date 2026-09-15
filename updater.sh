@@ -68,7 +68,7 @@ show_banner() {
                 ####                                                                    ####
                 ############################################################################"
   echo -e "${NC}\n"
-  echo -e "Documentation for this script is available here: ${CYAN}https://github.com/Willie169/combinedfox/wiki/2-combinedfox-user.js#updater${NC}\n"
+  echo -e "Documentation for this script is available here: ${CYAN}https://github.com/Willie169/combinedfox/wiki/2-Combinedfox-User.js#updater${NC}\n"
 }
 
 #########################

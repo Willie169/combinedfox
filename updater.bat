@@ -5,7 +5,7 @@ REM ## combinedfox user.js updater for Windows
 REM ## authors: @claustromaniac @Willie169
 REM ## version: 4.21
 REM ## credit: arkenfox user.js updater for Windows
-REM ## instructions: https://github.com/Willie169/combinedfox/wiki/2-combinedfox-user.js#updater
+REM ## instructions: https://github.com/Willie169/combinedfox/wiki/2-Combinedfox-User.js#updater
 
 SET v=4.21
 
