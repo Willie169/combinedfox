@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## combinedfox user-overrides.js updater for macOS and Linux
+## combinedfox user.js updater for macOS and Linux
 ## Credit: arkenfox user.js updater for macOS and Linux https://github.com/arkenfox/user.js/blob/master/updater.sh
 
 # Check if running as root
@@ -55,7 +55,7 @@ show_banner() {
                 ############################################################################
                 ####                                                                    ####
                 ####                            combinedfox                             ####
-                ####           user-overrides.js updater for macOS and Linux            ####
+                ####           user.js updater for macOS and Linux            ####
                 ####                      Maintained by @Willie169                      ####
                 ####       Credit: arkenfox user.js updater for macOS and Linux         ####
                 ####                                                                    ####
@@ -76,11 +76,11 @@ Optional Arguments:
     -p PROFILE   Path to your Firefox profile (if different than the dir of this script)
                  IMPORTANT: If the path contains spaces, wrap the entire argument in quotes.
     -l           Choose your Firefox profile from a list
-    -u           Update overrides-updater.sh and execute silently.  Do not seek confirmation.
-    -d           Do not look for updates to overrides-updater.sh.
-    -s           Silently update user-overrides.js.  Do not seek confirmation.
+    -u           Update updater.sh and execute silently.  Do not seek confirmation.
+    -d           Do not look for updates to updater.sh.
+    -s           Silently update user.js.  Do not seek confirmation.
     -b           Only keep one backup of each file.
-    -c           Create a diff file comparing old and new user-overrides.js within useroverridesjs_diffs.
+    -c           Create a diff file comparing old and new user.js within userjs_diffs.
     -o OVERRIDE  Filename or path to overrides file (if different than custom-overrides.js).
                  If used with -p, paths should be relative to PROFILE or absolute paths
                  If given a directory, all files inside will be appended recursively.
@@ -89,8 +89,8 @@ Optional Arguments:
                      IMPORTANT: Do not add spaces between files/paths.  Ex: -o file1.js,file2.js,dir1
                      IMPORTANT: If any file/path contains spaces, wrap the entire argument in quotes.
                          Ex: -o \"override folder\"
-    -n           Do not combine files to user-overrides.js.
-    -v           Open the resulting user-overrides.js file."
+    -n           Do not combine files to user.js.
+    -v           Open the resulting user.js file."
   echo
   exit 1
 }
@@ -168,10 +168,10 @@ getProfilePath() {
 }
 
 #################################
-#  Update overrides-updater.sh  #
+#  Update updater.sh  #
 #################################
 
-# Update overrides-updater.sh
+# Update updater.sh
 # Default: Check for update, if available, ask user if they want to execute it
 # Args:
 #   -d: New version will not be looked for and update will not occur
@@ -181,11 +181,11 @@ update_updater() {
 
   show_banner
 
-  declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/overrides-updater.sh')"
-  [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download overrides-updater.sh${NC}" && return 1 # check if download failed
+  declare -r tmpfile="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/updater.sh')"
+  [ -z "${tmpfile}" ] && echo -e "${RED}Error! Could not download updater.sh${NC}" && return 1 # check if download failed
 
   if [ "$UPDATE" = 'check' ]; then
-    echo -e "${RED}Update and execute overrides-updater.sh Y/N?${NC}"
+    echo -e "${RED}Update and execute updater.sh Y/N?${NC}"
     read -p "" -n 1 -r
     echo -e "\n\n"
     [[ $REPLY =~ ^[Yy]$ ]] || return 0 # Update available, but user chooses not to update
@@ -198,14 +198,14 @@ update_updater() {
 }
 
 ##############################
-#  Update user-overrides.js  #
+#  Update user.js  #
 ##############################
 
 add_override() {
   input=$1
   if [ -f "$input" ]; then
-    echo "" >>user-overrides.js
-    cat "$input" >>user-overrides.js
+    echo "" >>user.js
+    cat "$input" >>user.js
     echo -e "Status: ${GREEN}Override file appended:${NC} ${input}"
   elif [ -d "$input" ]; then
     SAVEIFS=$IFS
@@ -225,66 +225,39 @@ remove_comments() { # expects 2 arguments: from-file and to-file
   sed -e '/^\/\*.*\*\/[[:space:]]*$/d' -e '/^\/\*/,/\*\//d' -e 's|^[[:space:]]*//.*$||' -e '/^[[:space:]]*$/d' -e 's|);[[:space:]]*//.*|);|' "$1" >"$2"
 }
 
-# Applies latest version of Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, extra-overrides.js, and any custom overrides
 update_userjs() {
-  declare -r peskyfox="$(download_file 'https://raw.githubusercontent.com/yokoffing/Betterfox/refs/heads/main/Peskyfox.js')"
-  [ -z "${peskyfox}" ] && echo -e "${RED}Error! Could not download Peskyfox.js${NC}" && return 1 # check if download failed
-  declare -r arkenfoxoverrides="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/arkenfox-overrides.js')"
-  [ -z "${arkenfoxoverrides}" ] && echo -e "${RED}Error! Could not download arkenfox-overrides.js${NC}" && return 1 # check if download failed
-  declare -r peskyfoxoverrides="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/Peskyfox-overrides.js')"
-  [ -z "${peskyfoxoverrides}" ] && echo -e "${RED}Error! Could not download Peskyfox-overrides.js${NC}" && return 1 # check if download failed
-  declare -r extraoverrides="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/extra-overrides.js')"
-  [ -z "${extraoverrides}" ] && echo -e "${RED}Error! Could not download extra-overrides.js${NC}" && return 1 # check if download failed
+  declare -r userjs="$(download_file 'https://raw.githubusercontent.com/Willie169/combinedfox/main/user.js')"
+  [ -z "${userjs}" ] && echo -e "${RED}Error! Could not download user.js${NC}" && return 1 # check if download failed
 
   echo -e "Please observe the following information:
     Firefox profile:  ${ORANGE}$(pwd)${NC}
-    Downloaded: Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, and extra-overrides.js\n\n"
+    Downloaded: user.js\n\n"
 
   if [ "$CONFIRM" = 'yes' ]; then
-    echo -e "This script will update and compose the latest user-overrides.js file with all custom configurations appended. ${RED}Continue Y/N? ${NC}"
+    echo -e "This script will update and compose the latest user.js file with all custom configurations appended. ${RED}Continue Y/N? ${NC}"
     read -p "" -n 1 -r
     echo -e "\n"
     if ! [[ $REPLY =~ ^[Yy]$ ]]; then
       echo -e "${RED}Process aborted${NC}"
-      rm "$peskyfox" "$arkenfoxoverrides" "$peskyfoxoverrides" "$extraoverrides"
+      rm "$userjs"
       return 1
     fi
   fi
 
-  # Copy a version of user-overrides.js to diffs folder for later comparison
+  # Copy a version of user.js to diffs folder for later comparison
   if [ "$COMPARE" = true ]; then
-    mkdir -p useroverridesjs_diffs
-    cp user-overrides.js useroverridesjs_diffs/past_user-overrides.js &>/dev/null
+    mkdir -p userjs_diffs
+    cp user.js userjs_diffs/past_user.js &>/dev/null
   fi
 
-  # backup Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, extra-overrides.js, and user-overrides.js
-  mkdir -p useroverridesjs_backups
+  # backup user.js
+  mkdir -p userjs_backups
   # shellcheck disable=2155
-  local peskyfoxbakname="useroverridesjs_backups/Peskyfox.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && peskyfoxbakname='userjs_backups/Peskyfox.js.backup'
-  cp Peskyfox.js "$peskyfoxbakname" &>/dev/null
-  # shellcheck disable=2155
-  local arkenfoxoverridesbakname="useroverridesjs_backups/arkenfox-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && arkenfoxoverridesbakname='userjs_backups/arkenfox-overrides.js.backup'
-  cp arkenfox-overrides.js "$arkenfoxoverridesbakname" &>/dev/null
-  # shellcheck disable=2155
-  local peskyfoxoverridesbakname="useroverridesjs_backups/Peskyfox-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && peskyfoxoverridesbakname='userjs_backups/Peskyfox-overrides.js.backup'
-  cp Peskyfox-overrides.js "$peskyfoxoverridesbakname" &>/dev/null
-  # shellcheck disable=2155
-  local extraoverridesbakname="useroverridesjs_backups/extra-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && extraoverridesbakname='userjs_backups/extra-overrides.js.backup'
-  cp extra-overrides.js "$extraoverridesbakname" &>/dev/null
-  # shellcheck disable=2155
-  local useroverridesbakname="useroverridesjs_backups/user-overrides.js.backup.$(date +"%Y-%m-%d_%H%M")"
-  [ "$BACKUP" = 'single' ] && useroverridesbakname='userjs_backups/user-overrides.js.backup'
-  cp user-overrides.js "$useroverridesbakname" &>/dev/null
+  local userjsbakname="userjs_backups/user.js.backup.$(date +"%Y-%m-%d_%H%M")"
+  [ "$BACKUP" = 'single' ] && userjsbakname='userjs_backups/user.js.backup'
+  cp user.js "$userjsbakname" &>/dev/null
 
-  mv "$peskyfox" Peskyfox.js
-  mv "$arkenfoxoverrides" arkenfox-overrides.js
-  mv "$peskyfoxoverrides" Peskyfox-overrides.js
-  mv "$extraoverrides" extra-overrides.js
-  cat Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js >user-overrides.js
+  mv "$userjs" user.js
 
   # apply custom overrides
   if [ "$SKIPCOMBINE" = false ]; then
@@ -297,25 +270,25 @@ update_userjs() {
 
   # create diff
   if [ "$COMPARE" = true ]; then
-    pastuseroverridesjs='useroverridesjs_diffs/past_user-overrides.js'
-    past_nocomments='useroverridesjs_diffs/past_user-overrides.js'
-    current_nocomments='useroverridesjs_diffs/current_user-overrides.js'
+    pastuserjs='userjs_diffs/past_user.js'
+    past_nocomments='userjs_diffs/past_user.js'
+    current_nocomments='userjs_diffs/current_user.js'
 
-    remove_comments "$pastuseroverridesjs" "$past_nocomments"
-    remove_comments user-overrides.js "$current_nocomments"
+    remove_comments "$pastuserjs" "$past_nocomments"
+    remove_comments user.js "$current_nocomments"
 
-    diffname="useroverridesjs_diffs/diff_$(date +"%Y-%m-%d_%H%M").txt"
+    diffname="userjs_diffs/diff_$(date +"%Y-%m-%d_%H%M").txt"
     diff=$(diff -w -B -U 0 "$past_nocomments" "$current_nocomments")
     if [ -n "$diff" ]; then
       echo "$diff" >"$diffname"
       echo -e "Status: ${GREEN}A diff file was created:${NC} ${PWD}/${diffname}"
     else
-      echo -e "Info: ${ORANGE}Your new user-overrides.js file appears to be identical.  No diff file was created.${NC}"
+      echo -e "Info: ${ORANGE}Your new user.js file appears to be identical. No diff file was created.${NC}"
     fi
-    rm "$past_nocomments" "$current_nocomments" "$pastuseroverridesjs" &>/dev/null
+    rm "$past_nocomments" "$current_nocomments" "$pastuserjs" &>/dev/null
   fi
 
-  [ "$VIEW" = true ] && open_file "${PWD}/user-overrides.js"
+  [ "$VIEW" = true ] && open_file "${PWD}/user.js"
 }
 
 #########################
