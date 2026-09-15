@@ -32,7 +32,7 @@ NC='\033[0m' # No Color
 # Argument defaults
 UPDATE='check'
 CONFIRM='yes'
-OVERRIDE='custom-overrides.js'
+OVERRIDE='user-overrides.js'
 BACKUP='multiple'
 COMPARE=false
 SKIPCOMBINE=false
@@ -52,14 +52,14 @@ fi
 
 show_banner() {
   echo -e "${BBLUE}
-                ############################################################################
-                ####                                                                    ####
-                ####                            combinedfox                             ####
-                ####           user.js updater for macOS and Linux            ####
-                ####                      Maintained by @Willie169                      ####
-                ####       Credit: arkenfox user.js updater for macOS and Linux         ####
-                ####                                                                    ####
-                ############################################################################"
+                #############################################################################################
+                ####                                                                                     ####
+                ####                   combinedfox user.js updater for macOS and Linux                   ####
+                ####          Authors: Pat Johnson (@overdodactyl) and Willie Shen (@Willie169)          ####
+                ####                Credit: arkenfox user.js updater for macOS and Linux                 ####
+                #### Instructions: https://github.com/Willie169/combinedfox/wiki/2-Usage#macos-and-linux ####
+                ####                                                                                     ####
+                #############################################################################################"
   echo -e "${NC}\n"
 }
 
